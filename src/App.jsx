@@ -1,8 +1,8 @@
 import React from "react";
 import { ThemeProvider } from "@material-ui/core/styles";
-import { Navbar } from "../components/atoms/Navbar";
+import { Navbar } from "./components/atoms/Navbar";
 import { Box, Container, CssBaseline } from "@material-ui/core";
-import { useDarkMode } from "../hooks/useDarkMode";
+import { useDarkMode } from "./hooks/useDarkMode";
 import { RouterSetup } from "./RouterSetup";
 import { BrowserRouter } from "react-router-dom";
 

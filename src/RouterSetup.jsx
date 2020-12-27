@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { AboutMe } from "./AboutMe";
-import { Projects } from "./Projects";
+import { AboutMe } from "./page/AboutMe";
+import { Projects } from "./page/Projects";
 
 export const RouterSetup = () => {
   return (
