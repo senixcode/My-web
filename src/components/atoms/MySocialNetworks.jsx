@@ -5,18 +5,27 @@ export const MySocialNetworks = () => {
   return (
     <div>
       <Link
+        color="inherit"
         target="_blank"
         href="https://www.linkedin.com/in/senix-code-869b8a1ba/"
       >
         <LinkedIn />
       </Link>
-      <Link target="_blank" href="https://github.com/senixcode">
+      <Link color="inherit" target="_blank" href="https://github.com/senixcode">
         <GitHub />
       </Link>
-      <Link target="_blank" href="https://twitter.com/senixcode">
+      <Link
+        color="inherit"
+        target="_blank"
+        href="https://twitter.com/senixcode"
+      >
         <Twitter />
       </Link>
-      <Link target="_blank" href="https://www.instagram.com/senixcode/">
+      <Link
+        color="inherit"
+        target="_blank"
+        href="https://www.instagram.com/senixcode/"
+      >
         <Instagram />
       </Link>
     </div>
