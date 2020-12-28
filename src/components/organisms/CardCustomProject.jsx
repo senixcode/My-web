@@ -88,9 +88,14 @@ const CardHeader = (props) => {
       </Item>
       <Item position={"right"} mr={-0.5}>
         <StyledTooltip title={"See details"}>
-          <IconButton classes={iconBtnStyles}>
-            <CallMade />
-          </IconButton>
+          <Link
+            target="_blank"
+            href="https://github.com/senixcode/lightweight-ecommerce-template"
+          >
+            <IconButton classes={iconBtnStyles}>
+              <CallMade />
+            </IconButton>
+          </Link>
         </StyledTooltip>
       </Item>
     </Row>
