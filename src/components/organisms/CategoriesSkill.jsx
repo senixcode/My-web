@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 export const CategoriesSkill = ({ skills }) => {
   const classes = useStyles();
-  console.log("**", skills);
   return (
     <div className={classes.root}>
       {skills.map((skill, index) => (
