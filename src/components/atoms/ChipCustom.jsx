@@ -4,10 +4,14 @@ const useStyles = makeStyles((theme) => ({
   chip: (props) => ({
     backgroundColor: props.color,
     color: "white",
-    fontWeight: 500,
-    fontSize: "1.2rem",
+    fontSize: theme.typography.pxToRem(16),
+    fontWeight: theme.typography.fontWeightRegular,
     "& > *": {
       margin: theme.spacing(1),
+    },
+    [theme.breakpoints.up("lg")]: {
+      fontSize: theme.typography.pxToRem(19),
+      fontWeight: theme.typography.fontWeightRegular,
     },
   }),
 }));

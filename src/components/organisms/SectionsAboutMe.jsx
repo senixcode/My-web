@@ -13,6 +13,7 @@ import blueGrey from "@material-ui/core/colors/blueGrey";
 import lightBlue from "@material-ui/core/colors/lightBlue";
 import indigo from "@material-ui/core/colors/indigo";
 import teal from "@material-ui/core/colors/teal";
+import { getSkills } from "../../helper/getSkills";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: "1em",
     paddingBottom: "1em",
   },
+
   heading: {
     fontSize: theme.typography.pxToRem(20),
     fontWeight: theme.typography.fontWeightRegular,
@@ -36,96 +38,7 @@ export default function SimpleAccordion() {
     indigo: indigo[colorIntensity],
     teal: teal[colorIntensity],
   };
-  const skills = [
-    {
-      name: "frontend",
-      color: colorCustom.lightBlue,
-      variant: "default",
-      items: [
-        {
-          name: "react js",
-          color: colorCustom.lightBlue,
-          variant: "default",
-        },
-        {
-          name: "Angular js",
-          color: colorCustom.lightBlue,
-          variant: "default",
-        },
-        {
-          name: "vue js",
-          color: colorCustom.lightBlue,
-          variant: "default",
-        },
-        {
-          name: "boostrap",
-          color: colorCustom.lightBlue,
-          variant: "default",
-        },
-      ],
-    },
-    {
-      name: "backend",
-      color: colorCustom.indigo,
-      variant: "default",
-      items: [
-        {
-          name: "node js",
-          color: colorCustom.indigo,
-          variant: "default",
-        },
-        {
-          name: "c#",
-          color: colorCustom.indigo,
-          variant: "default",
-        },
-      ],
-    },
-    {
-      name: "Base de datos",
-      color: colorCustom.grey,
-      variant: "default",
-      items: [
-        {
-          name: "mysql",
-          color: colorCustom.grey,
-          variant: "default",
-        },
-        {
-          name: "sql serve",
-          color: colorCustom.grey,
-          variant: "default",
-        },
-        {
-          name: "mongo db",
-          color: colorCustom.grey,
-          variant: "default",
-        },
-      ],
-    },
-    {
-      name: "Otros",
-      color: colorCustom.teal,
-      variant: "default",
-      items: [
-        {
-          name: "Linux",
-          color: colorCustom.teal,
-          variant: "default",
-        },
-        {
-          name: "Vim",
-          color: colorCustom.teal,
-          variant: "default",
-        },
-        {
-          name: "docker nodejs",
-          color: colorCustom.teal,
-          variant: "default",
-        },
-      ],
-    },
-  ];
+  const skills = getSkills(colorCustom);
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };
@@ -140,7 +53,9 @@ export default function SimpleAccordion() {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography className={classes.heading}>Actualmente</Typography>
+          <Typography className={classes.heading}>
+            Luis Romero Jimenez - "senixcode", Full-Stack
+          </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <AboutMeSection />
