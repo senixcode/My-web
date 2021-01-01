@@ -3,14 +3,8 @@ import { Typography, Link, Box } from "@material-ui/core";
 
 export const AboutMeSection = () => {
   return (
-    <Typography component={"span"} variant={"body2"}>
-      <Box
-        fontSize={{
-          xs: "h6.fontSize",
-          sm: "h5.fontSize",
-          md: "h4.fontSize",
-        }}
-      >
+    <Typography component={"span"} variant={"h5"}>
+
         Comenzare contando mi estado actual de forma resumida, después de mi
         ultimo trabajo como desarrollador full stack, me di un tiempo corto,
         para aprender mas de linux, me instale arch linux con
@@ -38,7 +32,7 @@ export const AboutMeSection = () => {
         reforcé y aprendí sobre
         <strong> react hooks </strong> y un poco de test. Para finalizar me
         gustaría compartir mi filosofia de vida, "disfrutar del proceso".
-      </Box>
+     
     </Typography>
   );
 };

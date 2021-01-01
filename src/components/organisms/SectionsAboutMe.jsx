@@ -14,6 +14,7 @@ import lightBlue from "@material-ui/core/colors/lightBlue";
 import indigo from "@material-ui/core/colors/indigo";
 import teal from "@material-ui/core/colors/teal";
 import { getSkills } from "../../helper/getSkills";
+import { ExperienceSection } from "./ExperienceSection";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -78,6 +79,29 @@ export default function SimpleAccordion() {
             component={"span"}
             variant={"subtitle1"}
           >
+      
+              <CategoriesSkill skills={skills} />
+        
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        expanded={expanded === "panel3"}
+        onChange={handleChange("panel3")}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel23-content"
+          id="panel3a-header"
+        >
+          <Typography className={classes.heading}>Experiencia</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography
+            className={classes.heading}
+            component={"span"}
+            variant={"subtitle1"}
+          >
             <Box
               fontSize={{
                 xs: "h7.fontSize",
@@ -85,7 +109,7 @@ export default function SimpleAccordion() {
                 lg: "h5.fontSize",
               }}
             >
-              <CategoriesSkill skills={skills} />
+              <ExperienceSection/>
             </Box>
           </Typography>
         </AccordionDetails>
