@@ -1,4 +1,4 @@
-export interface SeoData {
+export interface ISeoData {
     description: string;
     title:string;
     url:string;
