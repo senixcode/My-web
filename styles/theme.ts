@@ -21,6 +21,12 @@ const theme:ITheme = {
     sm:'767px',
     md:'991px',
     lg:'1199px'
+  },
+  sizes:{
+    xs:'20px',
+    sm:'40px',
+    md:'80px',
+    lg:'160px',
   }
 }
 export default theme;
