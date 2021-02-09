@@ -1,9 +1,9 @@
 import Head from "next/head";
-import { SeoData } from "../interface/SeoData";
-const seoData: SeoData = {
+import { ISeoData } from "../interface/SeoData";
+const seoData: ISeoData = {
   description:
     "self-taught full stack, with experience in different js stacks and integrating myself to the open source open",
-  title: "senixcode ",
+  title: "senixcode",
   url: "https://senixcode.dev",
   author: "senixcode",
   keywords: ["senixcode", "software development"],
