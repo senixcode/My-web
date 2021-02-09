@@ -6,7 +6,7 @@ import SEO from "./SEO";
 type Props = {
   children:  number | string | ReactElement | null
 }
-const BasicLayout:FC<Props> = ({children}) => {
+const Layout:FC<Props> = ({children}) => {
   return (
     <ThemeProvider theme={theme}>
       <>
@@ -17,4 +17,4 @@ const BasicLayout:FC<Props> = ({children}) => {
     </ThemeProvider>
   );
 };
-export default BasicLayout;
+export default Layout;
