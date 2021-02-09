@@ -1,16 +1,15 @@
-
-import styled from "styled-components";
-import BasicLayout from "../src/layout";
-
-const Title = styled.h1`
-  color: white;
-`;
+import Layout from "../src/layout";
+import HomeSection from "../src/components/sections/HomeSection";
+// import SkillSection from "../src/components/sections/SkillSection"
+import ExperienceSection from "../src/components/sections/ExperienceSection"
 
 const Home = () => {
   return (
-    <BasicLayout>
-      <Title>Title</Title>
-    </BasicLayout>
+    <Layout>
+      {/* <ExperienceSection/> */}
+      {/* <SkillSection/> */}
+      <HomeSection/>
+    </Layout>
   );
 };
 
