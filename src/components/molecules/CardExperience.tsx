@@ -1,4 +1,4 @@
-import { FC, HTMLAttributes, HtmlHTMLAttributes } from "react";
+import { FC } from "react";
 import styled,{} from "styled-components";
 import { PropStyleTheme } from "../../types";
 
