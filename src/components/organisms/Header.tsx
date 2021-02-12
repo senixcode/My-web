@@ -14,7 +14,7 @@ export const Header: FC<Props> = ({ title, changeShowNavxs }) => (
       <h2>{title}</h2>
     </Center>
     <Center>
-      <NavbarIcon onClick={changeShowNavxs}/>
+      <NavbarIcon onClick={() => changeShowNavxs()}/>
     </Center>
   </Navbar>
 );

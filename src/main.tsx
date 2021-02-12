@@ -36,8 +36,12 @@ const DynamicMenu: FC<Props> = ({ changeShowNavxs }) => {
 
 const App = () => {
   const [showNavxs, setShowNavxs] = useState(false);
-  const changeShowNavxs = () => {
-    setShowNavxs(!showNavxs);
+  const changeShowNavxs = (closeOnly?:boolean) => {
+    if(closeOnly){
+      setShowNavxs(false);
+    }else {
+      setShowNavxs(!showNavxs);
+    }
   };
   return (
     <>
@@ -49,7 +53,7 @@ const App = () => {
             <Section 
             key={name} 
             id={name}
-            onClick={changeShowNavxs}>
+            onClick={() => changeShowNavxs(true)}>
                 <Component/>
             </Section>
           ))
