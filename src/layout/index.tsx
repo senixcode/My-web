@@ -3,10 +3,8 @@ import { ThemeProvider } from "styled-components";
 import GlobalStyles from "../../styles/GlobalStyles";
 import theme from "../../styles/theme";
 import SEO from "./SEO";
-type Props = {
-  children:  number | string | ReactElement | null
-}
-const Layout:FC<Props> = ({children}) => {
+
+const Layout:FC = ({children}) => {
   return (
     <ThemeProvider theme={theme}>
       <>
