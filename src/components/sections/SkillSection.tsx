@@ -1,20 +1,18 @@
 import styled from "styled-components";
 import { Section as SectionGlobal } from "../../../styles/StyleComponentGlobal";
+import { skills } from "../../cmsFaker/skills";
+import { PropStyleTheme } from "../../types";
 import { ContainerSkill } from "../organisms/ContainerSkill";
-import { Footer } from "../organisms/Footer";
-import { Header } from "../organisms/Header";
 
-const Content = () => <ContainerSkill />;
+const Content = () => <ContainerSkill skills={skills} />;
 
 const SkillSection = () => (
   <Section id="skills">
-    <Header title="Skills" />
     <Content />
-    <Footer />
   </Section>
 );
 export default SkillSection;
 const Section = styled(SectionGlobal)`
   display: grid;
-  grid-template-rows: 1fr 8fr 1fr;
+   background: ${(props: PropStyleTheme) => props.theme.colors.primaryVariant};
 `;
