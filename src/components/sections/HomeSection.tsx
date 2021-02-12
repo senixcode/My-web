@@ -2,23 +2,18 @@ import styled from "styled-components";
 import Carousel from "react-elastic-carousel";
 import { PropStyleTheme } from "../../types";
 import { Section as SectionGLobal } from "../../../styles/StyleComponentGlobal";
-import { Header } from "../organisms/Header";
-import { Footer } from "../organisms/Footer";
+import { paragraphs } from "../../cmsFaker/aboutMe";
 
 const Content = () => {
-  const paragraphs: Array<string> = [
-    "Hi, I'm senixcode a self-taughy developer,",
-    "With three years of experience",
-  ];
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
-    { width: 550, itemsToShow: 2, itemsToScroll: 2 },
+    { width: 550, itemsToShow: paragraphs.length, itemsToScroll: paragraphs.length },
   ];
   return (
     <Center>
       <Carousel isRTL={false} breakPoints={breakPoints} className="carusel">
-        {paragraphs.map((paragraph) => (
-          <Paragraph>{paragraph}</Paragraph>
+        {paragraphs.map((paragraph,index) => (
+          <Paragraph key={index}>{paragraph}</Paragraph>
         ))}
       </Carousel>
     </Center>
@@ -27,15 +22,12 @@ const Content = () => {
 
 const HomeSection = () => (
   <Section id="about-me">
-    <Header title="About me"/>
     <Content />
-    <Footer />
   </Section>
 );
 export default HomeSection;
 const Section = styled(SectionGLobal)`
   display: grid;
-  grid-template-rows: 1fr 8fr 1fr;
 `;
 const Center = styled.h3`
   display: flex;
