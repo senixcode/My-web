@@ -2,12 +2,15 @@ import React, { FC, ReactNode } from "react";
 import styled from "styled-components";
 import { PropStyleTheme } from "../../types";
 type Props = {
+  icon:string;
   name: string;
 };
-export const GroupSkill: FC<Props> = ({ children, name }) => (
+export const GroupSkill: FC<Props> = ({ icon, name }) => (
   <Group>
     <Icon>
-      <Center>{children}</Center>
+      <Center>
+       <img src={icon} />
+      </Center>
     </Icon>
     <Name>{name}</Name>
   </Group>
