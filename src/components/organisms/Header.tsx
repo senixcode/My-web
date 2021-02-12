@@ -3,8 +3,9 @@ import styled from "styled-components";
 import { LogoXs, NavbarIcon } from "../../image";
 type  Props = {
   title:string;
+  changeShowNavxs: ()=> void;
 }
-export const Header: FC<Props> = ({ title }) => (
+export const Header: FC<Props> = ({ title, changeShowNavxs }) => (
   <Navbar>
     <Center>
       <LogoXs />
@@ -13,7 +14,7 @@ export const Header: FC<Props> = ({ title }) => (
       <h2>{title}</h2>
     </Center>
     <Center>
-      <NavbarIcon />
+      <NavbarIcon onClick={changeShowNavxs}/>
     </Center>
   </Navbar>
 );
