@@ -9,7 +9,7 @@ import {
 
 const FixedTop = styled.div`
   position: fixed;
-  width: calc(100vw - ${({ theme }: PropStyleTheme) => theme.sizes.sm});
+  width: calc(100vw - ${({ theme }: PropStyleTheme) => theme.sizes.xs});
   bottom: 1.4em;
   padding: 0 18px;
 `;
