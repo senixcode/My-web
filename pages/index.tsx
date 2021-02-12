@@ -1,14 +1,11 @@
 import Layout from "../src/layout";
-import HomeSection from "../src/components/sections/HomeSection";
-// import SkillSection from "../src/components/sections/SkillSection"
-import ExperienceSection from "../src/components/sections/ExperienceSection"
+import Main from "../src/main"
 
+const Sections = () => <Main/>
 const Home = () => {
   return (
     <Layout>
-      {/* <ExperienceSection/> */}
-      {/* <SkillSection/> */}
-      <HomeSection/>
+    <Sections/> 
     </Layout>
   );
 };
