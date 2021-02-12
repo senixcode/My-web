@@ -19,7 +19,7 @@ h1, h2, h3, p{
   color:${({theme}:PropStyleTheme) => theme.colors.secondary}
 }
 p{
-  font-weight: lighter;
+  font-weight: 276;
 }
 h1 {
   ${({theme}:PropStyleTheme)=> theme.fontSizes.xlarge};
