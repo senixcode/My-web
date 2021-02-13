@@ -1,10 +1,10 @@
 import { ISections } from "../interface/Sections";
 
-import {ExperienceSection,HomeSection,SkillSection} from "../components/sections"
+import {ExperienceSection,AboutMeSection,SkillSection} from "../components/sections"
 export const sections:Array<ISections> = [
     {
         name:"aboutMe",
-        Component:HomeSection
+        Component:AboutMeSection
     },
     {
         name:"skill",

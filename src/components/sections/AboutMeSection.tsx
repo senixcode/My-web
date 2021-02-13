@@ -7,7 +7,7 @@ import { paragraphs } from "../../cmsFaker/aboutMe";
 const Content = () => {
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
-    { width: 550, itemsToShow: paragraphs.length, itemsToScroll: paragraphs.length },
+    { width: 1024, itemsToShow: paragraphs.length, itemsToScroll: paragraphs.length },
   ];
   return (
     <Center>
@@ -20,12 +20,12 @@ const Content = () => {
   );
 };
 
-const HomeSection = () => (
+const AboutMeSection = () => (
   <Section id="about-me">
     <Content />
   </Section>
 );
-export default HomeSection;
+export default AboutMeSection;
 const Section = styled(SectionGLobal)`
   display: grid;
 `;
