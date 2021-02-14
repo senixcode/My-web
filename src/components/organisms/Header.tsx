@@ -56,6 +56,8 @@ const {mQuery}:{mQuery:IMQuery} = useMediaQuery()
 const Navbar = styled.div`
   display: grid;
   grid-template-columns: 1.5fr 6fr 1fr;
+  z-index:100;
+  cursor: pointer;
   @media screen and (min-width:${(props:PropStyleTheme) => props.theme.screen.md} ){
     grid-template-columns:4fr 6fr;
   }
