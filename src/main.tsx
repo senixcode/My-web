@@ -1,73 +1,43 @@
-import React, { FC, useState } from "react";
-import {
-  ScrollingProvider,
-  useScrollSections,
-  Section,
-} from "./scroll-section";
-import { Header } from "./components/organisms/Header";
+import React, { useState } from "react";
+import { ScrollingProvider, Section } from "./scroll-section";
 import { Footer } from "./components/organisms/Footer";
-import styled from "styled-components";
-import { PropStyleTheme } from "./types";
 import { MenuMobile } from "./components/organisms/MenuMobile";
-import {separateCamelCase} from "./helper/separateCamelCase"
 import { sections } from "./cmsFaker/sections";
-type Props = {
-  changeShowNavxs: () => void;
-};
-const DynamicMenu: FC<Props> = ({ changeShowNavxs }) => {
-  const sections = useScrollSections();
-  return (
-    <>
-      {sections.map(({ id: section, selected }) => {
-        if (selected == true) {
-          return (
-            <FixedTop key={section}>
-              <Header
-                title={separateCamelCase(section)}
-                changeShowNavxs={changeShowNavxs}
-              />
-            </FixedTop>
-          );
-        }
-      })}
-    </>
-  );
-};
+import { IMQuery } from "./interface/Mquery";
+import { useMediaQuery } from "./hook/useMediaQuery";
+import { DynamicMenu } from "./components/organisms/DynamicMenu";
+import { FooterSection } from "./components/sections";
+import { WelcomeSection } from "./components/sections/WelcomeSection";
 
 const App = () => {
   const [showNavxs, setShowNavxs] = useState(false);
-  const changeShowNavxs = (closeOnly?:boolean) => {
-    if(closeOnly){
+  const changeShowNavxs = (closeOnly?: boolean) => {
+    if (closeOnly) {
       setShowNavxs(false);
-    }else {
+    } else {
       setShowNavxs(!showNavxs);
     }
   };
+  const { mQuery }: { mQuery: IMQuery } = useMediaQuery();
   return (
     <>
       <ScrollingProvider>
-        {showNavxs && <MenuMobile/>}
-        <DynamicMenu changeShowNavxs={changeShowNavxs} />
-        {
-          sections.map(({name,Component}) => (
-            <Section 
-            key={name} 
-            id={name}
-            onClick={() => changeShowNavxs(true)}>
-                <Component/>
-            </Section>
-          ))
-        }
-        <Footer/>
+        <WelcomeSection/>
+        {mQuery && !mQuery.matches && (
+          <>
+            {showNavxs && <MenuMobile />}
+            <DynamicMenu changeShowNavxs={changeShowNavxs} />
+          </>
+        )}
+        {sections.map(({ name, Component }) => (
+          <Section key={name} id={name} onClick={() => changeShowNavxs(true)}>
+            <Component />
+          </Section>
+        ))}
+        <Footer />
+         <FooterSection/>
       </ScrollingProvider>
     </>
   );
 };
 export default App;
-
-const FixedTop = styled.div`
-  position: fixed;
-  width: calc(100vw - ${({ theme }: PropStyleTheme) => theme.sizes.xs});
-  top: 1.4em;
-  padding: 0 18px;
-`;
