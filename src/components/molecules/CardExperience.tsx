@@ -6,7 +6,8 @@ type Props = {
   company: string;
   achievements: Array<string>;
 };
-export const CardExperience: FC<Props> = ({company, achievements }) => (
+export const CardExperience: FC<Props> = ({company, achievements }) => {
+  return(
   <Card>
       <Company>{company} </Company>
       <SeparationLine />
@@ -16,12 +17,13 @@ export const CardExperience: FC<Props> = ({company, achievements }) => (
         ))}
       </Achievements>
   </Card>
-);
-interface IDivProps{
-    id:string
-}
-const Card = styled.div.attrs<IDivProps>(({id}) => ({id}))`
+)};
+const Card = styled.div`
   padding:0 .5em;
+    @media screen and (min-width: ${(props: PropStyleTheme) =>
+      props.theme.screen.md}) {
+        padding: 0;
+  }
 `;
 const Company = styled.h3`
   color: ${(props: PropStyleTheme) => props.theme.colors.textPrimary};
@@ -35,4 +37,8 @@ const SeparationLine = styled.hr`
   color: ${(props: PropStyleTheme) => props.theme.colors.textPrimary};
   width: 100%;
   margin-bottom: 1em;
+    @media screen and (min-width: ${(props: PropStyleTheme) =>
+      props.theme.screen.md}) {
+   display:none;
+  }
 `;
