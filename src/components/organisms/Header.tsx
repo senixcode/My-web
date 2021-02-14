@@ -1,27 +1,67 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import styled from "styled-components";
 import { LogoXs, NavbarIcon } from "../../image";
+import {useMediaQuery} from "../../hook/useMediaQuery"
+import { IMQuery } from "../../interface/Mquery";
+import { useScrollSections } from "../../scroll-section";
+import { separateCamelCase } from "../../helper/separateCamelCase";
+import { PropStyleTheme } from "../../types";
 type  Props = {
-  title:string;
-  changeShowNavxs: ()=> void;
+  title?:string;
+  changeShowNavxs?: ()=> void;
 }
-export const Header: FC<Props> = ({ title, changeShowNavxs }) => (
+const Navs = () => {
+  const sections = useScrollSections();
+  const Container = styled.div`
+    display:flex;
+    justify-content:space-between;
+    width:100%;
+  `
+  return (
+  <Container>
+    {
+      sections.map(({id:section,onClick,selected})=>(
+        <h2 key={section} onClick={onClick}>
+            {separateCamelCase(section)}
+        </h2>
+      ))
+    }
+  </Container>
+
+  )
+}
+export const Header: FC<Props> = ({ title, changeShowNavxs }) => {
+const {mQuery}:{mQuery:IMQuery} = useMediaQuery()
+  return(
   <Navbar>
     <Center>
       <LogoXs />
     </Center>
+        { mQuery && !mQuery.matches && (
+          <Center>
+            <h2>{title}</h2>
+            </Center>
+        )
+      }
+      { mQuery && !mQuery.matches ? (
     <Center>
-      <h2>{title}</h2>
+        <NavbarIcon onClick={() => changeShowNavxs()}/> 
     </Center>
-    <Center>
-      <NavbarIcon onClick={() => changeShowNavxs()}/>
-    </Center>
+      ):
+       <Navs/>
+      }
   </Navbar>
-);
+)};
 
 const Navbar = styled.div`
   display: grid;
   grid-template-columns: 1.5fr 6fr 1fr;
+  @media screen and (min-width:${(props:PropStyleTheme) => props.theme.screen.md} ){
+    grid-template-columns:4fr 6fr;
+  }
+  @media screen and (min-width:${(props:PropStyleTheme) => props.theme.screen.lg} ){
+    grid-template-columns:6fr 6fr;
+  }
 `;
 const Center = styled.div`
   display: flex;
