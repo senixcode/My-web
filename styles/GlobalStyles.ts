@@ -12,6 +12,17 @@ body{
 }
 html, body {
   overflow-x: hidden;
+    &::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: ${(props: PropStyleTheme) => props.theme.colors.secondary};
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    background: ${(props: PropStyleTheme) => props.theme.colors.primaryVariant};
+  }
 }
 h1, h2, h3, p{
   margin:0;
