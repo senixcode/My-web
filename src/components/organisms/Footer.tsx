@@ -12,6 +12,10 @@ const FixedTop = styled.div`
   width: calc(100vw - ${({ theme }: PropStyleTheme) => theme.sizes.xs});
   bottom: 1.4em;
   padding: 0 18px;
+    @media screen and (min-width: ${(props: PropStyleTheme) =>
+      props.theme.screen.md}) {
+    display:none;
+  }
 `;
 const NavbarBottom = styled.div`
   display: grid;
