@@ -37,7 +37,7 @@ const Img = styled.div`
  @media screen and (min-width: ${(props: PropStyleTheme) =>
       props.theme.screen.lg}) {
           left:5em;
-          bottom:3em;
+          bottom:.1em;
   }
 `;
 const Content = styled.h1`
