@@ -7,7 +7,7 @@ export const Section = styled.div`
   background: ${(props: PropStyleTheme) => props.theme.colors.primary};
   @media screen and (min-width: ${(props: PropStyleTheme) =>
       props.theme.screen.md}) {
-    padding: ${({ theme }: PropStyleTheme) => theme.sizes.md};
+    padding: ${({ theme }: PropStyleTheme) => theme.sizes.sm} ${({ theme }: PropStyleTheme) => theme.sizes.md};
   }
 `;
 export const Slides = styled.div`
