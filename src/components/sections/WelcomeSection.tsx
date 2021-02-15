@@ -21,6 +21,7 @@ export const WelcomeSection = () => {
 const Section = styled(SectionGlobal)`
   display: grid;
 
+    padding: ${({ theme }: PropStyleTheme) => theme.sizes.sm} ${({ theme }: PropStyleTheme) => theme.sizes.md};
   @media screen and (max-width: ${(props: PropStyleTheme) =>
       props.theme.screen.md}) {
     display: none;
