@@ -12,9 +12,9 @@ const FixedTop = styled.div`
   width: calc(100vw - ${({ theme }: PropStyleTheme) => theme.sizes.xs});
   bottom: 1.4em;
   padding: 0 18px;
-    @media screen and (min-width: ${(props: PropStyleTheme) =>
+  @media screen and (min-width: ${(props: PropStyleTheme) =>
       props.theme.screen.md}) {
-    display:none;
+    display: none;
   }
 `;
 const NavbarBottom = styled.div`
@@ -24,13 +24,25 @@ const NavbarBottom = styled.div`
   align-items: center;
   justify-items: center;
 `;
+const a = styled.a``;
 export const Footer = () => (
   <FixedTop>
     <NavbarBottom>
-      <TelegramIconXs />
-      <TwitterIconXs />
-      <GithubIconXs />
-      <LinkedinIconXs />
+      <a href="https://t.me//senixcode" target="_blank">
+        <TelegramIconXs />
+      </a>
+      <a href="https://twitter.com/senixcode" target="_blank">
+        <TwitterIconXs />
+      </a>
+      <a href="https://github.com/senixcode/" target="_blank">
+        <GithubIconXs />
+      </a>
+      <a
+        href="https://www.linkedin.com/in/senixcode-developer/"
+        target="_blank"
+      >
+        <LinkedinIconXs />
+      </a>
     </NavbarBottom>
   </FixedTop>
 );
