@@ -21,38 +21,41 @@ const Experiences: FC<Props> = ({ experiences }) => (
 
 const SizeMd: FC<Props> = ({ experiences }) => {
   const Img = styled.span`
-     @media screen and (min-width: ${(props: PropStyleTheme) => props.theme.screen.md}) {
-
-    display: flex;
-    justify-content: center;
-    /* width: auto; */
-    background-color: red;
-    /* height: auto; */
-    /* @media screen and (min-width: ${(props: PropStyleTheme) =>
-      props.theme.screen.lg}) {
-      width: auto;
-    } */
-  }
-
+    @media screen and (min-width: ${(props: PropStyleTheme) =>
+        props.theme.screen.md}) {
+      display: flex;
+      justify-content: center;
+      width: 25em;
+      height: auto;
+      @media screen and (min-width: ${(props: PropStyleTheme) =>
+          props.theme.screen.lg}) {
+        width: auto;
+      }
+    }
   `;
   const Container = styled.div`
-
     /* background-color: red; */
 
-    @media screen and (max-width: ${(props: PropStyleTheme) => props.theme.screen.md}) {
-    display:none;
-   }
+    @media screen and (max-width: ${(props: PropStyleTheme) =>
+        props.theme.screen.md}) {
+      display: none;
+    }
   `;
   const Content = styled.div`
-     @media screen and (min-width: ${(props: PropStyleTheme) => props.theme.screen.md}) {
+    margin-top: 2em;
     display: grid;
-    grid-template-columns: 6fr 6fr;
-  }
+    @media screen and (min-width: ${(props: PropStyleTheme) =>
+        props.theme.screen.md}) {
+      grid-template-columns: 8fr 3fr;
+    }
+    @media screen and (min-width: ${(props: PropStyleTheme) =>
+        props.theme.screen.lg}) {
+      grid-template-columns: 6fr 6fr;
+    }
   `;
   const Grid = styled.div`
     display: grid;
     grid-template-rows: repeat(auto-fill, 1fr);
-    grid-row-gap: 0.1em;
   `;
   return (
     <Container>
@@ -61,30 +64,31 @@ const SizeMd: FC<Props> = ({ experiences }) => {
         <Grid>
           <Experiences experiences={experiences} />
         </Grid>
-
-        <ExperienceImg />
-        
+        <Img>
+          <ExperienceImg />
+        </Img>
       </Content>
     </Container>
   );
 };
-const SizeXs: FC<Props> = ({ experiences }) =>{
-   const Container = styled(Slides)`
-    @media screen and (min-width: ${(props: PropStyleTheme) => props.theme.screen.md}) {
-    display:none;
-  }
-`;
-  return(
-  <Container>
-    <Experiences experiences={experiences} />
-  </Container>
-)};
-export const ContainerExperience: FC<Props> = ({ experiences }) => {
- 
+const SizeXs: FC<Props> = ({ experiences }) => {
+  const Container = styled(Slides)`
+    @media screen and (min-width: ${(props: PropStyleTheme) =>
+        props.theme.screen.md}) {
+      display: none;
+    }
+  `;
   return (
     <Container>
-        <SizeMd experiences={experiences} />
-        <SizeXs experiences={experiences} />
+      <Experiences experiences={experiences} />
+    </Container>
+  );
+};
+export const ContainerExperience: FC<Props> = ({ experiences }) => {
+  return (
+    <Container>
+      <SizeMd experiences={experiences} />
+      <SizeXs experiences={experiences} />
     </Container>
   );
 };

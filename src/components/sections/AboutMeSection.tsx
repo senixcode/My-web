@@ -29,10 +29,10 @@ const SizeLg = () => {
   const Grid = styled.div`
     display: grid;
     grid-template-columns: 8fr 4fr;
+     margin-top:2em;
     @media screen and (min-width: ${(props: PropStyleTheme) =>
       props.theme.screen.lg}) {
         grid-template-columns: 6fr 6fr;
-        /* background-color:red; */
     }
   `;
 
