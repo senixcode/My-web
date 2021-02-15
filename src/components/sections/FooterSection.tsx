@@ -16,7 +16,10 @@ const SocialMedia = () => {
      width:100%;
      /* background-color:blue; */
   `;
-  const Img = styled.div`
+  const Img = styled.a.attrs(props=>({
+    href: props.href,
+    target: "_blank"
+  }))`
     display: flex;
     flex-direction: column;
     background: ${(props: PropStyleTheme) => props.theme.colors.secondary};
@@ -41,16 +44,16 @@ const SocialMedia = () => {
   return (
     <Container>
       <Imgs>
-        <Img>
+        <Img href="https://t.me//senixcode">
           <TelegramIcon />
         </Img>
-        <Img>
+        <Img href="https://twitter.com/senixcode">
           <TwitterIcon />
         </Img>
-        <Img>
+        <Img href="https://github.com/senixcode/">
           <GithubIcon />
         </Img>
-        <Img>
+        <Img href="https://www.linkedin.com/in/senixcode-developer/" >
           <LinkedinIcon />
         </Img>
       </Imgs>
