@@ -1,34 +1,22 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Why senixcode?
+I want to make a personal brand, I like the idea that when I fulfill my dream of leaving some technology tool that will mark a before and after, it will be easy to remember by my nickname.
 
-## Getting Started
+[My logo resources](https://github.com/senixcode/my-logo-assests)
+[My cv in spanish](https://drive.google.com/file/d/1TvQPFiPB7rewiG1FXqH4EA6bd4f2B8MM/view)
+# How I am designing my web?
+[Web and Mobile desing at figma, click here to view it](https://www.figma.com/file/HTaNWIYGK5HeCUrzC3JTzK/My-web-portfolio?node-id=0%3A1)
+## Colors
 
-First, run the development server:
+| Name | HEX |  ![Color Picker Boxes](https://draculatheme.com/static/img/color-boxes/eyedropper.png)|
+| ---       | ---             |---
+| primary | `#16202a` |<div align="center">![#16202a](https://via.placeholder.com/15/16202a/000000?text=+) </div>|
+| secundary | `#e0245e`|<div align="center">![#e0245e](https://via.placeholder.com/15/e0245e/000000?text=+) </div>|
+| primary variant | `#192734` |<div align="center">![#192734](https://via.placeholder.com/15/192734/000000?text=+) </div>|
+| secundary variant | `#6c63fe` |<div align="center">![#6c63fe](https://via.placeholder.com/15/6c63fe/000000?text=+) </div>|
+| color text | `#ffffff` |<div align="center">![#ffffff](https://via.placeholder.com/15/ffffff/000000?text=+) </div>|
 
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Font 
+| Type      | font       |
+|---        |---
+| primary   | roboto       |
+| secundary | sans serif |
