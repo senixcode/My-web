@@ -21,3 +21,5 @@ I want to make a personal brand, I like the idea that when I fulfill my dream of
 |---        |---
 | primary   | roboto       |
 | secundary | sans serif |
+
+> Not supported for tables or rotated screen
