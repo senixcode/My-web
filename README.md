@@ -11,15 +11,15 @@ I want to make a personal brand, I like the idea that when I fulfill my dream of
 | Name | HEX |  ![Color Picker Boxes](https://draculatheme.com/static/img/color-boxes/eyedropper.png)|
 | ---       | ---             |---
 | primary | `#16202a` |<div align="center">![#16202a](https://via.placeholder.com/15/16202a/000000?text=+) </div>|
-| secundary | `#e0245e`|<div align="center">![#e0245e](https://via.placeholder.com/15/e0245e/000000?text=+) </div>|
+| secondary | `#e0245e`|<div align="center">![#e0245e](https://via.placeholder.com/15/e0245e/000000?text=+) </div>|
 | primary variant | `#192734` |<div align="center">![#192734](https://via.placeholder.com/15/192734/000000?text=+) </div>|
-| secundary variant | `#6c63fe` |<div align="center">![#6c63fe](https://via.placeholder.com/15/6c63fe/000000?text=+) </div>|
+| secondary variant | `#6c63fe` |<div align="center">![#6c63fe](https://via.placeholder.com/15/6c63fe/000000?text=+) </div>|
 | color text | `#ffffff` |<div align="center">![#ffffff](https://via.placeholder.com/15/ffffff/000000?text=+) </div>|
 
 ## Font 
 | Type      | font       |
 |---        |---
 | primary   | roboto       |
-| secundary | sans serif |
+| secondary | sans serif |
 
 > Not supported for tables or rotated screen
