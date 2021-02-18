@@ -1,35 +1,32 @@
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import styled from "styled-components";
-import { LogoXs, NavbarIcon } from "../../image";
-import {useMediaQuery} from "../../hook/useMediaQuery"
+import { NavbarIcon, LogoXs } from "../../image";
+import { useMediaQuery } from "../../hook/useMediaQuery";
 import { IMQuery } from "../../interface/Mquery";
 import { useScrollSections } from "../../scroll-section";
 import { separateCamelCase } from "../../helper/separateCamelCase";
 import { PropStyleTheme } from "../../types";
-type  Props = {
-  title?:string;
-  changeShowNavxs?: ()=> void;
-}
+type Props = {
+  title?: string;
+  changeShowNavxs?: () => void;
+};
 const Navs = () => {
   const sections = useScrollSections();
   const Container = styled.div`
-    display:flex;
-    justify-content:space-between;
-    width:100%;
-  `
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  `;
   return (
-  <Container>
-    {
-      sections.map(({id:section,onClick,selected})=>(
+    <Container>
+      {sections.map(({ id: section, onClick, selected }) => (
         <h2 key={section} onClick={onClick}>
-            {separateCamelCase(section)}
+          {separateCamelCase(section)}
         </h2>
-      ))
-    }
-  </Container>
-
-  )
-}
+      ))}
+    </Container>
+  );
+};
 export const Header: FC<Props> = ({ title, changeShowNavxs }) => {
 const {mQuery}:{mQuery:IMQuery} = useMediaQuery()
   return(

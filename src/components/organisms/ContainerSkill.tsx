@@ -6,6 +6,7 @@ import { SkillImg } from "../../image/background";
 import { GroupSkill } from "../molecules/GroupSkill";
 import { IMQuery } from "../../interface/Mquery";
 import { useMediaQuery } from "../../hook/useMediaQuery";
+import { LinkIcon } from "../../image/icons";
 type Props = {
   skills: Array<ISkill>;
 };
@@ -18,13 +19,15 @@ export const ContainerSkill: FC<Props> = ({ skills }) => {
       ))}
     </>
   );
+
   return (
     <Container>
       {mQuery && !mQuery.matches ? (
         <Skills skills={skills} />
       ) : (
         <>
-          <h2>Skill</h2>
+          <h2>Skill </h2>
+
           <Content>
             <Img>
               <SkillImg />
@@ -33,6 +36,9 @@ export const ContainerSkill: FC<Props> = ({ skills }) => {
               <Skills skills={skills} />
             </div>
           </Content>
+          <Project>
+            <LinkIcon />
+          </Project>
         </>
       )}
     </Container>
@@ -68,5 +74,58 @@ const Content = styled.div`
       props.theme.screen.lg}) {
     grid-template-columns: 6fr 6fr;
     /* background-color:red; */
+  }
+`;
+const Project = styled.a.attrs((props) => ({
+  title: "Project-Ecommerce",
+  href: "https://lightweight-ecommerce-template.netlify.app/",
+  target: "_blank",
+}))`
+  background-color: ${(props: PropStyleTheme) =>
+    props.theme.colors.secondaryVariant};
+  width: 3.5em;
+  height: 3.5em;
+  position: relative;
+  right:-2em;
+  bottom: 24em;
+  border-radius: 500%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  &:hover {
+    position: relative;
+  -webkit-transform: scale(1.8);
+      -ms-transform: scale(1.8);
+      transform: scale(1.8);
+  }
+
+  &[title]:hover:aflter {
+    content: attr(title);
+    padding: 4px 8px;
+    color: #ffff;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    white-space: nowrap;
+    z-index: 20px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0px 0px 4px #222;
+    -webkit-box-shadow: 0px 0px 4px #222;
+    box-shadow: 0px 0px 4px #222;
+    background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);
+    background-image: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      color-stop(0, #eeeeee),
+      color-stop(1, #cccccc)
+    );
+    background-image: -webkit-linear-gradient(top, #eeeeee, #cccccc);
+    background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);
+    background-image: -ms-linear-gradient(top, #eeeeee, #cccccc);
+    background-image: -o-linear-gradient(top, #eeeeee, #cccccc);
   }
 `;

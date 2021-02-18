@@ -13,6 +13,7 @@ const Content = () => {
           {separateCamelCase(section)}
         </Nav>
       ))}
+      <Project >Proyect</Project>
     </Navs>
   );
 };
@@ -42,3 +43,14 @@ const Nav = styled.h2<{ selected: boolean }>`
   color: ${({ selected, theme }: { selected: boolean; theme: ITheme }) =>
     selected ? theme.colors.secondary : theme.colors.textPrimary};
 `;
+  const Project = styled.a.attrs((props) => ({
+    title: "Project-Ecommerce",
+    href: "https://lightweight-ecommerce-template.netlify.app/",
+    target: "_blank",
+  }))`
+     text-decoration: none;
+     font-size: 2em;
+     color: ${(props: PropStyleTheme) =>
+      props.theme.colors.secondaryVariant}
+      
+  `
