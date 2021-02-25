@@ -12,12 +12,12 @@ export const AboutMeContainer: FC<{ content: string }> = ({ content }) => {
     <Container
       gridTemplateColumnsXs="1fr"
       gridTemplareRowsXs={`8fr 2fr`}
-      gridTemplateColumnsMd={`4fr 6fr 2fr`}
+      gridTemplateColumnsMd={`4fr 6fr 1fr`}
       height="87vh"
       styles={container}
     >
-      <Hide maxMd="none">
-        <Image alt="image about me" src="/static/aboutMe.svg" width="auto" />
+      <Hide maxMd="none" styles={image}>
+        <Image alt="image about me" src="/static/aboutMe.svg" styles={image}/>
       </Hide>
       <Content content={content} />
       <SocialNetworks />
@@ -29,6 +29,10 @@ const container = css`
   padding: 0 1em;
   @media screen and (min-width: ${(props: PropStyleTheme) =>
       props.theme.screen.md}) {
-    height: 90vh;
+    height: 87vh;
+    padding: 0 3em;
   }
 `;
+const image = css`
+height:90%;
+`
