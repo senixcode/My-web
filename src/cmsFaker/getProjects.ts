@@ -1,5 +1,5 @@
 import { ILenguage } from "../interface/Lenguages";
-interface IProjects {
+export interface IProjects {
   title: string;
   description: string;
   topics: Array<string>;
@@ -24,8 +24,8 @@ export const getProjects = (lenguage: string = "en"): Array<IProjects> => {
       {
         title: "ejemplo1",
         description:
-          " The templates avoid Lorem Ipsum, opting instead for placeholder text that's in plain English and more closely resembles actual copy.",
-        topics: ["example", "example", "example"],
+          " Las plantillas de evitar el Lorem Ipsum, optando en su lugar para el texto de marcador de posición que está en la llanura Inglés y más de cerca se asemeja real de la copia.",
+          topics: ["ejemplo", "ejemplo", "ejemplo"],
       },
       {
         title: "ejemplo2",
