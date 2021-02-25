@@ -1,18 +1,18 @@
 import styled from "styled-components";
 import { PropStyleTheme } from "../../types";
 import { ITheme } from "../../interface/Theme";
-import { useScrollSections } from "../../scroll-section";
+// import { useScrollSections } from "../../scroll-section";
 import { separateCamelCase } from "../../helper/separateCamelCase";
 
 const Content = () => {
-  const sections = useScrollSections();
+  // const sections = useScrollSections();
   return (
     <Navs>
-      {sections.map(({ id:section, onClick, selected }) => (
+      {/* {sections.map(({ id:section, onClick, selected }) => (
         <Nav key={section} onClick={onClick} selected={selected}>
           {separateCamelCase(section)}
         </Nav>
-      ))}
+      ))} */}
       <Project >Proyect</Project>
     </Navs>
   );

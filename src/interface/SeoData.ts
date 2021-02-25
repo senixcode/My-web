@@ -1,5 +1,5 @@
 export interface ISeoData {
-    description: string;
+    description:string;
     title:string;
     url:string;
     author:string;

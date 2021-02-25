@@ -1,3 +1,5 @@
+import { ISizes } from "./Sizes";
+
 interface IFontSizes {
   small: string;
   regular: string;
@@ -12,12 +14,7 @@ interface IColors {
   secondaryVariant: string;
   textPrimary: string;
 }
-interface ISizes {
-  xs: string;
-  sm: string;
-  md: string;
-  lg: string;
-}
+
 interface IScreen extends ISizes {}
 export interface ITheme {
   font: string;

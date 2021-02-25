@@ -1,18 +1,16 @@
 import Layout from "../layout";
-import dynamic from 'next/dynamic'
-import Main from "../main"
+import { useRouter } from "next/router";
+import { getAboutMe } from "../cmsFaker/getAboutMe";
+import { AboutMeContainer } from "../components/containers/AboutMeContainer";
 
-const Sections = dynamic(
- () => import('../main'),
- {ssr:false, loading: () => <p> cargando... </p>}
-)
-const Home = () => {
+const AboutMe = () => {
+  let { locale } = useRouter();
+  let content = getAboutMe(locale);
   return (
     <Layout>
-    <Main/> 
-
+      <AboutMeContainer content={content} />
     </Layout>
   );
 };
 
-export default Home;
+export default AboutMe;
