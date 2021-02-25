@@ -1,26 +1,27 @@
 import styled from "styled-components";
-import { PropStyleTheme } from "../../types";
+import { PropStyleTheme, RouterProps } from "../../types";
 import { ITheme } from "../../interface/Theme";
-// import { useScrollSections } from "../../scroll-section";
-import { separateCamelCase } from "../../helper/separateCamelCase";
+import { getRoutes, IRoutes } from "../../cmsFaker/getRoutes";
+import { FC } from "react";
+import Link from "next/link";
 
-const Content = () => {
-  // const sections = useScrollSections();
+const Content: FC<RouterProps>  = ({router}) => {
+   const { locale } = router;
+  const t: Array<IRoutes> = getRoutes(locale); 
   return (
     <Navs>
-      {/* {sections.map(({ id:section, onClick, selected }) => (
-        <Nav key={section} onClick={onClick} selected={selected}>
-          {separateCamelCase(section)}
-        </Nav>
-      ))} */}
-      <Project >Proyect</Project>
+       {t.map(({ path, title }, i) => (
+            <Link href={path} key={i}>
+              <Nav selected={path === router.route ? true : false}>{title}</Nav>
+            </Link>
+          ))}
     </Navs>
   );
 };
 
-export const MenuMobile = () => (
+export const MenuMobile: FC<RouterProps>  = ({router}) => (
   <Container>
-    <Content />
+    <Content router={router}/>
   </Container>
 );
 const Container = styled.div`
@@ -43,14 +44,3 @@ const Nav = styled.h2<{ selected: boolean }>`
   color: ${({ selected, theme }: { selected: boolean; theme: ITheme }) =>
     selected ? theme.colors.secondary : theme.colors.textPrimary};
 `;
-  const Project = styled.a.attrs((props) => ({
-    title: "Project-Ecommerce",
-    href: "https://lightweight-ecommerce-template.netlify.app/",
-    target: "_blank",
-  }))`
-     text-decoration: none;
-     font-size: 2em;
-     color: ${(props: PropStyleTheme) =>
-      props.theme.colors.secondaryVariant}
-      
-  `
