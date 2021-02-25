@@ -2,18 +2,21 @@ import { FC } from "react";
 import styled, { css } from "styled-components";
 import { Container } from "../../../styles/system/Container";
 import { IProjects } from "../../cmsFaker/getProjects";
+import { getResumeProject } from "../../helper/getResumeProject";
 import { PropStyleTheme } from "../../types";
 import { ProjectCard } from "../molecules/ProjectCard";
 const Projects: FC<{ projects: Array<IProjects> }> = (props) => (
   <Container gridTemplateRowsMd={`1fr 1fr`} gridRowGap=".5em" styles={projects}>
-    {props.projects.map((project, i) => (
+    {props.projects.map((project) => {
+      const {description} = getResumeProject(project.description)
+      return(
       <ProjectCard
-      key={i}
+      key={project.id}
         title={project.title}
-        description={project.description}
+        description={description}
         topics={project.topics}
       />
-    ))}
+    )})}
   </Container>
 );
 export const ProjectContent:FC<{ projects: Array<IProjects> }> = (props) => (
