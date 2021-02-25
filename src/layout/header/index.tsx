@@ -6,11 +6,18 @@ import { Hide } from "../../../styles/system/Hide";
 import { Navs } from "./Navs";
 import { Languages } from "./Languages";
 import { PropStyleTheme } from '../../types';
+import { MenuMobile } from '../../components/organisms/MenuMobile';
+import { useState } from 'react';
 
 export default function Header() {
   const router: NextRouter = useRouter();
-
+ const [show, setShow] = useState(false)
+ const handleChangeMenu = () => {
+   setShow(!show)
+ }
   return (
+    <>
+        {show && <MenuMobile router={router}/>}
     <Container
       gridTemplateColumnsXs={`1fr 8fr 1fr`}
       gridTemplateRowsXs={`1fr 1fr`}
@@ -19,7 +26,7 @@ export default function Header() {
     >
       <Image widthXs="20px" widthMd="30px" />
       <Navs router={router} />
-      <Hide minMd="none">
+      <Hide minMd="none" onClick={handleChangeMenu}>
         <Image
           alt="icon navbar"
           src="/static/open-navbar-mobil.svg"
@@ -28,6 +35,7 @@ export default function Header() {
       </Hide>
       <Languages router={router} />
     </Container>
+    </>
   );
 }
 const container = css`
