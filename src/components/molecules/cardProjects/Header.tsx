@@ -11,6 +11,7 @@ export const Header: FC<{ title: string }> = ({ title }) => {
         alt={`icon ${icon}`}
         src={`/static/projects/${icon}.svg`}
         widthMd="20px"
+        widthXs="18px"
       />
     );
 
