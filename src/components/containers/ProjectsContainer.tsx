@@ -1,12 +1,14 @@
+import { FC } from "react";
 import { css } from "styled-components";
 import { Container } from "../../../styles/system/Container";
 import { Hide } from "../../../styles/system/Hide";
+import { IProjects } from "../../cmsFaker/getProjects";
 import { PropStyleTheme } from "../../types";
 import { ProjectContent } from "../organisms/ProjectContent";
 import { SocialNetworks } from "../organisms/SocialNetworks";
 import { Topics } from "../organisms/Topics";
 
-export const ProjectsContainer = () => (
+export const ProjectsContainer:FC<{ projects: Array<IProjects> }> = ({projects}) => (
   <Container
     gridTemplateColumnsXs="1fr"
     gridTemplareRowsXs={`10fr 2fr`}
@@ -16,7 +18,7 @@ export const ProjectsContainer = () => (
     styles={container}
   >
     <Topics />
-    <ProjectContent />
+    <ProjectContent projects={projects} />
     <SocialNetworks />
   </Container>
 );
