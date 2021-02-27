@@ -3,8 +3,8 @@ import Layout from '../../layout/'
 export default function Home() {
   const { query } = useRouter();
   return (
-    <div>
+    <Layout>
       <p>{JSON.stringify(query)}</p>
-    </div>
+    </Layout>
   );
 }
