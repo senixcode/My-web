@@ -1,9 +1,13 @@
 import { SEO_SEPARATOR } from "../globalVariables";
 import { ILenguage } from "../interface/Lenguages";
-
+export interface Links {
+  github?: string;
+  demo?: string;
+}
 export interface RepeatPropertiesProject {
-  titleSeo:string;
+  titleSeo: string;
   topics: Array<string>;
+  links?: Links;
 }
 export interface IProjects extends RepeatPropertiesProject {
   id: number;
@@ -26,10 +30,18 @@ export const getProjects = (lenguage: string = "en"): Array<IProjects> => {
         "customized design system",
         "Vercel",
       ],
+      links: {
+        github: "https://github.com/senixcode/my-website",
+        demo: "https://senixcode.dev/",
+      },
     },
     {
       titleSeo: "simple-ecommerce",
       topics: ["React", "Local-storage", "Material-ui", "automic-geolocation"],
+      links: {
+        github: "https://github.com/senixcode/lightweight-ecommerce-template",
+        demo: "https://lightweight-ecommerce-template.netlify.app/",
+      },
     },
   ];
   const routes: ILenguage<Array<IProjects>> = {
@@ -37,7 +49,7 @@ export const getProjects = (lenguage: string = "en"): Array<IProjects> => {
       {
         id: 1,
         title: "My website",
-        titleSeo:repeatPropertiesProject[0].titleSeo,
+        titleSeo: repeatPropertiesProject[0].titleSeo,
         summary:
           'My current goal is the demonstration of my current skills, I have three versions at the moment, to get to this point I had to learn "figma", "illustrator", "next" and put into practice "typescript".',
         descriptions: [
@@ -46,24 +58,26 @@ export const getProjects = (lenguage: string = "en"): Array<IProjects> => {
           "This website is special to me and I will always be giving it more life.",
         ],
         topics: repeatPropertiesProject[0].topics,
+        links: repeatPropertiesProject[0].links,
       },
       {
         id: 2,
         title: "Simple ecommerce",
-        titleSeo:repeatPropertiesProject[1].titleSeo,
+        titleSeo: repeatPropertiesProject[1].titleSeo,
         summary:
           "It is a practice project whose main objective was to learn the use of MATERIAL-UI, it has something very cool and that is that it will show you the code of your country automatically.",
         descriptions: [
           "It is a practice project whose main objective was to learn the use of MATERIAL-UI, it has something very cool and that is that it will show you the code of your country automatically.",
         ],
         topics: repeatPropertiesProject[1].topics,
+        links: repeatPropertiesProject[1].links,
       },
     ],
     es: [
       {
         id: 1,
         title: "Mi pagina web",
-        titleSeo:repeatPropertiesProject[0].titleSeo,
+        titleSeo: repeatPropertiesProject[0].titleSeo,
         summary:
           'MI actual objetivo es la demostración de mis habilidades mas actuales, tengo tres versiones actualmente, para llegar a este punto tuve que aprender "figma", "illustrator", "next" y poner en practica "typescript".',
         descriptions: [
@@ -72,17 +86,19 @@ export const getProjects = (lenguage: string = "en"): Array<IProjects> => {
           "Este sitio web es especial para mi y siempre estaré dándole mas vida.",
         ],
         topics: repeatPropertiesProject[0].topics,
+        links: repeatPropertiesProject[0].links,
       },
       {
         id: 2,
         title: "Ecommerce simple",
-        titleSeo:repeatPropertiesProject[1].titleSeo,
+        titleSeo: repeatPropertiesProject[1].titleSeo,
         summary:
           "Es un proyecto de practica que como objetivo principal fue aprender el uso MATERIAL-UI, tiene algo muy genial y es que le mostrara el código de su país de forma automática.",
         descriptions: [
           "Es un proyecto de practica que como objetivo principal fue aprender el uso MATERIAL-UI, tiene algo muy genial y es que le mostrara el código de su país de forma automática.",
         ],
         topics: repeatPropertiesProject[1].topics,
+        links: repeatPropertiesProject[0].links,
       },
     ],
   };
@@ -98,6 +114,8 @@ export const getProjectByTitle = (
   projects: Array<IProjects>,
   titleSeo: string
 ): IProjects => {
-  const project = projects.filter((project) => project.titleSeo === titleSeo)[0];
+  const project = projects.filter(
+    (project) => project.titleSeo === titleSeo
+  )[0];
   return project;
 };
