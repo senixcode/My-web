@@ -3,8 +3,9 @@ import { FC } from "react";
 import { Container } from "../../../../styles/system/Container";
 import { Image } from "../../../../styles/system/Image";
 import { PropStyleTheme } from '../../../types';
+import { IProjects } from '../../../cmsFaker/getProjects';
 
-export const Header: FC<{ title: string }> = ({ title }) => {
+export const Header: FC<IProjects> = ({ title }) => {
   const Icons = () => {
     const ContainerImage: FC<{ icon: string }> = ({ icon }) => (
       <Image

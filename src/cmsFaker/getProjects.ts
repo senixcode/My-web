@@ -1,13 +1,13 @@
 import { SEO_SEPARATOR } from "../globalVariables";
 import { ILenguage } from "../interface/Lenguages";
-export interface Links {
-  github?: string;
-  demo?: string;
+export interface Link {
+  name?: string;
+  link?: string;
 }
 export interface RepeatPropertiesProject {
   titleSeo: string;
   topics: Array<string>;
-  links?: Links;
+  links?:Array<Link>;
 }
 export interface IProjects extends RepeatPropertiesProject {
   id: number;
@@ -30,18 +30,30 @@ export const getProjects = (lenguage: string = "en"): Array<IProjects> => {
         "customized design system",
         "Vercel",
       ],
-      links: {
-        github: "https://github.com/senixcode/my-website",
-        demo: "https://senixcode.dev/",
-      },
+      links: [
+        {
+          name:"github",
+          link:"https://github.com/senixcode/my-website",
+        },
+        {
+        name: "demo",
+        link: "https://senixcode.dev/",
+      }
+    ],
     },
     {
       titleSeo: "simple-ecommerce",
       topics: ["React", "Local-storage", "Material-ui", "automic-geolocation"],
-      links: {
-        github: "https://github.com/senixcode/lightweight-ecommerce-template",
-        demo: "https://lightweight-ecommerce-template.netlify.app/",
-      },
+      links: [
+        {
+          name:"github",
+          link:"https://github.com/senixcode/lightweight-ecommerce-template",
+        },
+        {
+        name: "demo",
+        link: "https://lightweight-ecommerce-template.netlify.app/",
+      }
+    ],
     },
   ];
   const routes: ILenguage<Array<IProjects>> = {

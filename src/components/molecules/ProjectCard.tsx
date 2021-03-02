@@ -7,14 +7,14 @@ import { Topics } from "./cardProjects/Topics";
 import { cursorPointer } from "../../../styles/system/styles";
 import Link from 'next/link'
 import { IProjects } from "../../cmsFaker/getProjects";
-export const ProjectCard: FC<IProjects> = ({ titleSeo, title, summary, topics }) => (
+export const ProjectCard: FC<IProjects> = (props) => (
   <Container gridTemplateRowsXs={`4fr 8fr`} styles={card}>
-    <Header title={title} />
-    <Link href={`/detail/${titleSeo}`}>
+    <Header {...props} />
+    <Link href={`/detail/${props.titleSeo}`}>
     
-    <Summary>{summary}</Summary>
+    <Summary>{props.summary}</Summary>
     </Link>
-    <Topics topics={topics} />
+    <Topics topics={props.topics} />
   </Container>
 );
 
