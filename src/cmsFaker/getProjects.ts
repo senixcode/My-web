@@ -88,6 +88,11 @@ export const getProjects = (lenguage: string = "en"): Array<IProjects> => {
   return lenguage === "en" ? routes.en : routes.es;
 };
 
+export const seoTitle = (title: string, lenguage: string = "en"): string => {
+  const newTitle = `${title.toLowerCase()} – Senixcode`;
+  return lenguage === "en" ? `Details ${newTitle}` : `Detalles ${newTitle}`;
+};
+
 export const getProjectById = (
   projects: Array<IProjects>,
   id: number
