@@ -6,7 +6,7 @@ import { startContent,startItems } from "../../../styles/system/styles";
 import { PropStyleTheme } from "../../types";
 
 export const DetailContainer: FC<IProjects> = ({ title, descriptions }) => (
-  <Container styles={container}>
+  <Container gridRowGap="1em" styles={container}>
     <h2>{title}</h2>
     <Container gridRowGap="1em" styles={descriptionContainer}>
     {
