@@ -10,7 +10,7 @@ export const DetailContainer: FC<IProjects> = ({ title, descriptions }) => (
     <h2>{title}</h2>
     <Container gridRowGap="1em" styles={descriptionContainer}>
     {
-      descriptions.map((description,id) => (
+      descriptions && descriptions.map((description,id) => (
         <p key={id}>{description}</p>
       ))
     }
