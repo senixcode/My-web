@@ -1,3 +1,4 @@
+import { SEO_SEPARATOR } from "../globalVariables";
 import { ILenguage } from "../interface/Lenguages";
 export interface IProjects {
   id: number;
@@ -89,7 +90,7 @@ export const getProjects = (lenguage: string = "en"): Array<IProjects> => {
 };
 
 export const seoTitle = (title: string, lenguage: string = "en"): string => {
-  const newTitle = `${title.toLowerCase()} – Senixcode`;
+  const newTitle = `${title.toLowerCase()} ${SEO_SEPARATOR} Senixcode`;
   return lenguage === "en" ? `Details ${newTitle}` : `Detalles ${newTitle}`;
 };
 

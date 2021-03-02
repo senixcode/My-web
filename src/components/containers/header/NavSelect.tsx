@@ -7,6 +7,7 @@ import { Hide } from "../../../../styles/system/Hide";
 import { Nav } from "../../../../styles/system/Nav";
 import { css } from "styled-components";
 import Head from "next/head";
+import { SEO_SEPARATOR } from "../../../globalVariables";
 export const NavSelect: FC<RouterProps> = ({ router }) => {
   const { locale } = router;
   const t: Array<IRoutes> = getRoutes(locale);
@@ -16,7 +17,7 @@ export const NavSelect: FC<RouterProps> = ({ router }) => {
     <>
       {title && (
         <Head>
-          <title>{`${title} – Senixcode`} </title>
+          <title>{`${title} ${SEO_SEPARATOR} Senixcode`} </title>
         </Head>
       )}
       <Hide maxMd="none">
