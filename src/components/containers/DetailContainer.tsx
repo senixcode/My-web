@@ -2,12 +2,19 @@ import { css } from "styled-components";
 import { FC } from "react";
 import { Container } from "../../../styles/system/Container";
 import { IProjects } from "../../cmsFaker/getProjects";
+import { startContent,startItems } from "../../../styles/system/styles";
 import { PropStyleTheme } from "../../types";
 
-export const DetailContainer: FC<IProjects> = ({ title, description }) => (
+export const DetailContainer: FC<IProjects> = ({ title, descriptions }) => (
   <Container styles={container}>
     <h2>{title}</h2>
-    <p>{description}</p>
+    <Container gridRowGap="1em" styles={descriptionContainer}>
+    {
+      descriptions.map((description,id) => (
+        <p key={id}>{description}</p>
+      ))
+    }
+    </Container>
   </Container>
 );
 const container = css`
@@ -16,4 +23,12 @@ const container = css`
       props.theme.screen.md}) {
     padding: 0 3em;
   }
+`;
+const descriptionContainer = css`
+  ${startContent}
+  ${startItems}
+  /* @media screen and (min-width: ${(props: PropStyleTheme) =>
+      props.theme.screen.md}) {
+    padding: 0 3em;
+  } */
 `;

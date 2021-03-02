@@ -8,7 +8,7 @@ import { ProjectCard } from "../molecules/ProjectCard";
 const Projects: FC<{ projects: Array<IProjects> }> = (props) => (
   <Container gridTemplateRowsMd={`1fr 1fr`} gridRowGap=".5em" styles={projects}>
     {props.projects.map((project) => {
-      const { description } = getResumeProject(project.description);
+      const { description } = getResumeProject(project.summary);
       return (
         <ProjectCard
           key={project.id}
