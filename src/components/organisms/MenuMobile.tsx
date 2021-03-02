@@ -19,7 +19,7 @@ const Content: FC<RouterProps>  = ({router}) => {
   );
 };
 
-export const MenuMobile: FC<RouterProps>  = ({router}) => (
+export const MenuCellSize: FC<RouterProps>  = ({router}) => (
   <Container>
     <Content router={router}/>
   </Container>
