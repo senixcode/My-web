@@ -30,10 +30,15 @@ export const getProjects = (lenguage: string = "en"): Array<IProjects> => {
       {
         id: 2,
         title: "Simple ecommerce",
-        description:`
+        description: `
         It is a practice project whose main objective was to learn the use of MATERIAL-UI, it has something very cool and that is that it will show you the code of your country automatically.
         `,
-        topics: ["React","Local-storage", "Material-ui", "automic-geolocation"],
+        topics: [
+          "React",
+          "Local-storage",
+          "Material-ui",
+          "automic-geolocation",
+        ],
       },
     ],
     es: [
@@ -59,12 +64,22 @@ export const getProjects = (lenguage: string = "en"): Array<IProjects> => {
       {
         id: 2,
         title: "Ecommerce simple",
-        description:`
+        description: `
         Es un proyecto de practica que como objetivo principal fue aprender el uso MATERIAL-UI, tiene algo muy genial y es que le mostrara el código de su país de forma automática.
         `,
-        topics: ["React","Local-storage", "Material-ui", "automic-geolocation"],
+        topics: [
+          "React",
+          "Local-storage",
+          "Material-ui",
+          "automic-geolocation",
+        ],
       },
     ],
   };
   return lenguage === "en" ? routes.en : routes.es;
+};
+
+export const getProjectById = (projects: Array<IProjects>, id: number): IProjects => {
+   const project = projects.filter((project) => project.id === id)[0];
+   return project
 };
