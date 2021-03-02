@@ -3,23 +3,21 @@ import { FC } from "react";
 import { Container } from "../../../../styles/system/Container";
 import { Image } from "../../../../styles/system/Image";
 import { PropStyleTheme } from '../../../types';
-import { IProjects } from '../../../cmsFaker/getProjects';
+import { IProjects,ILink } from '../../../cmsFaker/getProjects';
+import { Link } from '../../../../styles/system/Link';
 
-export const Header: FC<IProjects> = ({ title }) => {
+export const Header: FC<IProjects> = ({ title,links }) => {
   const Icons = () => {
-    const ContainerImage: FC<{ icon: string }> = ({ icon }) => (
-      <Image
-        alt={`icon ${icon}`}
-        src={`/static/projects/${icon}.svg`}
-        widthMd="20px"
-        widthXs="18px"
-      />
+    const ContainerImage: FC<ILink> = ({ nameSeo, name,link }) => (
+      <Link title={nameSeo} href={link} fontSizeMd="20px" fontSizeXs="18px">
+        <i className={name}></i>
+      </Link>
     );
 
     return (
       <Container gridTemplateColumnsXs={`1fr 1fr`} gridColumGap=".3em">
-        {["github", "link"].map((icon) => (
-          <ContainerImage key={icon} icon={icon} />
+        {links.map((link,i) => (
+          <ContainerImage key={i} {...link} />
         ))}
       </Container>
     );

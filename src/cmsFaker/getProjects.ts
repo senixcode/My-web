@@ -1,13 +1,15 @@
 import { SEO_SEPARATOR } from "../globalVariables";
+import { ICON_GITHUB, ICON_LINK } from "../globalVariables/icons";
 import { ILenguage } from "../interface/Lenguages";
-export interface Link {
+export interface ILink {
+  nameSeo?: string;
   name?: string;
   link?: string;
 }
 export interface RepeatPropertiesProject {
   titleSeo: string;
   topics: Array<string>;
-  links?:Array<Link>;
+  links?: Array<ILink>;
 }
 export interface IProjects extends RepeatPropertiesProject {
   id: number;
@@ -15,7 +17,8 @@ export interface IProjects extends RepeatPropertiesProject {
   summary: string;
   descriptions: Array<string>;
 }
-
+const SEO_GITHUB = "github",
+  SEO_LINK = "link";
 export const getProjects = (lenguage: string = "en"): Array<IProjects> => {
   const repeatPropertiesProject: Array<RepeatPropertiesProject> = [
     {
@@ -32,28 +35,32 @@ export const getProjects = (lenguage: string = "en"): Array<IProjects> => {
       ],
       links: [
         {
-          name:"github",
-          link:"https://github.com/senixcode/my-website",
+          nameSeo: SEO_GITHUB,
+          name: ICON_GITHUB,
+          link: "https://github.com/senixcode/my-website",
         },
         {
-        name: "demo",
-        link: "https://senixcode.dev/",
-      }
-    ],
+          nameSeo: SEO_LINK,
+          name: ICON_LINK,
+          link: "https://senixcode.dev/",
+        },
+      ],
     },
     {
       titleSeo: "simple-ecommerce",
       topics: ["React", "Local-storage", "Material-ui", "automic-geolocation"],
       links: [
         {
-          name:"github",
-          link:"https://github.com/senixcode/lightweight-ecommerce-template",
+          nameSeo: SEO_GITHUB,
+          name: ICON_GITHUB,
+          link: "https://github.com/senixcode/lightweight-ecommerce-template",
         },
         {
-        name: "demo",
-        link: "https://lightweight-ecommerce-template.netlify.app/",
-      }
-    ],
+          nameSeo: SEO_LINK,
+          name: ICON_LINK,
+          link: "https://lightweight-ecommerce-template.netlify.app/",
+        },
+      ],
     },
   ];
   const routes: ILenguage<Array<IProjects>> = {
