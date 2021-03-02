@@ -4,7 +4,7 @@ import {
   getProjects,
 } from "../../cmsFaker/getProjects";
 import { IProjects } from "../../cmsFaker/projects/interfaces";
-import { getProjectByTitle, seoTitle } from "../../cmsFaker/projects/projects";
+import { getProjectByTitle, seoTitle } from "../../cmsFaker/projects/function";
 import { DetailContainer } from "../../components/containers/DetailContainer";
 
 export default function Detail() {
