@@ -2,7 +2,7 @@ import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
 import {
   getProjects,
-  getProjectById,
+  getProjectByTitle,
   IProjects,
   seoTitle,
 } from "../../cmsFaker/getProjects";
@@ -12,17 +12,16 @@ export default function Detail() {
   const { query } = useRouter();
   let { locale } = useRouter();
   let projects = getProjects(locale);
-  const idProject = parseInt(query.project as string);
-  let project: IProjects = getProjectById(projects, idProject);
+  let project: IProjects = getProjectByTitle(projects, query.project as string);
   const SEO = {
-    title: seoTitle(project.title,locale),
+    title: seoTitle(project.title, locale),
     description: project.summary,
     openGraph: {
-      title:seoTitle(project.title,locale),
+      title: seoTitle(project.title, locale),
       description: project.summary,
     },
   };
-  
+
   return (
     <>
       <NextSeo {...SEO} />

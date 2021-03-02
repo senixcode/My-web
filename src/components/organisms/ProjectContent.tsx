@@ -9,13 +9,11 @@ const Projects: FC<{ projects: Array<IProjects> }> = (props) => (
   <Container gridTemplateRowsMd={`1fr 1fr`} gridRowGap=".5em" styles={projects}>
     {props.projects.map((project) => {
       const { description } = getResumeProject(project.summary);
+      project.summary = description
       return (
         <ProjectCard
           key={project.id}
-          id={project.id}
-          title={project.title}
-          description={description}
-          topics={project.topics}
+         {...project}
         />
       );
     })}
