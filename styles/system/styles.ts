@@ -8,6 +8,14 @@ export const centerContent = css`
   justify-content: center;
   align-content: center;
 `;
+export const startItems = css`
+  justify-items: start;
+  align-items: flex-start;
+`;
+export const startContent = css`
+  justify-content: start;
+  align-content: flex-start;
+`;
 export const cursorPointer = css`
 cursor: pointer;
 `
