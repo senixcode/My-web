@@ -2,7 +2,7 @@ import { FC } from "react";
 import { css } from "styled-components";
 import { Container } from "../../../styles/system/Container";
 import { Hide } from "../../../styles/system/Hide";
-import { IProjects } from "../../cmsFaker/getProjects";
+import { IProjects } from "../../cmsFaker/projects/interfaces";
 import { PropStyleTheme } from "../../types";
 import { ProjectContent } from "../organisms/ProjectContent";
 import { SocialNetworks } from "../organisms/SocialNetworks";

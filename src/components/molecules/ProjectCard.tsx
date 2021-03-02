@@ -6,7 +6,7 @@ import { Header } from "./cardProjects/Header";
 import { Topics } from "./cardProjects/Topics";
 import { cursorPointer } from "../../../styles/system/styles";
 import Link from 'next/link'
-import { IProjects } from "../../cmsFaker/getProjects";
+import { IProjects } from "../../cmsFaker/projects/interfaces";
 export const ProjectCard: FC<IProjects> = (props) => (
   <Container gridTemplateRowsXs={`4fr 8fr`} styles={card}>
     <Header {...props} />

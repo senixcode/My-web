@@ -1,24 +1,8 @@
-import { SEO_SEPARATOR } from "../globalVariables";
 import { ICON_GITHUB, ICON_LINK } from "../globalVariables/icons";
 import { ILenguage } from "../interface/Lenguages";
-export interface ILink {
-  nameSeo?: string;
-  name?: string;
-  link?: string;
-}
-export interface RepeatPropertiesProject {
-  titleSeo: string;
-  topics: Array<string>;
-  links?: Array<ILink>;
-}
-export interface IProjects extends RepeatPropertiesProject {
-  id: number;
-  title: string;
-  summary: string;
-  descriptions: Array<string>;
-}
-const SEO_GITHUB = "github",
-  SEO_LINK = "link";
+import { IProjects, RepeatPropertiesProject } from "./projects/interfaces";
+import { SEO_GITHUB, SEO_LINK } from "./projects/variables";
+
 export const getProjects = (lenguage: string = "en"): Array<IProjects> => {
   const repeatPropertiesProject: Array<RepeatPropertiesProject> = [
     {
@@ -122,19 +106,4 @@ export const getProjects = (lenguage: string = "en"): Array<IProjects> => {
     ],
   };
   return lenguage === "en" ? routes.en : routes.es;
-};
-
-export const seoTitle = (title: string, lenguage: string = "en"): string => {
-  const newTitle = `${title.toLowerCase()} ${SEO_SEPARATOR} Senixcode`;
-  return lenguage === "en" ? `Details ${newTitle}` : `Detalles ${newTitle}`;
-};
-
-export const getProjectByTitle = (
-  projects: Array<IProjects>,
-  titleSeo: string
-): IProjects => {
-  const project = projects.filter(
-    (project) => project.titleSeo === titleSeo
-  )[0];
-  return project;
 };

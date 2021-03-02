@@ -3,8 +3,8 @@ import { FC } from "react";
 import { Container } from "../../../../styles/system/Container";
 import { Image } from "../../../../styles/system/Image";
 import { PropStyleTheme } from '../../../types';
-import { IProjects,ILink } from '../../../cmsFaker/getProjects';
 import { Link } from '../../../../styles/system/Link';
+import { ILink, IProjects } from '../../../cmsFaker/projects/interfaces';
 
 export const Header: FC<IProjects> = ({ title,links }) => {
   const Icons = () => {

@@ -2,10 +2,9 @@ import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
 import {
   getProjects,
-  getProjectByTitle,
-  IProjects,
-  seoTitle,
 } from "../../cmsFaker/getProjects";
+import { IProjects } from "../../cmsFaker/projects/interfaces";
+import { getProjectByTitle, seoTitle } from "../../cmsFaker/projects/projects";
 import { DetailContainer } from "../../components/containers/DetailContainer";
 
 export default function Detail() {

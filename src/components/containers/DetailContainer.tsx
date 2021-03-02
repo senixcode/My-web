@@ -1,11 +1,12 @@
 import { css } from "styled-components";
 import { FC } from "react";
 import { Container } from "../../../styles/system/Container";
-import { IProjects } from "../../cmsFaker/getProjects";
 import { startContent,startItems } from "../../../styles/system/styles";
 import { PropStyleTheme } from "../../types";
+import { Topics } from "../molecules/cardProjects/Topics";
+import { IProjects } from "../../cmsFaker/projects/interfaces";
 
-export const DetailContainer: FC<IProjects> = ({ title, descriptions }) => (
+export const DetailContainer: FC<IProjects> = ({ title, descriptions, topics }) => (
   <Container gridRowGap="1em" styles={container}>
     <h2>{title}</h2>
     <Container gridRowGap="1em" styles={descriptionContainer}>
@@ -15,6 +16,7 @@ export const DetailContainer: FC<IProjects> = ({ title, descriptions }) => (
       ))
     }
     </Container>
+    <Topics topics={topics}/>
   </Container>
 );
 const container = css`

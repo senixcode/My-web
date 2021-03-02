@@ -10,6 +10,7 @@ export const Topic: FC<{ name: string }> = ({ name }) => (
 );
 const topic = css`
   padding: 0.3em;
+  /* margin:0.2em; */
   border-radius: 12px;
   border: 2px solid
     ${(props: PropStyleTheme) => props.theme.colors.secondaryVariant};
