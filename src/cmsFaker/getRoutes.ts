@@ -11,6 +11,10 @@ export const getRoutes = (lenguage: string = "en"): Array<IRoutes> => {
         path: "/projects",
         title: "Projects",
       },
+      {
+        path:"/detail/[project]",
+        title:"Detail"
+      }
     ],
     es: [
       {
@@ -21,6 +25,10 @@ export const getRoutes = (lenguage: string = "en"): Array<IRoutes> => {
         path: "/projects",
         title: "Mis proyectos",
       },
+       {
+        path:"/detail/[project]",
+        title:"Detalles"
+      }
     ],
   };
   return lenguage === "en" ? routes.en : routes.es;

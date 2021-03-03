@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { FC } from "react";
 import { css } from "styled-components";
-import { Container } from "../../../styles/system/Container";
-import { Nav } from "../../../styles/system/Nav";
-import { Image } from "../../../styles/system/Image";
-import { PropStyleTheme, RouterProps } from "../../types";
+import { Container } from "../../../../styles/system/Container";
+import { Nav } from "../../../../styles/system/Nav";
+import { Image } from "../../../../styles/system/Image";
+import { PropStyleTheme, RouterProps } from "../../../types";
 export const Languages: FC<RouterProps> = ({ router }) => {
   const style = css`
     grid-column-gap: 1em;

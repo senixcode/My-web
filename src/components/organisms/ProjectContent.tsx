@@ -1,25 +1,25 @@
 import { FC } from "react";
 import styled, { css } from "styled-components";
 import { Container } from "../../../styles/system/Container";
-import { IProjects } from "../../cmsFaker/getProjects";
+import { IProjects } from "../../cmsFaker/projects/interfaces";
 import { getResumeProject } from "../../helper/getResumeProject";
 import { PropStyleTheme } from "../../types";
 import { ProjectCard } from "../molecules/ProjectCard";
 const Projects: FC<{ projects: Array<IProjects> }> = (props) => (
   <Container gridTemplateRowsMd={`1fr 1fr`} gridRowGap=".5em" styles={projects}>
     {props.projects.map((project) => {
-      const {description} = getResumeProject(project.description)
-      return(
-      <ProjectCard
-      key={project.id}
-        title={project.title}
-        description={description}
-        topics={project.topics}
-      />
-    )})}
+      const { description } = getResumeProject(project.summary);
+      project.summary = description
+      return (
+        <ProjectCard
+          key={project.id}
+         {...project}
+        />
+      );
+    })}
   </Container>
 );
-export const ProjectContent:FC<{ projects: Array<IProjects> }> = (props) => (
+export const ProjectContent: FC<{ projects: Array<IProjects> }> = (props) => (
   <Container gridTemplateRowsMd={`2fr 12fr`} styles={container}>
     {/* <Hide maxMd="none" styles={filter}>
       <Container >
