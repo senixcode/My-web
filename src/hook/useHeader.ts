@@ -1,20 +1,23 @@
 import { NextRouter, useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useHeaderContext } from "../contexts/HeaderContext";
-interface IUseHeader {
-    router:NextRouter;
-    show:boolean;
-    headerShow:boolean;
-    handleChangeMenu: () => void
+import {
+  IMenuMobileContext,
+  useMenuMobileContext,
+} from "../contexts/MenuMobileContext";
+interface IUseHeader extends IMenuMobileContext {
+  router: NextRouter;
+  headerShow: boolean;
+  handleChangeMenu: () => void;
 }
-export default function useHeader():IUseHeader{
-   const router: NextRouter = useRouter();
+export default function useHeader(): IUseHeader {
+  const router: NextRouter = useRouter();
   const { pathname } = router;
 
   const { headerShow, setHeaderShow } = useHeaderContext();
-  const [show, setShow] = useState(false);
+  const { menuMobileShow, setMenuMobileShow } = useMenuMobileContext();
   const handleChangeMenu = () => {
-    setShow(!show);
+    setMenuMobileShow(!menuMobileShow);
   };
   useEffect(() => {
     if (pathname != "/detail/[project]") {
@@ -24,9 +27,9 @@ export default function useHeader():IUseHeader{
     }
   }, [pathname]);
   return {
-      router,
-      show,
-      headerShow,
-      handleChangeMenu
-  }
+    router,
+    headerShow,
+    handleChangeMenu,
+    menuMobileShow,
+  };
 }

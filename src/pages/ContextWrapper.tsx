@@ -1,12 +1,23 @@
-import {IHeaderContext,HeaderContext} from '../contexts/HeaderContext'
-import { useState} from 'react'
+import { IHeaderContext, HeaderContext } from "../contexts/HeaderContext";
+import { useState } from "react";
+import {
+  IMenuMobileContext,
+  MenuMobileContext,
+} from "../contexts/MenuMobileContext";
 
-export function ContextWrapper({children}){
-    const [headerShow,setHeaderShow] = useState(true)
-    const value:IHeaderContext = {headerShow,setHeaderShow}
-    return(
-        <HeaderContext.Provider value={value}>
-            {children}
-        </HeaderContext.Provider>
-    )
+export function ContextWrapper({ children }) {
+  const [headerShow, setHeaderShow] = useState(true);
+  const [menuMobileShow, setMenuMobileShow] = useState(false);
+  const valueHeader: IHeaderContext = { headerShow, setHeaderShow };
+  const valueMenuMobile: IMenuMobileContext = {
+    menuMobileShow,
+    setMenuMobileShow,
+  };
+  return (
+    <HeaderContext.Provider value={valueHeader}>
+      <MenuMobileContext.Provider value={valueMenuMobile}>
+        {children}
+      </MenuMobileContext.Provider>
+    </HeaderContext.Provider>
+  );
 }
