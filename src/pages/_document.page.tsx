@@ -32,8 +32,7 @@ static async getInitialProps(ctx: DocumentContext) {
     return (
       <Html>
         <Head>
-
-             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.1.1/css/all.css"></link>
+             <link rel="stylesheet" href="/font-awesome/css/all.min.css"></link>
         </Head>
         <body>
           <Main />
