@@ -20,7 +20,7 @@ const Content: FC<MenuMobileProps> = ({ router, handleChangeMenu }) => {
       <div style={{ width: "25%" }}>
         <Languages router={router} />
       </div>
-      {t.map(({ path, title }, i) => (
+      {t.map(({ path, title }, i) => path != '/detail/[project]' && (
         <Link href={path} key={i}>
           <Nav selected={path === router.route ? true : false}>{title}</Nav>
         </Link>
