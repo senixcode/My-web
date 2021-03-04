@@ -16,7 +16,7 @@ export const DefaultHeader: FC<{
 }> = ({ router, handleChangeMenu }) => (
   <Container
     gridTemplateColumnsXs={`1fr 8fr 1fr`}
-    gridTemplateRowsXs={`1fr 1fr`}
+    gridTemplateRowsXs={`1fr`}
     gridTemplateRowsMd="1fr"
     styles={container}
   >
@@ -29,7 +29,9 @@ export const DefaultHeader: FC<{
         widthXs="20px"
       />
     </Hide>
-    <Languages router={router} />
+    <Hide maxMd="none">
+      <Languages router={router} />
+    </Hide>
   </Container>
 );
 
