@@ -12,6 +12,9 @@ const Content: FC<RouterProps> = ({ router }) => {
   const t: Array<IRoutes> = getRoutes(locale);
   return (
     <Navs>
+      <Flex>
+        <i className="fas fa-times" />
+      </Flex>
       <div style={{ width: "25%" }}>
         <Languages router={router} />
       </div>
@@ -20,7 +23,7 @@ const Content: FC<RouterProps> = ({ router }) => {
           <Nav selected={path === router.route ? true : false}>{title}</Nav>
         </Link>
       ))}
-        <SocialNetworks />
+      <SocialNetworks />
     </Navs>
   );
 };
@@ -33,7 +36,7 @@ export const MenuCellSize: FC<RouterProps> = ({ router }) => (
 const Container = styled.div`
   background: ${({ theme }: PropStyleTheme) => theme.colors.primaryVariant};
   position: fixed;
-  width: 80%;
+  width: 100%;
   height: 100%;
   padding: 1.5em;
   z-index: 100;
@@ -49,4 +52,13 @@ const Navs = styled.div`
 const Nav = styled.h2<{ selected: boolean }>`
   color: ${({ selected, theme }: { selected: boolean; theme: ITheme }) =>
     selected ? theme.colors.secondary : theme.colors.textPrimary};
+`;
+
+const Flex = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  & > i {
+    font-size: 25px;
+    color: ${({ theme }: PropStyleTheme) => theme.colors.secondary};
+  }
 `;
