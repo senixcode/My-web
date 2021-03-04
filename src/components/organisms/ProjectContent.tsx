@@ -9,13 +9,8 @@ const Projects: FC<{ projects: Array<IProjects> }> = (props) => (
   <Container gridTemplateRowsMd={`1fr 1fr`} gridRowGap=".5em" styles={projects}>
     {props.projects.map((project) => {
       const { description } = getResumeProject(project.summary);
-      project.summary = description
-      return (
-        <ProjectCard
-          key={project.id}
-         {...project}
-        />
-      );
+      project.summary = description;
+      return <ProjectCard key={project.id} {...project} />;
     })}
   </Container>
 );
@@ -31,8 +26,11 @@ export const ProjectContent: FC<{ projects: Array<IProjects> }> = (props) => (
 );
 const container = css`
   width: 100%;
-  height: 77vh;
   justify-items: start;
+  @media screen and (min-width: ${(props: PropStyleTheme) =>
+      props.theme.screen.md}) {
+    height: 77vh;
+  }
 `;
 
 const filter = css`
