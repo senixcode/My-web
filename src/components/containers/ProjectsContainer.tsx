@@ -8,27 +8,30 @@ import { ProjectContent } from "../organisms/ProjectContent";
 import { SocialNetworks } from "../organisms/SocialNetworks";
 import { Topics } from "../organisms/Topics";
 
-export const ProjectsContainer:FC<{ projects: Array<IProjects> }> = ({projects}) => (
+export const ProjectsContainer: FC<{ projects: Array<IProjects> }> = ({
+  projects,
+}) => (
   <Container
     gridTemplateColumnsXs="1fr"
-    gridTemplareRowsXs={`10fr 2fr`}
+     gridTemplareRowsXs={`1fr`}
     gridTemplateColumnsMd={`2.5fr 8fr 1fr`}
-    height="87vh"
     gridColumGap="1em"
     styles={container}
   >
     <Topics projects={projects} />
     <ProjectContent projects={projects} />
-    <SocialNetworks />
+    <Hide maxMd="none">
+      <SocialNetworks />
+    </Hide>
   </Container>
 );
 const container = css`
-  padding: 0 1em;
+  padding: 0.5em;
 
   @media screen and (min-width: ${(props: PropStyleTheme) =>
       props.theme.screen.md}) {
-        padding: 0 3em;
+    padding: 0 3em;
     height: 87vh;
-    grid-row-gap:1em;
+    grid-row-gap: 1em;
   }
 `;
