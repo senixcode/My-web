@@ -6,13 +6,15 @@ import { FC } from "react";
 import Link from "next/link";
 import { Languages } from "./Languages";
 import { SocialNetworks } from "../../organisms/SocialNetworks";
-
-const Content: FC<RouterProps> = ({ router }) => {
+interface MenuMobileProps extends RouterProps {
+  handleChangeMenu:() => void
+}
+const Content: FC<MenuMobileProps> = ({ router, handleChangeMenu }) => {
   const { locale } = router;
   const t: Array<IRoutes> = getRoutes(locale);
   return (
     <Navs>
-      <Flex>
+      <Flex onClick={handleChangeMenu}>
         <i className="fas fa-times" />
       </Flex>
       <div style={{ width: "25%" }}>
@@ -28,9 +30,9 @@ const Content: FC<RouterProps> = ({ router }) => {
   );
 };
 
-export const MenuCellSize: FC<RouterProps> = ({ router }) => (
+export const MenuCellSize: FC<MenuMobileProps> = (props) => (
   <Container>
-    <Content router={router} />
+    <Content {...props}/>
   </Container>
 );
 const Container = styled.div`
