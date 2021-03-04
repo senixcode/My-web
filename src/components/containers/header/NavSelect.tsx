@@ -22,17 +22,15 @@ export const NavSelect: FC<RouterProps> = ({ router }) => {
       )}
       <Hide maxMd="none">
         <Container gridTemplateColumnsMd={`1fr 1fr`} styles={gridColumnGap}>
-          {t.map(({ path, title }, i) => {
-            if(path != "/detail/[project]"){
-              return (
+          {t.map(
+            ({ path, title }, i) =>
+              path != "/detail/[project]" && (
                 <Link href={path} key={i}>
                   <Nav selected={path === router.route ? true : false}>
                     {title}
                   </Nav>
                 </Link>
               )
-            }
-          }
           )}
         </Container>
       </Hide>
