@@ -17,10 +17,12 @@ export const AboutMeContainer: FC<{ content: string }> = ({ content }) => {
       styles={container}
     >
       <Hide maxMd="none" styles={image}>
-        <Image alt="image about me" src="/static/aboutMe.svg" styles={image}/>
+        <Image alt="image about me" src="/static/aboutMe.svg" styles={image} />
       </Hide>
       <Content content={content} />
-      <SocialNetworks />
+      <Hide maxMd="none">
+        <SocialNetworks />
+      </Hide>
     </Container>
   );
 };
@@ -34,5 +36,5 @@ const container = css`
   }
 `;
 const image = css`
-height:90%;
-`
+  height: 90%;
+`;
