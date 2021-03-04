@@ -4,24 +4,28 @@ import { ITheme } from "../../interface/Theme";
 import { getRoutes, IRoutes } from "../../cmsFaker/getRoutes";
 import { FC } from "react";
 import Link from "next/link";
+import { Languages } from "../containers/header/Languages";
 
-const Content: FC<RouterProps>  = ({router}) => {
-   const { locale } = router;
-  const t: Array<IRoutes> = getRoutes(locale); 
+const Content: FC<RouterProps> = ({ router }) => {
+  const { locale } = router;
+  const t: Array<IRoutes> = getRoutes(locale);
   return (
     <Navs>
-       {t.map(({ path, title }, i) => (
-            <Link href={path} key={i}>
-              <Nav selected={path === router.route ? true : false}>{title}</Nav>
-            </Link>
-          ))}
+      <div style={{ width: "25%" }}>
+        <Languages router={router} />
+      </div>
+      {t.map(({ path, title }, i) => (
+        <Link href={path} key={i}>
+          <Nav selected={path === router.route ? true : false}>{title}</Nav>
+        </Link>
+      ))}
     </Navs>
   );
 };
 
-export const MenuCellSize: FC<RouterProps>  = ({router}) => (
+export const MenuCellSize: FC<RouterProps> = ({ router }) => (
   <Container>
-    <Content router={router}/>
+    <Content router={router} />
   </Container>
 );
 const Container = styled.div`
@@ -34,7 +38,7 @@ const Container = styled.div`
 `;
 
 const Navs = styled.div`
-  padding-top: 3em;
+  padding-top: 1em;
   display: grid;
   grid-template-rows: repeat(auto-fill, 1fr);
   grid-row-gap: 2em;
