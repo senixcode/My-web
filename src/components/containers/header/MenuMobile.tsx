@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import { PropStyleTheme, RouterProps } from "../../types";
-import { ITheme } from "../../interface/Theme";
-import { getRoutes, IRoutes } from "../../cmsFaker/getRoutes";
+import { PropStyleTheme, RouterProps } from "../../../types";
+import { ITheme } from "../../../interface/Theme";
+import { getRoutes, IRoutes } from "../../../cmsFaker/getRoutes";
 import { FC } from "react";
 import Link from "next/link";
-import { Languages } from "../containers/header/Languages";
-import { SocialNetworks } from "./SocialNetworks";
+import { Languages } from "./Languages";
+import { SocialNetworks } from "../../organisms/SocialNetworks";
 
 const Content: FC<RouterProps> = ({ router }) => {
   const { locale } = router;

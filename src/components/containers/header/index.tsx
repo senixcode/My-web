@@ -1,4 +1,4 @@
-import { MenuCellSize } from "../../../components/organisms/MenuMobile";
+import { MenuCellSize } from "./MenuMobile";
 import useHeader from "../../../hook/useHeader";
 import { DefaultHeader,HeaderDetails } from "./ContainerHeader";
 export default function Header() {
