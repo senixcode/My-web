@@ -1,22 +1,29 @@
 import { css } from "styled-components";
 import { FC } from "react";
 import { Container } from "../../../styles/system/Container";
-import { startContent,startItems } from "../../../styles/system/styles";
+import { startContent, startItems } from "../../../styles/system/styles";
 import { PropStyleTheme } from "../../types";
 import { Topics } from "../molecules/cardProjects/Topics";
 import { IProjects } from "../../cmsFaker/projects/interfaces";
+import { Icons } from "../molecules/cardProjects/IconsHeader";
 
-export const DetailContainer: FC<IProjects> = ({ title, descriptions, topics }) => (
+export const DetailContainer: FC<IProjects> = ({
+  title,
+  descriptions,
+  topics,
+  links,
+}) => (
   <Container gridRowGap="1em" styles={container}>
     <h2>{title}</h2>
-    <Container gridRowGap="1em" styles={descriptionContainer}>
-    {
-      descriptions && descriptions.map((description,id) => (
-        <p key={id}>{description}</p>
-      ))
-    }
+
+    <Container gridRowGap="1em" styles={start}>
+      {descriptions &&
+        descriptions.map((description, id) => <p key={id}>{description}</p>)}
     </Container>
-    <Topics topics={topics}/>
+    <Container styles={start}>
+      <Icons links={links} />
+    </Container>
+    <Topics topics={topics} />
   </Container>
 );
 const container = css`
@@ -26,11 +33,8 @@ const container = css`
     padding: 0 3em;
   }
 `;
-const descriptionContainer = css`
+const start = css`
+  width: 100%;
   ${startContent}
   ${startItems}
-  /* @media screen and (min-width: ${(props: PropStyleTheme) =>
-      props.theme.screen.md}) {
-    padding: 0 3em;
-  } */
 `;
