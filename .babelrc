@@ -4,10 +4,10 @@
     [
      "babel-plugin-styled-components", 
       {
-        "ssr": false,
-        "displayName": false,
-        "preprocess": false,
-        "pure": true
+        "ssr": true
+        // "displayName": false,
+        // "preprocess": false,
+        // "pure": true
       }
     ]
   ]
