@@ -4,7 +4,7 @@ import { Button } from "../../../styles/system/Button";
 import { Image } from "../../../styles/system/Image";
 import { PropStyleTheme } from "../../types";
 import { FC } from "react";
-export const Content:FC<{content:string}> = ({content}) => (
+export const Content: FC<{ content: string }> = ({ content }) => (
   <Container
     gridTemplateRowsXs={`6fr 1fr`}
     gridTemplateRowsMd={`9fr 2fr`}
@@ -12,14 +12,12 @@ export const Content:FC<{content:string}> = ({content}) => (
   >
     <Title>{content}</Title>
     <Button width="6em" height="2.6em" borderRadius="12px" styles={button}>
-      <Container gridTemplateColumnsXs={`1fr 1fr`} gridColumGap="0.2em">
-        <Image
-          alt="icon cv"
-          src="/static/cv.svg"
-          widthXs="20px"
-          widthSm="25px"
-          widthMd="30px"
-        />
+      <Container
+        gridTemplateColumnsXs={`1fr 1fr`}
+        gridColumGap="0.2em"
+        styles={fileDownload}
+      >
+        <i className="fas fa-file-download" />
         <p>cv</p>
       </Container>
     </Button>
@@ -42,5 +40,23 @@ const button = css`
       props.theme.screen.md}) {
     width: 8em;
     height: 3.5em;
+  }
+`;
+const fileDownload = css`
+  & > i {
+    font-size: 20px;
+  }
+  @media screen and (min-width: ${(props: PropStyleTheme) =>
+      props.theme.screen.sm}) {
+    & > i {
+      font-size: 25px;
+    }
+  }
+
+  @media screen and (min-width: ${(props: PropStyleTheme) =>
+      props.theme.screen.md}) {
+    & > i {
+      font-size: 30px;
+    }
   }
 `;
