@@ -5,10 +5,6 @@ module.exports = {
   webpack(config) {
     config.module.rules.push(
       {
-        test: /\.svg$/,
-        use: ["@svgr/webpack"],
-      },
-      {
         test: /\.tsx?$/,
         loader: "awesome-typescript-loader",
         options: {
@@ -17,13 +13,6 @@ module.exports = {
           }),
         },
       },
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /(node_modules)/,
-        use: {
-          loader: "babel-loader",
-        },
-      }
     );
     return config;
   },
