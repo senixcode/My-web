@@ -22,12 +22,8 @@ export const DefaultHeader: FC<{
   >
     <Image widthXs="20px" widthMd="30px" />
     <Navs router={router} />
-    <Hide minMd="none" onClick={handleChangeMenu}>
-      <Image
-        alt="icon navbar"
-        src="/static/open-navbar-mobil.svg"
-        widthXs="20px"
-      />
+    <Hide minMd="none" onClick={handleChangeMenu} styles={iconNavbar}>
+      <i className="fas fa-bars"/>
     </Hide>
     <Hide maxMd="none">
       <Languages router={router} />
@@ -62,3 +58,9 @@ const Flex = styled.div`
     font-size: 25px;
   }
 `;
+const iconNavbar = css`
+&>i{
+  color: ${(props: PropStyleTheme) => props.theme.colors.secondary};
+  font-size:23px;
+}
+`
