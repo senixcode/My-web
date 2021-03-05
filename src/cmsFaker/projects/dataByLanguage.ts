@@ -1,7 +1,8 @@
-import { ICON_GITHUB, ICON_LINK } from "../../globalVariables/icons";
+import { ComponentType, ReactElement, ReactNode } from "react";
+import { ICON_GITHUB, ICON_LINK, ICON_FIGMA } from "../../globalVariables/icons";
 import { ILenguage } from "../../interface/Lenguages";
 import { IProjects, RepeatPropertiesProject } from "./interfaces";
-import { SEO_GITHUB, SEO_LINK } from "./variables";
+import { SEO_GITHUB, SEO_LINK, SEO_FIGMA } from "./variables";
 
 const repeatPropertiesProject: Array<RepeatPropertiesProject> = [
   {
@@ -10,6 +11,7 @@ const repeatPropertiesProject: Array<RepeatPropertiesProject> = [
       "Figma",
       "Next.js",
       "TypeScript",
+      "yarn",
       "Font Awesome",
       "svg",
       "styled-components",
@@ -27,11 +29,16 @@ const repeatPropertiesProject: Array<RepeatPropertiesProject> = [
         name: ICON_LINK,
         link: "https://senixcode.dev/",
       },
+      {
+        nameSeo: SEO_FIGMA,
+        name: ICON_FIGMA,
+        link: "https://www.figma.com/file/JwPIDz1ElEbggvg38n9nyA/new-template-my-web?node-id=0%3A1",
+      },
     ],
   },
   {
     titleSeo: "simple-ecommerce",
-    topics: ["React", "Local-storage", "Material-ui", "automic-geolocation"],
+    topics: ["React","npm", "Local-storage", "Material-ui", "automic-geolocation"],
     links: [
       {
         nameSeo: SEO_GITHUB,
@@ -54,11 +61,12 @@ export const routes: ILenguage<Array<IProjects>> = {
       title: "My website",
       titleSeo: repeatPropertiesProject[0].titleSeo,
       summary:
-        'My current goal is the demonstration of my current skills, I have three versions at the moment, to get to this point I had to learn "figma", "illustrator", "next" and put into practice "typescript".',
+        'It is the combination of the professional and the personal, in this sprint I have only been able to complete the professional side.',
       descriptions: [
-        'My current goal is the demonstration of my current skills, I have three versions at the moment, to get to this point I had to learn "figma", "illustrator", "next" and put into practice "typescript".',
-        'It is important to mention that "senixcode" I thought of it in an experimental way, to make myself known in a different way, I would like to show that using a nickname is not bad or unethical, it is like an art that is seen in the way you make it known.',
-        "This website is special to me and I will always be giving it more life.",
+        'It is the combination of the professional and the personal, in this sprint I have only been able to complete the professional side.',
+        'This website will always be updated with what I acquire, both the functional part (web) and the abstract (source code). ',
+        'It is important to mention that "senixcode" I thought of it in an experimental way, to make myself known in a different way and because it has a more personal meaning.',
+        'In conclusion this web will be a summary of what I want to highlight and being my letter of introduction to the world.'
       ],
       topics: repeatPropertiesProject[0].topics,
       links: repeatPropertiesProject[0].links,
@@ -82,11 +90,12 @@ export const routes: ILenguage<Array<IProjects>> = {
       title: "Mi pagina web",
       titleSeo: repeatPropertiesProject[0].titleSeo,
       summary:
-        'MI actual objetivo es la demostración de mis habilidades mas actuales, tengo tres versiones actualmente, para llegar a este punto tuve que aprender "figma", "illustrator", "next" y poner en practica "typescript".',
+        'En conclusión esta web será un resumen de lo que quiero destacar y siendo mi carta de presentación hacia el mundo.',
       descriptions: [
-        'MI actual objetivo es la demostración de mis habilidades mas actuales, tengo tres versiones actualmente, para llegar a este punto tuve que aprender "figma", "illustrator", "next" y poner en practica "typescript".',
-        'Es importante mencionar que "senixcode" lo pensé de forma experimental,  para darme a conocer de manera distinta, me gustaría demostrar que usar un nickname no es malo o poco ético, es como un arte que es visto de la forma que le deis a conocer.',
-        "Este sitio web es especial para mi y siempre estaré dándole mas vida.",
+        'Es la combinación de lo profesionalmente y lo personal, en este sprint solo e podido culminar el lado profesional.',
+        'Esta web siempre estará actualizada con lo que vaya adquiriendo, tanto la parte funcional (web) y lo abstracta ( código fuente). ',
+        'Es importante mencionar que "senixcode" lo pensé de forma experimental,  para darme a conocer de forma distinta y porque tiene un significado mas personal.',
+        'En conclusión esta web será un resumen de lo que quiero destacar y siendo mi carta de presentación hacia el mundo.',
       ],
       topics: repeatPropertiesProject[0].topics,
       links: repeatPropertiesProject[0].links,
@@ -101,7 +110,7 @@ export const routes: ILenguage<Array<IProjects>> = {
         "Es un proyecto de practica que como objetivo principal fue aprender el uso MATERIAL-UI, tiene algo muy genial y es que le mostrara el código de su país de forma automática.",
       ],
       topics: repeatPropertiesProject[1].topics,
-      links: repeatPropertiesProject[0].links,
+      links: repeatPropertiesProject[1].links,
     },
   ],
 };
