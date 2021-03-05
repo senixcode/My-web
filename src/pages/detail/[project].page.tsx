@@ -13,16 +13,19 @@ export default function Detail() {
   useEffect(() => {
     if (isReady) {
       const projects: Array<IProjects> = getProjects(locale);
-      setProject(getProjectByTitle(projects, query.project as string));
-      project &&
+      const _project_ = getProjectByTitle(projects, query.project as string)
+      setProject(_project_);
+      if (_project_) {
+        const title = seoTitle(_project_.title, locale)        
         setSEO({
-          title: seoTitle(project.title, locale),
-          description: project.summary,
+          title: title,
+          description: _project_.summary,
           openGraph: {
-            title: seoTitle(project.title, locale),
-            description: project.summary,
+            title: title,
+            description: _project_.summary,
           },
         });
+      }
     }
   }, [isReady, setProject, setSEO]);
 
