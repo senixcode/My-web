@@ -4,25 +4,35 @@ import { Button } from "../../../styles/system/Button";
 import { Image } from "../../../styles/system/Image";
 import { PropStyleTheme } from "../../types";
 import { FC } from "react";
-export const Content: FC<{ content: string }> = ({ content }) => (
-  <Container
-    gridTemplateRowsXs={`6fr 1fr`}
-    gridTemplateRowsMd={`9fr 2fr`}
-    styles={justifyItems}
-  >
-    <Title>{content}</Title>
-    <Button width="6em" height="2.6em" borderRadius="12px" styles={button}>
-      <Container
-        gridTemplateColumnsXs={`1fr 1fr`}
-        gridColumGap="0.2em"
-        styles={fileDownload}
-      >
-        <i className="fas fa-file-download" />
-        <p>cv</p>
-      </Container>
-    </Button>
-  </Container>
-);
+import { useRouter } from "next/router";
+export const Content: FC<{ content: string }> = ({ content }) => {
+  const {locale} = useRouter();
+  return (
+    <Container
+      gridTemplateRowsXs={`6fr 1fr`}
+      gridTemplateRowsMd={`9fr 2fr`}
+      styles={justifyItems}
+    >
+      <Title>{content}</Title>
+      <Button width="6em" height="2.6em" borderRadius="12px" styles={button}>
+        <a
+          href={`pdf/cv-${locale}.pdf`}
+          target="_blank"
+          style={{ textDecoration: "none", color: "#fff" }}
+        >
+          <Container
+            gridTemplateColumnsXs={`1fr 1fr`}
+            gridColumGap="0.2em"
+            styles={fileDownload}
+          >
+            <i className="fas fa-file-download" />
+            <p>cv</p>
+          </Container>
+        </a>
+      </Button>
+    </Container>
+  );
+};
 const Title = styled.h1`
   color: ${(props: PropStyleTheme) => props.theme.colors.textPrimary};
 `;
