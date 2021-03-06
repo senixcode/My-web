@@ -1,6 +1,7 @@
 import { SEO_SEPARATOR } from "../../globalVariables";
 import { IProjects } from "./interfaces";
-import uniqBy from "lodash.uniqBy";
+
+// import uniqBy from "lodash/uniqBy"
 export const getProjectByTitle = (
   projects: Array<IProjects>,
   titleSeo: string
@@ -19,5 +20,6 @@ export const seoTitle = (title: string, lenguage: string = "en"): string => {
 export const getTopics = (projects: Array<IProjects>): Array<string> => {
   let newTopics:Array<string> = [];
   projects.map((project) => (newTopics = [...newTopics, ...project.topics]));
-  return uniqBy(newTopics);
+  // return uniqBy(newTopics,null);
+  return newTopics
 };
