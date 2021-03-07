@@ -9,13 +9,12 @@ import SEO from "../../next-seo.config";
 import Header from "../components/containers/header";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
-
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <DefaultSeo {...SEO} />
       <ContextWrapper>
-        <Header />
+       {pageProps.statusCode != 404  &&  <Header />}
         <Component {...pageProps} />
       </ContextWrapper>
     </ThemeProvider>
