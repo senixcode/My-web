@@ -6,7 +6,7 @@ import { PropStyleTheme } from "../../types";
 import { FC } from "react";
 import { useRouter } from "next/router";
 export const Content: FC<{ content: string }> = ({ content }) => {
-  const {locale} = useRouter();
+  const { locale } = useRouter();
   return (
     <Container
       gridTemplateRowsXs={`6fr 1fr`}
@@ -14,12 +14,12 @@ export const Content: FC<{ content: string }> = ({ content }) => {
       styles={justifyItems}
     >
       <Title>{content}</Title>
-      <Button width="6em" height="2.6em" borderRadius="12px" styles={button}>
-        <a
-          href={`pdf/cv-${locale}.pdf`}
-          target="_blank"
-          style={{ textDecoration: "none", color: "#fff" }}
-        >
+      <a
+        href={`pdf/cv-${locale}.pdf`}
+        target="_blank"
+        style={{ textDecoration: "none", color: "#fff" }}
+      >
+        <Button width="6em" height="2.6em" borderRadius="12px" styles={button}>
           <Container
             gridTemplateColumnsXs={`1fr 1fr`}
             gridColumGap="0.2em"
@@ -28,8 +28,8 @@ export const Content: FC<{ content: string }> = ({ content }) => {
             <i className="fas fa-file-download" />
             <p>cv</p>
           </Container>
-        </a>
-      </Button>
+        </Button>
+      </a>
     </Container>
   );
 };
