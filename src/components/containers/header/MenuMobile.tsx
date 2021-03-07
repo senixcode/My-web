@@ -7,7 +7,7 @@ import Link from "next/link";
 import { Languages } from "./Languages";
 import { SocialNetworks } from "../../organisms/SocialNetworks";
 interface MenuMobileProps extends RouterProps {
-  handleChangeMenu:() => void
+  handleChangeMenu: () => void;
 }
 const Content: FC<MenuMobileProps> = ({ router, handleChangeMenu }) => {
   const { locale } = router;
@@ -20,11 +20,18 @@ const Content: FC<MenuMobileProps> = ({ router, handleChangeMenu }) => {
       <div style={{ width: "25%" }}>
         <Languages router={router} />
       </div>
-      {t.map(({ path, title }, i) => path != '/detail/[project]' && (
-        <Link href={path} key={i}>
-          <Nav selected={path === router.route ? true : false}>{title}</Nav>
-        </Link>
-      ))}
+      {t.map(
+        ({ path, title }, i) =>
+          path != "/detail/[project]" && (
+            <div key={i} onClick={handleChangeMenu}>
+              <Link href={path}>
+                <Nav selected={path === router.route ? true : false}>
+                  {title}
+                </Nav>
+              </Link>
+            </div>
+          )
+      )}
       <SocialNetworks />
     </Navs>
   );
@@ -32,7 +39,7 @@ const Content: FC<MenuMobileProps> = ({ router, handleChangeMenu }) => {
 
 export const MenuCellSize: FC<MenuMobileProps> = (props) => (
   <Container>
-    <Content {...props}/>
+    <Content {...props} />
   </Container>
 );
 const Container = styled.div`
