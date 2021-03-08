@@ -28,6 +28,10 @@ export default function MyApp({ Component, pageProps }: AppProps) {
             content: "IE=edge; chrome=1",
           },
         ]}
+        languageAlternates={[{
+           hrefLang: 'es',
+           href: 'https://www.senixcode.dev/es',
+        }]}
       />
       <ContextWrapper>
         {pageProps.statusCode != 404 && <Header />}
