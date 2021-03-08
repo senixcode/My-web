@@ -12,9 +12,25 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <DefaultSeo {...SEO} />
+      <DefaultSeo
+        {...SEO}
+        additionalMetaTags={[
+          {
+            property: "dc:creator",
+            content: "senixcode",
+          },
+          {
+            name: "senixcode",
+            content: "About me, full stack developer, open source projects.",
+          },
+          {
+            httpEquiv: "x-ua-compatible",
+            content: "IE=edge; chrome=1",
+          },
+        ]}
+      />
       <ContextWrapper>
-       {pageProps.statusCode != 404  &&  <Header />}
+        {pageProps.statusCode != 404 && <Header />}
         <Component {...pageProps} />
       </ContextWrapper>
     </ThemeProvider>

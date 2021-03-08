@@ -1,20 +1,6 @@
 export default {
   description:
     "I am a self-taught full stack developer, I show you my open source projects and ideas, with javascript and other technologies.",
-  additionalMetaTags: [
-    {
-      propiedad: "dc: creator",
-      contenido: "senixcode",
-    },
-    {
-      nombre: "senixcode",
-      contenido: "about me, portfolio, project and ideas",
-    },
-    {
-      httpEquiv: "x-ua-compatible",
-      contenido: "IE = borde; chrome = 1 ",
-    },
-  ],
   openGraph: {
     type: "website",
     locale: "en_US",
