@@ -61,7 +61,7 @@ export const routes: ILenguage<Array<IProjects>> = {
       title: "My website",
       titleSeo: repeatPropertiesProject[0].titleSeo,
       summary:
-        'It is the combination of the professional and the personal, in this sprint I have only been able to complete the professional side.',
+        'In conclusion this web will be a summary of what I want to highlight and being my letter of introduction to the world.',
       descriptions: [
         'It is the combination of the professional and the personal, in this sprint I have only been able to complete the professional side.',
         'This website will always be updated with what I acquire, both the functional part (web) and the abstract (source code). ',
