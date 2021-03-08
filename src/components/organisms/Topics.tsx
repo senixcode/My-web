@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { FC } from "react";
 import styled, { css } from "styled-components";
 import { Container } from "../../../styles/system/Container";
@@ -9,9 +10,13 @@ import { Topics as TopicsFlex } from "../molecules/cardProjects/Topics";
 
 export const Topics: FC<{ projects: Array<IProjects> }> = ({ projects }) => {
   const topics = getTopics(projects);
+  const {locale} = useRouter();
   return (
-    <Container styles={container}>
-      <TopicsFlex topics={topics} />
+    <Container gridTemplateRowsMd={`1fr 12fr`} styles={container}>
+      <Title>{locale ==="en"? "TOPICS":"TEMAS"}</Title>
+      <div>
+        <TopicsFlex topics={topics} />
+      </div>
     </Container>
   );
 };
@@ -28,4 +33,9 @@ const container = css`
     props.theme.screen.md}) {
     display: none;
   }
+`;
+const Title = styled.h3`
+  color: ${(props: PropStyleTheme) => props.theme.colors.textPrimary};
+  font-size: 18px;
+  font-weight: normal;
 `;
