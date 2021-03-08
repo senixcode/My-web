@@ -2,11 +2,11 @@ export default {
   description:
     "I am a self-taught full stack developer, I show you my open source projects and ideas, with javascript and other technologies.",
   additionalMetaTags: [
-    "senix",
-    "senixcode",
-    "about senixcode",
-    "developer",
-    "full stack",
+    {
+      name: "keywords",
+      content:
+        "senix, senixcode, about senixcode, developer, full stack, project ideas",
+    },
   ],
   openGraph: {
     type: "website",
