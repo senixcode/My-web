@@ -1,5 +1,5 @@
 export default {
-    description:"About senixcode, portfolio, projects, and ideas",
+    description:"About senixcode, I am a self-taught full stack developer, I will show you my open source projects and ideas.",
     openGraph:{
         type:'website',
         locale:'en_US',
