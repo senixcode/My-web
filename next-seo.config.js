@@ -1,6 +1,7 @@
 export default {
   description:
     "I am a self-taught full stack developer, I show you my open source projects and ideas, with javascript and other technologies.",
+  keywords: "senix, senixcode",
   openGraph: {
     type: "website",
     locale: "en_US",
