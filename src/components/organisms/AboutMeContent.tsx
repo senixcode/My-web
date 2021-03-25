@@ -5,7 +5,8 @@ import { Image } from "../../../styles/system/Image";
 import { PropStyleTheme } from "../../types";
 import { FC } from "react";
 import { useRouter } from "next/router";
-export const Content: FC<{ content: string }> = ({ content }) => {
+import { PropsAboutMe } from "../../pages/index.page";
+export const Content: FC<PropsAboutMe> = ({ data }) => {
   const { locale } = useRouter();
   return (
     <Container
@@ -13,7 +14,7 @@ export const Content: FC<{ content: string }> = ({ content }) => {
       gridTemplateRowsMd={`9fr 2fr`}
       styles={justifyItems}
     >
-      <Title>{content}</Title>
+      <Title>{data.name}</Title>
       <a
         href={`pdf/cv-${locale}.pdf`}
         target="_blank"
