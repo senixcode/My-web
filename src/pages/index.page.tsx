@@ -15,7 +15,8 @@ export async function getStaticProps({ locale }) {
   const LANGUAGE = (locale as string).toLocaleUpperCase();
 
   const client = new ApolloClient({
-    uri: "https://cms-api-website.herokuapp.com/graphql",
+    // uri: "https://cms-api-website.herokuapp.com/graphql",
+    uri: "http://localhost:4000/graphql",
     cache: new InMemoryCache(),
   });
   const GET_ABOUTME = gql`
