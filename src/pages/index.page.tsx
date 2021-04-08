@@ -1,23 +1,27 @@
 import { AboutMeContainer } from "../components/containers/AboutMeContainer";
-import { FC } from "react";
+import { FC, Fragment } from "react";
 import { IAboutMe } from "../interface/aboutMe";
 import { GET_ABOUTME } from "../graphql/querys/aboutMe";
 import { useRouter } from "next/router";
-import {  useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
+import { MiddlwareHookApolloClient } from "../components/common/MiddelwareHookApolloClient";
 export type PropsAboutMe = {
   data: IAboutMe;
 };
 const AboutMe: FC<PropsAboutMe> = () => {
   const { locale } = useRouter();
   const LANGUAGE = (locale as string).toLocaleUpperCase();
-  let { data, error, loading } = useQuery(GET_ABOUTME, {
+  let getAboutMe = useQuery(GET_ABOUTME, {
     variables: { param: LANGUAGE },
   });
-  
-  if (loading) return <p>Loading</p>;
-  if (error) return <p>Error</p>;
-  
-  return <AboutMeContainer data={data.data[0]} />;
+
+  return (
+    <MiddlwareHookApolloClient {...getAboutMe}>
+      {getAboutMe.data && <AboutMeContainer data={getAboutMe.data.data[0]} />}
+    </MiddlwareHookApolloClient>
+  );
 };
+
+
 
 export default AboutMe;
