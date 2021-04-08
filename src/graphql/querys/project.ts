@@ -9,3 +9,12 @@ export const GET_PROJECT = gql`
     }
   }
 `;
+
+export const GET_PROJECT_ONE = gql`
+  ${PROJECT_FIELDS}
+  query findTitleSeo($titleSeo: String!, $language: Language!) {
+    data: projectFindByTitleSeo(titleSeo: $titleSeo, language: $language) {
+      ...project_data
+    }
+  }
+`;
