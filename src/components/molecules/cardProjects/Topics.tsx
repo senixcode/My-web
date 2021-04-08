@@ -1,13 +1,13 @@
 import styled,{css} from 'styled-components'
 import { FC } from "react";
-import { Container } from "../../../../styles/system/Container";
 import { Topic } from '../Topic';
+import { ITopic } from '../../../interface/Topic';
 
-export const Topics: FC<{ topics: Array<string> }> = ({ topics }) => (
+export const Topics: FC<{ topics: Array<ITopic> }> = ({ topics }) => (
   <Flex >
     {topics.map((topic,index) => (
       <div key={index} >
-        <Topic name={topic} />
+        <Topic name={topic.name} />
       </div>
     ))}
   </Flex>
