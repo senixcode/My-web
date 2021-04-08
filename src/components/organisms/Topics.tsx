@@ -12,9 +12,8 @@ import { Topics as TopicsFlex } from "../molecules/cardProjects/Topics";
 
 export const Topics = () => {
   const getTopic = useQuery(GET_TOPIC);
-  const topics =
-    getTopic.data &&
-    (getTopic.data.data as Array<ITopic>).map((topic) => topic.name);
+  const topics: Array<ITopic> =
+    getTopic.data && (getTopic.data.data as Array<ITopic>);
 
   const { locale } = useRouter();
   return (
