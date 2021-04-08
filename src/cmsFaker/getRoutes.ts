@@ -1,4 +1,4 @@
-import { ILenguage } from "../interface/Lenguages";
+import { ILenguage, Language } from "../interface/Lenguages";
 
 export const getRoutes = (lenguage: string = "en"): Array<IRoutes> => {
   const routes: ILenguage<Array<IRoutes>> = {
@@ -37,4 +37,6 @@ export const getRoutes = (lenguage: string = "en"): Array<IRoutes> => {
 export interface IRoutes {
   path: string;
   title: string;
+  language?:Language;
+   __typename?:string;
 }
