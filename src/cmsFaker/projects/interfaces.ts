@@ -1,9 +1,9 @@
 import { ITopic } from "../../interface/Topic";
 
 export interface ILink {
-  nameSeo?: string;
+  href?: string;
+  icon?: string;
   name?: string;
-  link?: string;
    __typename?: string;
 }
 export interface RepeatPropertiesProject {

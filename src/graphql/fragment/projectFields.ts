@@ -15,6 +15,7 @@ export const PROJECT_FIELDS = gql`
       id
       name
       href
+      icon
     }
     language
   }
