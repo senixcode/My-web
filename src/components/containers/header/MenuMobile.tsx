@@ -1,17 +1,14 @@
 import styled from "styled-components";
-import { PropStyleTheme, RouterProps } from "../../../types";
+import { PropStyleTheme } from "../../../types";
 import { ITheme } from "../../../interface/Theme";
-import { getRoutes, IRoutes } from "../../../cmsFaker/getRoutes";
 import { FC } from "react";
 import Link from "next/link";
 import { Languages } from "./Languages";
 import { SocialNetworks } from "../../organisms/SocialNetworks";
-interface MenuMobileProps extends RouterProps {
-  handleChangeMenu: () => void;
-}
-const Content: FC<MenuMobileProps> = ({ router, handleChangeMenu }) => {
-  const { locale } = router;
-  const t: Array<IRoutes> = getRoutes(locale);
+import { HeaderNavProps } from ".";
+
+const Content: FC<HeaderNavProps> = ({ router, routes, handleChangeMenu }) => {
+
   return (
     <Navs>
       <Flex onClick={handleChangeMenu}>
@@ -20,7 +17,7 @@ const Content: FC<MenuMobileProps> = ({ router, handleChangeMenu }) => {
       <div style={{ width: "25%" }}>
         <Languages router={router} />
       </div>
-      {t.map(
+      {routes.map(
         ({ path, title }, i) =>
           path != "/detail/[project]" && (
             <div key={i} onClick={handleChangeMenu}>
@@ -37,7 +34,7 @@ const Content: FC<MenuMobileProps> = ({ router, handleChangeMenu }) => {
   );
 };
 
-export const MenuCellSize: FC<MenuMobileProps> = (props) => (
+export const MenuCellSize: FC<HeaderNavProps> = (props) => (
   <Container>
     <Content {...props} />
   </Container>
