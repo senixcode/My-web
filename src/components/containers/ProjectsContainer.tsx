@@ -1,25 +1,21 @@
-import { FC } from "react";
 import { css } from "styled-components";
 import { Container } from "../../../styles/system/Container";
 import { Hide } from "../../../styles/system/Hide";
-import { IProjects } from "../../cmsFaker/projects/interfaces";
 import { PropStyleTheme } from "../../types";
 import { ProjectContent } from "../organisms/ProjectContent";
 import { SocialNetworks } from "../organisms/SocialNetworks";
 import { Topics } from "../organisms/Topics";
 
-export const ProjectsContainer: FC<{ projects: Array<IProjects> }> = ({
-  projects,
-}) => (
+export const ProjectsContainer = () => (
   <Container
     gridTemplateColumnsXs="1fr"
-     gridTemplareRowsXs={`1fr`}
+    gridTemplareRowsXs={`1fr`}
     gridTemplateColumnsMd={`2.5fr 8fr 1fr`}
     gridColumGap="1em"
     styles={container}
   >
     <Topics />
-    <ProjectContent projects={projects} />
+    <ProjectContent />
     <Hide maxMd="none">
       <SocialNetworks />
     </Hide>
