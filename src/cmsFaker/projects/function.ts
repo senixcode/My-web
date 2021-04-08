@@ -17,9 +17,9 @@ export const seoTitle = (title: string, lenguage: string = "en"): string => {
   return lenguage === "en" ? `Details ${newTitle}` : `Detalles ${newTitle}`;
 };
 
-export const getTopics = (projects: Array<IProjects>): Array<string> => {
-  let newTopics:Array<string> = [];
-  projects.map((project) => (newTopics = [...newTopics, ...project.topics]));
-  // return uniqBy(newTopics,null);
-  return newTopics
-};
+// export const getTopics = (projects: Array<IProjects>): Array<string> => {
+//   let newTopics:Array<string> = [];
+//   projects.map((project) => (newTopics = [...newTopics, ...project.topics]));
+//   // return uniqBy(newTopics,null);
+//   return newTopics
+// };
