@@ -1,17 +1,16 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import { FC } from "react";
+
 import styled, { css } from "styled-components";
 import { Container } from "../../../styles/system/Container";
 import { startContent, startItems } from "../../../styles/system/styles";
-import { IProjects } from "../../cmsFaker/projects/interfaces";
 import { GET_TOPIC } from "../../graphql/querys/topic";
 import { ITopic } from "../../interface/Topic";
 import { PropStyleTheme } from "../../types";
 import { MiddlwareHookApolloClient } from "../common/MiddelwareHookApolloClient";
 import { Topics as TopicsFlex } from "../molecules/cardProjects/Topics";
 
-export const Topics: FC<{ projects: Array<IProjects> }> = ({ projects }) => {
+export const Topics = () => {
   const getTopic = useQuery(GET_TOPIC);
   const topics =
     getTopic.data &&

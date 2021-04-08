@@ -18,7 +18,7 @@ export const ProjectsContainer: FC<{ projects: Array<IProjects> }> = ({
     gridColumGap="1em"
     styles={container}
   >
-    <Topics projects={projects} />
+    <Topics />
     <ProjectContent projects={projects} />
     <Hide maxMd="none">
       <SocialNetworks />
