@@ -26,7 +26,6 @@ export const ProjectContent = () => {
   });
   
   const projects: Array<IProjects> = getProject.data && getProject.data.data;
-  getProject.data && console.log(getProject, projects);
   return (
     <Container gridTemplateRowsMd={`2fr 12fr`} styles={container}>
       {/* <Hide maxMd="none" styles={filter}>
