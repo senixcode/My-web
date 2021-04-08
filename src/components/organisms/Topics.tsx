@@ -1,22 +1,29 @@
+import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import styled, { css } from "styled-components";
 import { Container } from "../../../styles/system/Container";
 import { startContent, startItems } from "../../../styles/system/styles";
-import { getTopics } from "../../cmsFaker/projects/function";
 import { IProjects } from "../../cmsFaker/projects/interfaces";
+import { GET_TOPIC } from "../../graphql/querys/topic";
+import { ITopic } from "../../interface/Topic";
 import { PropStyleTheme } from "../../types";
+import { MiddlwareHookApolloClient } from "../common/MiddelwareHookApolloClient";
 import { Topics as TopicsFlex } from "../molecules/cardProjects/Topics";
 
 export const Topics: FC<{ projects: Array<IProjects> }> = ({ projects }) => {
-  const topics = getTopics(projects);
-  const {locale} = useRouter();
+  const getTopic = useQuery(GET_TOPIC);
+  const topics =
+    getTopic.data &&
+    (getTopic.data.data as Array<ITopic>).map((topic) => topic.name);
+
+  const { locale } = useRouter();
   return (
     <Container gridTemplateRowsMd={`1fr 12fr`} styles={container}>
-      <Title>{locale ==="en"? "TOPICS":"TEMAS"}</Title>
-      <div>
-        <TopicsFlex topics={topics} />
-      </div>
+      <Title>{locale === "en" ? "TOPICS" : "TEMAS"}</Title>
+      <MiddlwareHookApolloClient {...getTopic}>
+        <div>{topics && <TopicsFlex topics={topics} />}</div>
+      </MiddlwareHookApolloClient>
     </Container>
   );
 };
