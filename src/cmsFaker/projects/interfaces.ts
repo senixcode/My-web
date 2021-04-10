@@ -4,7 +4,8 @@ export interface ILink {
   href?: string;
   icon?: string;
   name?: string;
-   __typename?: string;
+  category?: string;
+  __typename?: string;
 }
 export interface RepeatPropertiesProject {
   titleSeo: string;
@@ -16,6 +17,5 @@ export interface IProjects extends RepeatPropertiesProject {
   title: string;
   summary: string;
   descriptions: Array<string>;
-  __typename?:string;
+  __typename?: string;
 }
-;
