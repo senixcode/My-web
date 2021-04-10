@@ -16,6 +16,7 @@ export const PROJECT_FIELDS = gql`
       name
       href
       icon
+      category
     }
     language
   }
