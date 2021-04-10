@@ -12,40 +12,40 @@ const repeatPropertiesProject: Array<RepeatPropertiesProject> = [
   {
     titleSeo: "my-website",
     topics: [{ id: 1, name: "Figma",__typename:"Topic" }],
-    links: [
-      {
-        nameSeo: SEO_GITHUB,
-        name: ICON_GITHUB,
-        link: "https://github.com/senixcode/my-website",
-      },
-      {
-        nameSeo: SEO_LINK,
-        name: ICON_LINK,
-        link: "https://senixcode.dev/",
-      },
-      {
-        nameSeo: SEO_FIGMA,
-        name: ICON_FIGMA,
-        link:
-          "https://www.figma.com/file/JwPIDz1ElEbggvg38n9nyA/new-template-my-web?node-id=0%3A1",
-      },
-    ],
+    // links: [
+    //   {
+    //     nameSeo: SEO_GITHUB,
+    //     name: ICON_GITHUB,
+    //     link: "https://github.com/senixcode/my-website",
+    //   },
+    //   {
+    //     nameSeo: SEO_LINK,
+    //     name: ICON_LINK,
+    //     link: "https://senixcode.dev/",
+    //   },
+    //   {
+    //     nameSeo: SEO_FIGMA,
+    //     name: ICON_FIGMA,
+    //     link:
+    //       "https://www.figma.com/file/JwPIDz1ElEbggvg38n9nyA/new-template-my-web?node-id=0%3A1",
+    //   },
+   // ],
   },
   {
     titleSeo: "simple-ecommerce",
     topics: [{ id: 1, name: "Figma",__typename:"Topic"}],
-    links: [
-      {
-        nameSeo: SEO_GITHUB,
-        name: ICON_GITHUB,
-        link: "https://github.com/senixcode/lightweight-ecommerce-template",
-      },
-      {
-        nameSeo: SEO_LINK,
-        name: ICON_LINK,
-        link: "https://lightweight-ecommerce-template.netlify.app/",
-      },
-    ],
+    // links: [
+    //   {
+    //     nameSeo: SEO_GITHUB,
+    //     name: ICON_GITHUB,
+    //     link: "https://github.com/senixcode/lightweight-ecommerce-template",
+    //   },
+    //   {
+    //     nameSeo: SEO_LINK,
+    //     name: ICON_LINK,
+    //     link: "https://lightweight-ecommerce-template.netlify.app/",
+    //   },
+    //],
   },
 ];
 
