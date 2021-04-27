@@ -10,8 +10,8 @@ export const ProjectsContainer = () => (
   <Container
     gridTemplateColumnsXs="1fr"
     gridTemplareRowsXs={`1fr`}
-    gridTemplateColumnsMd={`2.5fr 8fr 1fr`}
-    gridColumGap="1em"
+    gridTemplateColumnsMd={`2.8fr 8fr 1fr`}
+    gridColumGap="2em"
     styles={container}
   >
     <Topics />
