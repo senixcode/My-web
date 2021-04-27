@@ -4,6 +4,7 @@ import {
   IMenuMobileContext,
   MenuMobileContext,
 } from "../contexts/MenuMobileContext";
+import ModalProvider from "../senixcode-lightbox-custom/ModalContext";
 
 export function ContextWrapper({ children }) {
   const [headerShow, setHeaderShow] = useState(true);
@@ -14,10 +15,12 @@ export function ContextWrapper({ children }) {
     setMenuMobileShow,
   };
   return (
-    <HeaderContext.Provider value={valueHeader}>
-      <MenuMobileContext.Provider value={valueMenuMobile}>
-        {children}
-      </MenuMobileContext.Provider>
-    </HeaderContext.Provider>
+    <ModalProvider>
+      <HeaderContext.Provider value={valueHeader}>
+        <MenuMobileContext.Provider value={valueMenuMobile}>
+          {children}
+        </MenuMobileContext.Provider>
+      </HeaderContext.Provider>
+    </ModalProvider>
   );
 }
