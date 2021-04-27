@@ -34,6 +34,8 @@ const container = css`
   padding: 0.5em;
   ${startContent}
   ${startItems}
+  border-radius:12px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   @media screen and (max-width: ${(props: PropStyleTheme) =>
     props.theme.screen.md}) {
     display: none;
