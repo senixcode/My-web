@@ -1,5 +1,5 @@
-import { SEO_SEPARATOR } from "../../globalVariables";
-import { IProjects } from "./interfaces";
+import { SEO_SEPARATOR } from "../globalVariables";
+import { IProjects } from "../interface/Project";
 
 // import uniqBy from "lodash/uniqBy"
 export const getProjectByTitle = (
