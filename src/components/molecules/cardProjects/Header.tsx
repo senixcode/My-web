@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import { FC } from "react";
 import { Container } from "../../../../styles/system/Container";
 import { PropStyleTheme } from "../../../types";
-import { IProjects } from "../../../cmsFaker/projects/interfaces";
+import { IProjects } from "../../../interface/Project";
 import { Icons } from "./IconsHeader";
 
 export const Header: FC<IProjects> = ({ title, links }) => (

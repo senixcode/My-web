@@ -1,7 +1,7 @@
 import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
-import { IProjects } from "../../cmsFaker/projects/interfaces";
-import { seoTitle } from "../../cmsFaker/projects/function";
+import { IProjects } from "../../interface/Project";
+import { seoTitle } from "../../helper/projects";
 import { DetailContainer } from "../../components/containers/DetailContainer";
 import { useEffect, useState } from "react";
 import { GET_PROJECT_ONE } from "../../graphql/querys/project";

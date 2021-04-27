@@ -4,7 +4,7 @@ import { Container } from "../../../styles/system/Container";
 import { startContent, startItems } from "../../../styles/system/styles";
 import { PropStyleTheme } from "../../types";
 import { Topics } from "../molecules/cardProjects/Topics";
-import { IProjects } from "../../cmsFaker/projects/interfaces";
+import { IProjects } from "../../interface/Project";
 import { Icons } from "../molecules/cardProjects/IconsHeader";
 
 export const DetailContainer: FC<IProjects> = ({

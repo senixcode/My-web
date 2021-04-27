@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { ILink } from "../../cmsFaker/projects/interfaces";
+import { ILink } from "../../interface/Project";
 import { LinkCategory } from "../../types/enums/LinkCategory";
 import  Icon from "../atoms/IconCustom";
 import Video from "../atoms/VideoCustom"

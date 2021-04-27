@@ -6,7 +6,7 @@ import { PropStyleTheme } from "../../types";
 import { Header } from "./cardProjects/Header";
 import { Topics } from "./cardProjects/Topics";
 import { cursorPointer } from "../../../styles/system/styles";
-import { IProjects } from "../../cmsFaker/projects/interfaces";
+import { IProjects } from "../../interface/Project"
 import Gallery from "../../senixcode-lightbox-custom/examples/Basic";
 import { parseLinksToItems } from "../../helper/parseLinksToItems";
 interface IContent {

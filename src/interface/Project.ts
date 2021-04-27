@@ -1,4 +1,4 @@
-import { ITopic } from "../../interface/Topic";
+import { ITopic } from "./Topic";
 
 export interface ILink {
   href?: string;

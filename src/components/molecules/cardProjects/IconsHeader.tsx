@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Container } from "../../../../styles/system/Container";
-import { ILink } from "../../../cmsFaker/projects/interfaces";
+import { ILink } from "../../../interface/Project";
 import { css } from "styled-components";
 import { LinkCategory } from "../../../types/enums/LinkCategory";
 import SwichCategoryLink from "../SwtichCategoryLink";

@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
 import { Container } from "../../../styles/system/Container";
-import { IProjects } from "../../cmsFaker/projects/interfaces";
+import { IProjects } from "../../interface/Project";
 import { GET_PROJECT } from "../../graphql/querys/project";
 import { PropStyleTheme } from "../../types";
 import { MiddlwareHookApolloClient } from "../common/MiddelwareHookApolloClient";

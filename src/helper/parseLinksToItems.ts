@@ -1,5 +1,5 @@
 import { TypeItem, Item } from "../senixcode-lightbox-custom/types";
-import { ILink } from "../cmsFaker/projects/interfaces";
+import { ILink } from "../interface/Project";
 
 const convertItem = (links: Array<ILink>): Array<Item> => {
   return links.map(({ category: type, href: src }) => ({

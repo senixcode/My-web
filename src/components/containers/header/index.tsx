@@ -4,7 +4,7 @@ import { DefaultHeader, HeaderDetails } from "./ContainerHeader";
 import { GET_ROUTE } from "../../../graphql/querys/route";
 import { useQuery } from "@apollo/client";
 import { MiddlwareHookApolloClient } from "../../common/MiddelwareHookApolloClient";
-import { IRoutes } from "../../../cmsFaker/getRoutes";
+import { IRoutes } from "../../../interface/Route";
 import { RouterProps } from "../../../types";
 export default function Header() {
   const { router, menuMobileShow, headerShow, handleChangeMenu } = useHeader();
