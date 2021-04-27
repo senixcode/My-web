@@ -21,7 +21,7 @@ export default function Header() {
   };
   return (
     <MiddlwareHookApolloClient {...getRoute}>
-      {menuMobileShow && getRoute.data(<MenuCellSize {...propsSend} />)}
+      {menuMobileShow && getRoute.data && (<MenuCellSize {...propsSend} />)}
       {headerShow && getRoute.data ? (
         <DefaultHeader {...propsSend} />
       ) : (
