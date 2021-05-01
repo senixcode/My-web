@@ -3,18 +3,34 @@ import { Container } from "../../../styles/system/Container";
 import { Button } from "../../../styles/system/Button";
 import { Image } from "../../../styles/system/Image";
 import { PropStyleTheme } from "../../types";
-import { FC } from "react";
+import { FC, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import { PropsAboutMe } from "../../pages/index.page";
+import Typed, { TypedOptions } from "typed.js";
+import { titleConvertOptions, getOptions } from "../../helper/typedjs";
+
 export const Content: FC<PropsAboutMe> = ({ data }) => {
   const { locale } = useRouter();
+  const testRef = useRef<HTMLHeadingElement>(null);
+  const { first, surplus } = titleConvertOptions(data.name);
+  const options: TypedOptions = getOptions(surplus);
+  useEffect(() => {
+    if(testRef?.current && options){
+        new Typed(testRef?.current, options);
+    }
+  },[data.name])
+  console.log("options",options)
   return (
     <Container
       gridTemplateRowsXs={`6fr 1fr`}
       gridTemplateRowsMd={`9fr 2fr`}
       styles={justifyItems}
     >
-      <Title>{data.name}</Title>
+      <Title>
+        
+        {`${first} `}
+        <span ref={testRef}></span>
+      </Title>
       <a
         href={`pdf/cv-${locale}.pdf`}
         target="_blank"

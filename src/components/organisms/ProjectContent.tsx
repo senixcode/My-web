@@ -8,21 +8,28 @@ import { GET_PROJECT } from "../../graphql/querys/project";
 import { PropStyleTheme } from "../../types";
 import { MiddlwareHookApolloClient } from "../common/MiddelwareHookApolloClient";
 import { ProjectCard } from "../molecules/ProjectCard";
+import { Hide } from "../../../styles/system/Hide";
+import { Topics } from "../molecules/cardProjects/Topics";
+import { ITopic } from "../../interface/Topic";
+import { startContent, startItems } from "../../../styles/system/styles";
 
 const Projects: FC<{
   projects: Array<IProjects>;
   seeMoreLang: string;
   seeLessLang: string;
-}> = ({projects,seeLessLang,seeMoreLang}) => (
-  <Container gridTemplateRowsMd={`1fr 1fr`} gridRowGap=".5em" styles={projects}>
+}> = ({ projects, seeLessLang, seeMoreLang }) => (
+  <Container gridRowGap="1em" styles={projectStyles}>
     {projects.map((project) => {
       // const { description } = getResumeProject(project.summary);
       // project.summary = description;
-      return <ProjectCard key={project.id}
-       project={project} 
-       seeMoreLang={seeMoreLang}
-       seeLessLang={seeLessLang}
-       />;
+      return (
+        <ProjectCard
+          key={project.id}
+          project={project}
+          seeMoreLang={seeMoreLang}
+          seeLessLang={seeLessLang}
+        />
+      );
     })}
   </Container>
 );
@@ -41,21 +48,24 @@ export const ProjectContent = () => {
   });
   React.useEffect(() => {
     if (locale) {
-      setSeeMoreLang(locale === "en" ? "see more" : "ver mas");
+      setSeeMoreLang(locale === "en" ? "...see more" : "...ver mas");
       setSeeLessLang(locale === "en" ? "see less" : "ver menos");
     }
   }, [locale]);
 
   console.log("aqui senixcode", getProject.data?.data);
 
-  const projects: Array<IProjects> = getProject.data && getProject.data.data;
+  const projects: Array<IProjects> = getProject.data && getProject.data.data
   return (
-    <Container gridTemplateRowsMd={`2fr 12fr`} styles={container}>
+    <Container
+      gridTemplateRowsMd={`1fr 12fr`}
+      gridRowGap="1em"
+      styles={container}
+    >
       {/* <Hide maxMd="none" styles={filter}>
-      <Container >
-        <p>filter</p>
-      </Container>
-    </Hide> */}
+        <Container>
+        </Container>
+      </Hide> */}
       <MiddlwareHookApolloClient {...getProject}>
         {projects && (
           <Projects
@@ -73,7 +83,12 @@ const container = css`
   justify-items: start;
   @media screen and (min-width: ${(props: PropStyleTheme) =>
       props.theme.screen.md}) {
-    height: 77vh;
+        grid-template-rows:1fr;
+          width: 100%;
+            /* height:auto; */
+    /* height: 77vh; */
+     justify-items: start;
+  
   }
 `;
 
@@ -81,11 +96,12 @@ const filter = css`
   height: 100%;
   width: 100%;
 `;
-const projects = css`
+const projectStyles = css`
   width: 100%;
   height: 100%;
   align-items: flex-start;
   justify-items: start;
+
 
   @media screen and (max-width: ${(props: PropStyleTheme) =>
       props.theme.screen.md}) {

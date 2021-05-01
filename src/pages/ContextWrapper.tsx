@@ -6,7 +6,7 @@ import {
 } from "../contexts/MenuMobileContext";
 import ModalProvider from "../senixcode-lightbox-custom/ModalContext";
 
-export function ContextWrapper({ children }) {
+export default function ContextWrapper({ children }) {
   const [headerShow, setHeaderShow] = useState(true);
   const [menuMobileShow, setMenuMobileShow] = useState(false);
   const valueHeader: IHeaderContext = { headerShow, setHeaderShow };

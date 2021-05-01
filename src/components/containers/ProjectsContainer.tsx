@@ -11,12 +11,13 @@ export const ProjectsContainer = () => (
     gridTemplateColumnsXs="1fr"
     gridTemplareRowsXs={`1fr`}
     gridTemplateColumnsMd={`2.8fr 8fr 1fr`}
+    gridTemplateRowsMd={`1fr`}
     gridColumGap="2em"
     styles={container}
   >
     <Topics />
     <ProjectContent />
-    <Hide maxMd="none">
+    <Hide maxMd="none" styles={containerSocialNetworks}>
       <SocialNetworks />
     </Hide>
   </Container>
@@ -26,8 +27,13 @@ const container = css`
 
   @media screen and (min-width: ${(props: PropStyleTheme) =>
       props.theme.screen.md}) {
-    padding: 0 3em;
-    height: 87vh;
-    grid-row-gap: 1em;
+    padding: 1.5em 3em;
+    align-items: start;
   }
+`;
+const containerSocialNetworks = css`
+  position: -webkit-sticky;
+  position: sticky;
+  top: 4em;
+  padding-top: 9em;
 `;

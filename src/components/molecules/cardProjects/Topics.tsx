@@ -17,8 +17,8 @@ const Flex = styled.div`
 display: flex;
 flex-wrap:wrap;
 width:100%;
-height:100%;
-
+max-height:100%;
+margin-bottom:6px;
 /* justify-items:start;
 align-items:start; */
 
