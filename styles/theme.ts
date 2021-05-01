@@ -1,7 +1,7 @@
 import { ITheme } from "../src/interface/Theme";
 
 const theme:ITheme = {
-  font: `'Roboto',sans-serif`,
+  font: `Brandon Text,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif`,
   fontSizes:{
     small: 'font-size: 20px; line-height: 30px',
     regular: 'font-size: 24px; line-height: 32px',

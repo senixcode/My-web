@@ -30,14 +30,18 @@ const container = css`
   background-color: ${(props: PropStyleTheme) =>
     props.theme.colors.primaryVariant};
   width: 100%;
-  height: 80vh;
   padding: 0.5em;
   ${startContent}
   ${startItems}
   border-radius:12px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  position: -webkit-sticky;
+  position: sticky;
+  top: 4em;
+
   @media screen and (max-width: ${(props: PropStyleTheme) =>
-    props.theme.screen.md}) {
+      props.theme.screen.md}) {
     display: none;
   }
 `;

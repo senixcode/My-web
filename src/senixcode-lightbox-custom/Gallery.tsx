@@ -2,13 +2,13 @@ import React, { FC } from "react";
 import { ModalContext } from "./ModalContext";
 import SwitchGalleryTypes from "./assets/SwitchGalleryTypes";
 import { Item } from "./types";
-import { ContainerGallery, Masonry } from "./Styles";
+import { ContainerGallery, IMasOnryStyle, Masonry } from "./Styles";
 
-interface PropsGallery {
+export interface PropsGallery extends IMasOnryStyle{
   items: Array<Item>;
 }
 
-export const Gallery: FC<PropsGallery> = ({ items }) => {
+export const Gallery: FC<PropsGallery> = ({ items, columnsMd = 2,columnsXs = 1 }) => {
   const { setShowModal } = React.useContext(ModalContext);
   const handleOnClik = (e: any, item: Item) => {
     (e.target as HTMLElement).classList.add("open");
@@ -24,7 +24,7 @@ export const Gallery: FC<PropsGallery> = ({ items }) => {
 
   return (
     <ContainerGallery>
-      <Masonry>
+      <Masonry columnsMd={columnsMd} columnsXs={columnsXs}>
         {items.map((item, index) => (
           <div key={index}>
             <SwitchGalleryTypes

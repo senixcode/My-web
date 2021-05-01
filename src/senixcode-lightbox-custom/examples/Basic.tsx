@@ -1,6 +1,6 @@
 import { FC } from "react";
 import styled from "styled-components";
-import { Gallery } from "../Gallery";
+import { Gallery, PropsGallery } from "../Gallery";
 import { Item } from "../types";
 
 const Container = styled.div`
@@ -13,11 +13,11 @@ const Container = styled.div`
   }
 `;
 
- const ContainerGallery:FC<{items: Array<Item>}> = ({items}) => {
+ const ContainerGallery:FC<PropsGallery> = (props) => {
 
   return (
     <Container>
-      <Gallery items={items} />
+      <Gallery {...props} />
     </Container>
   );
 }
