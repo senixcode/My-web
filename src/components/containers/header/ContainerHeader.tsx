@@ -5,15 +5,12 @@ import { Hide } from "../../../../styles/system/Hide";
 import { Navs } from "./Navs";
 import { Languages } from "./Languages";
 import { FC } from "react";
-import { NextRouter } from "next/router";
 import Link from "next/link";
 import { cursorPointer } from "../../../../styles/system/styles";
 import { PropStyleTheme } from "../../../types";
+import { HeaderNavProps } from ".";
 
-export const DefaultHeader: FC<{
-  router: NextRouter;
-  handleChangeMenu: () => void;
-}> = ({ router, handleChangeMenu }) => (
+export const DefaultHeader: FC<HeaderNavProps> = ({ routes, router,  handleChangeMenu }) => (
   <Container
     gridTemplateColumnsXs={`1fr 8fr 1fr`}
     gridTemplateRowsXs={`1fr`}
@@ -21,7 +18,7 @@ export const DefaultHeader: FC<{
     styles={container}
   >
     <Image widthXs="20px" widthMd="30px" />
-    <Navs router={router} />
+    <Navs router={router} routes={routes}/>
     <Hide minMd="none" onClick={handleChangeMenu} styles={iconNavbar}>
       <i className="fas fa-bars"/>
     </Hide>

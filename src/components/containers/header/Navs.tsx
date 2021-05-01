@@ -1,11 +1,11 @@
 import { FC } from "react";
-import { RouterProps } from "../../../types";
 import { Container } from "../../../../styles/system/Container";
 import {NavSelect} from './NavSelect'
-export const Navs: FC<RouterProps> = ({ router }) => {
+import { HeaderNavProps } from ".";
+export const Navs: FC<HeaderNavProps> = ({ router, routes }) => {
   return (
     <Container gridTemplateColumnsXs={`1fr`}>
-      <NavSelect router={router} />
+      <NavSelect router={router} routes={routes} />
     </Container>
   );
 };

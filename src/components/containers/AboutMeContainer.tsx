@@ -6,8 +6,9 @@ import { Content } from "../organisms/AboutMeContent";
 import { SocialNetworks } from "../organisms/SocialNetworks";
 import { PropStyleTheme } from "../../types";
 import { FC } from "react";
+import { PropsAboutMe } from "../../pages/index.page";
 
-export const AboutMeContainer: FC<{ content: string }> = ({ content }) => {
+export const AboutMeContainer: FC<PropsAboutMe> = ({ data }) => {
   return (
     <Container
       gridTemplateColumnsXs="1fr"
@@ -19,7 +20,7 @@ export const AboutMeContainer: FC<{ content: string }> = ({ content }) => {
       <Hide maxMd="none" styles={image}>
         <Image alt="image about me" src="/static/aboutMe.svg" styles={image} />
       </Hide>
-      <Content content={content} />
+      <Content data={data} />
       <Hide maxMd="none">
         <SocialNetworks />
       </Hide>

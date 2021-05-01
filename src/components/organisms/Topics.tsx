@@ -1,22 +1,27 @@
+import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import { FC } from "react";
+
 import styled, { css } from "styled-components";
 import { Container } from "../../../styles/system/Container";
 import { startContent, startItems } from "../../../styles/system/styles";
-import { getTopics } from "../../cmsFaker/projects/function";
-import { IProjects } from "../../cmsFaker/projects/interfaces";
+import { GET_TOPIC } from "../../graphql/querys/topic";
+import { ITopic } from "../../interface/Topic";
 import { PropStyleTheme } from "../../types";
+import { MiddlwareHookApolloClient } from "../common/MiddelwareHookApolloClient";
 import { Topics as TopicsFlex } from "../molecules/cardProjects/Topics";
 
-export const Topics: FC<{ projects: Array<IProjects> }> = ({ projects }) => {
-  const topics = getTopics(projects);
-  const {locale} = useRouter();
+export const Topics = () => {
+  const getTopic = useQuery(GET_TOPIC);
+  const topics: Array<ITopic> =
+    getTopic.data && (getTopic.data.data as Array<ITopic>);
+
+  const { locale } = useRouter();
   return (
     <Container gridTemplateRowsMd={`1fr 12fr`} styles={container}>
-      <Title>{locale ==="en"? "TOPICS":"TEMAS"}</Title>
-      <div>
-        <TopicsFlex topics={topics} />
-      </div>
+      <Title>{locale === "en" ? "TOPICS" : "TEMAS"}</Title>
+      <MiddlwareHookApolloClient {...getTopic}>
+        <div>{topics && <TopicsFlex topics={topics} />}</div>
+      </MiddlwareHookApolloClient>
     </Container>
   );
 };
@@ -25,12 +30,18 @@ const container = css`
   background-color: ${(props: PropStyleTheme) =>
     props.theme.colors.primaryVariant};
   width: 100%;
-  height: 80vh;
   padding: 0.5em;
   ${startContent}
   ${startItems}
+  border-radius:12px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  position: -webkit-sticky;
+  position: sticky;
+  top: 4em;
+
   @media screen and (max-width: ${(props: PropStyleTheme) =>
-    props.theme.screen.md}) {
+      props.theme.screen.md}) {
     display: none;
   }
 `;

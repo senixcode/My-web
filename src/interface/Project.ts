@@ -1,11 +1,15 @@
+import { ITopic } from "./Topic";
+
 export interface ILink {
-  nameSeo?: string;
+  href?: string;
+  icon?: string;
   name?: string;
-  link?: string;
+  category?: string;
+  __typename?: string;
 }
 export interface RepeatPropertiesProject {
   titleSeo: string;
-  topics: Array<string>;
+  topics: Array<ITopic>;
   links?: Array<ILink>;
 }
 export interface IProjects extends RepeatPropertiesProject {
@@ -13,5 +17,5 @@ export interface IProjects extends RepeatPropertiesProject {
   title: string;
   summary: string;
   descriptions: Array<string>;
+  __typename?: string;
 }
-;
