@@ -34,7 +34,6 @@ export const ProjectCard: FC<{
   const items = parseLinksToItems(project.links);
   return (
     <Container
-      // gridTemplateRowsXs={`.2fr 1fr .5fr`}
       gridTemplateRowsMd={`1fr 1fr 1fr 1fr`}
       styles={card}
     >
