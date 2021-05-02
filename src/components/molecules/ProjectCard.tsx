@@ -85,7 +85,7 @@ const Summary = styled.p`
   }
 `;
 
-const card = css`
+export const card = css`
   background-color: ${(props: PropStyleTheme) =>
     props.theme.colors.primaryVariant};
   display: flex;

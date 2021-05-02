@@ -13,7 +13,7 @@ export const Topics: FC<{ topics: Array<ITopic> }> = ({ topics }) => (
   </Flex>
 );
 
-const Flex = styled.div`
+export const Flex = styled.div`
 display: flex;
 flex-wrap:wrap;
 width:100%;
