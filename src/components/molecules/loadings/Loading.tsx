@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import { PropStyleTheme } from "../../types";
+import { PropStyleTheme } from "../../../types";
 export default function Loading() {
   return (
     <Container>

@@ -8,7 +8,7 @@ export const Topic: FC<{ name: string }> = ({ name }) => (
     {name}
   </Container>
 );
-const topic = css`
+export const topic = css`
   padding: 0.2em;
   margin:0.2em;
   border-radius: 6px;
