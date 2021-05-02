@@ -14,12 +14,17 @@ export const Content: FC<PropsAboutMe> = ({ data }) => {
   const testRef = useRef<HTMLHeadingElement>(null);
   const { first, surplus } = titleConvertOptions(data.name);
   const options: TypedOptions = getOptions(surplus);
+
+  let typed: Typed;
   useEffect(() => {
-    if(testRef?.current && options){
-        new Typed(testRef?.current, options);
+    if (testRef?.current && options) {
+      typed = new Typed(testRef?.current, options);
     }
-  },[data.name])
-  console.log("options",options)
+    return () => {
+      typed.destroy();
+    };
+  }, [data.name]);
+
   return (
     <Container
       gridTemplateRowsXs={`6fr 1fr`}
@@ -27,7 +32,6 @@ export const Content: FC<PropsAboutMe> = ({ data }) => {
       styles={justifyItems}
     >
       <Title>
-        
         {`${first} `}
         <span ref={testRef}></span>
       </Title>
