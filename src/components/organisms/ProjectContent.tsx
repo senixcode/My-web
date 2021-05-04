@@ -10,8 +10,6 @@ export const ProjectContent = () => {
   const {
     getProjectLoading,
     projects,
-    seeMoreLang,
-    seeLessLang,
   } = useProject();
 
   return (
@@ -26,9 +24,7 @@ export const ProjectContent = () => {
             {projects.map((project) => (
               <ProjectCard
                 key={project.id}
-                project={project}
-                seeMoreLang={seeMoreLang}
-                seeLessLang={seeLessLang}
+                {...project}
               />
             ))}
           </Container>

@@ -9,51 +9,49 @@ import { cursorPointer } from "../../../styles/system/styles";
 import { IProjects } from "../../interface/Project";
 import GalleryMasOnry from "../../senixcode-lightbox-custom/examples/Basic";
 import { parseLinksToItems } from "../../helper/parseLinksToItems";
+import { useLanguage } from "../../hook/useLanguage";
 interface IContent {
   descriptions: Array<string>;
   seeMore: boolean;
 }
-export const ProjectCard: FC<{
-  project: IProjects;
-  seeMoreLang: string;
-  seeLessLang: string;
-}> = ({ project, seeMoreLang, seeLessLang }) => {
+export const ProjectCard: FC<IProjects> = (props) => {
+  const {contentDisplayCardProject} = useLanguage()
   const [content, setContent] = React.useState<IContent>({
-    descriptions: [project.summary],
+    descriptions: [props.summary],
     seeMore: false,
   });
   const handleSeeMore = () => {
     setContent((content) => {
       const changeState = !content.seeMore;
       return {
-        descriptions: changeState ? project.descriptions : [project.summary],
+        descriptions: changeState ? props.descriptions : [props.summary],
         seeMore: changeState,
       };
     });
   };
-  const items = parseLinksToItems(project.links);
+  const items = parseLinksToItems(props.links);
   return (
     <Container
       gridTemplateRowsMd={`1fr 1fr 1fr 1fr`}
       styles={card}
     >
-      <Header {...project} />
+      <Header {...props} />
       <Container gridRowGap="0.5em">
         {content?.descriptions.map((description, id) => (
           <Summary key={id}>
             {description}
             {content.seeMore === false && (
-              <span onClick={handleSeeMore}>{seeMoreLang}</span>
+              <span onClick={handleSeeMore}>{contentDisplayCardProject.seeMore}</span>
             )}
           </Summary>
         ))}
         {content.seeMore && (
           <Summary>
-            <span onClick={handleSeeMore}>{seeLessLang}</span>
+            <span onClick={handleSeeMore}>{contentDisplayCardProject.seeLess}</span>
           </Summary>
         )}
       </Container>
-      <Topics topics={project.topics} />
+      <Topics topics={props.topics} />
       {content.seeMore && items.length === 1 && (
         <GalleryMasOnry items={items} columnsMd={1} />
       )}
@@ -62,7 +60,7 @@ export const ProjectCard: FC<{
         <GalleryMasOnry items={items} columnsMd={2} />
       )}
       {/* improve this hardodicated code */}
-      {content.seeMore && project.titleSeo === "senixcode-lightbox-custom" && (
+      {content.seeMore && props.titleSeo === "senixcode-lightbox-custom" && (
         <iframe
           src="https://codesandbox.io/embed/github/senixcode/gallery-custom-typescript/tree/main/?fontsize=14&hidenavigation=1&theme=dark"
           className="codesanbox-senixcode"
