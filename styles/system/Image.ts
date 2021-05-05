@@ -1,13 +1,13 @@
-import styled,{css} from "styled-components";
-import { PropStyleTheme } from "../../src/types";
+import styled, { css } from "styled-components"
+import { PropStyleTheme } from "../../src/types"
 interface ImageProps {
-  alt: string;
-  src: string;
-  widthXs: string;
-  widthSm: string;
-  widthMd: string;
-  widthLg: string;
-  styles:css;
+  alt: string
+  src: string
+  widthXs: string
+  widthSm: string
+  widthMd: string
+  widthLg: string
+  styles: css
 }
 export const Image = styled.img.attrs<ImageProps>((props) => ({
   alt: props.alt || "my logo",
@@ -27,5 +27,5 @@ export const Image = styled.img.attrs<ImageProps>((props) => ({
       props.theme.screen.lg}) {
     width: ${(props) => props.widthLg};
   }
-  ${(props:ImageProps) => props.styles}
-`;
+  ${(props: ImageProps) => props.styles}
+`

@@ -1,7 +1,7 @@
-import styled, { css } from "styled-components";
-import { ISizes } from "../src/interface/Sizes";
-import { PropStyleTheme } from "../src/types";
-import { scroll } from "./system/styles";
+import styled, { css } from "styled-components"
+import { ISizes } from "../src/interface/Sizes"
+import { PropStyleTheme } from "../src/types"
+import { scroll } from "./system/styles"
 
 export const Section = styled.div`
   height: 100vh;
@@ -11,7 +11,7 @@ export const Section = styled.div`
       props.theme.screen.md}) {
     padding: ${({ theme }: PropStyleTheme) => theme.sizes.md};
   }
-`;
+`
 export const Slides = styled.div`
   display: flex;
   overflow-x: auto;
@@ -35,4 +35,4 @@ export const Slides = styled.div`
     props.theme.screen.md}) {
     display:none;
   } */
-`;
+`

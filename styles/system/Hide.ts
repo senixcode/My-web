@@ -1,17 +1,17 @@
-import styled, { css } from "styled-components";
-import { PropStyleTheme } from "../../src/types";
+import styled, { css } from "styled-components"
+import { PropStyleTheme } from "../../src/types"
 
 interface HideProps {
-  minXs: string;
-  minSm: string;
-  minMd: string;
-  minLg: string;
+  minXs: string
+  minSm: string
+  minMd: string
+  minLg: string
 
-  maxXs: string;
-  maxSm: string;
-  maxMd: string;
-  maxLg: string;
-  styles: css;
+  maxXs: string
+  maxSm: string
+  maxMd: string
+  maxLg: string
+  styles: css
 }
 export const Hide = styled.div<HideProps>`
   display: ${(props: HideProps) => props.minXs};
@@ -50,4 +50,4 @@ export const Hide = styled.div<HideProps>`
   /* height:100%;
 width:100%; */
   ${(props: HideProps) => props.styles}
-`;
+`
