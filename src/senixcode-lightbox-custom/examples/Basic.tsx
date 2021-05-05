@@ -1,7 +1,6 @@
-import { FC } from "react";
-import styled from "styled-components";
-import { Gallery, PropsGallery } from "../Gallery";
-import { Item } from "../types";
+import { FC } from "react"
+import styled from "styled-components"
+import { Gallery, PropsGallery } from "../Gallery"
 
 const Container = styled.div`
   display: flex;
@@ -11,14 +10,13 @@ const Container = styled.div`
     width: 100%;
     justify-content: center;
   }
-`;
+`
 
- const ContainerGallery:FC<PropsGallery> = (props) => {
-
+const ContainerGallery: FC<PropsGallery> = (props) => {
   return (
     <Container>
       <Gallery {...props} />
     </Container>
-  );
+  )
 }
 export default ContainerGallery

@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import { gql } from "@apollo/client"
 
 export const PROJECT_FIELDS = gql`
   fragment project_data on Project {
@@ -6,12 +6,12 @@ export const PROJECT_FIELDS = gql`
     title
     titleSeo
     summary
-    descriptions:descriptionParse
-    topics:topicsParse {
+    descriptions: descriptionParse
+    topics: topicsParse {
       id
       name
     }
-    links:linksParse {
+    links: linksParse {
       id
       name
       href
@@ -20,4 +20,4 @@ export const PROJECT_FIELDS = gql`
     }
     language
   }
-`;
+`

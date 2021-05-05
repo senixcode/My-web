@@ -1,14 +1,14 @@
-import Link from "next/link";
-import { FC } from "react";
-import { Container } from "../../../../styles/system/Container";
-import { Hide } from "../../../../styles/system/Hide";
-import { Nav } from "../../../../styles/system/Nav";
-import { css } from "styled-components";
-import Head from "next/head";
-import { SEO_SEPARATOR } from "../../../globalVariables";
-import { HeaderNavProps } from ".";
+import Link from "next/link"
+import { FC } from "react"
+import { Container } from "../../../../styles/system/Container"
+import { Hide } from "../../../../styles/system/Hide"
+import { Nav } from "../../../../styles/system/Nav"
+import { css } from "styled-components"
+import Head from "next/head"
+import { SEO_SEPARATOR } from "../../../globalVariables"
+import { HeaderNavProps } from "."
 export const NavSelect: FC<HeaderNavProps> = ({ router, routes }) => {
-  let { title } = routes.find((route) => route.path === router.route);
+  const { title } = routes.find((route) => route.path === router.route)
 
   return (
     <>
@@ -18,14 +18,12 @@ export const NavSelect: FC<HeaderNavProps> = ({ router, routes }) => {
         </Head>
       )}
       <Hide maxMd="none">
-        <Container gridTemplateColumnsMd={`1fr 1fr`} styles={gridColumnGap}>
+        <Container gridTemplateColumnsMd={"1fr 1fr"} styles={gridColumnGap}>
           {routes.map(
             ({ path, title }, i) =>
-              path != "/detail/[project]" && (
+              path !== "/detail/[project]" && (
                 <Link href={path} key={i}>
-                  <Nav selected={path === router.route ? true : false}>
-                    {title}
-                  </Nav>
+                  <Nav selected={path === router.route}>{title}</Nav>
                 </Link>
               )
           )}
@@ -36,9 +34,9 @@ export const NavSelect: FC<HeaderNavProps> = ({ router, routes }) => {
         <Nav>{title}</Nav>
       </Hide>
     </>
-  );
-};
+  )
+}
 
 const gridColumnGap = css`
   grid-column-gap: 3em;
-`;
+`

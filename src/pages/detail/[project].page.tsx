@@ -1,27 +1,27 @@
-import { NextSeo } from "next-seo";
-import { useRouter } from "next/router";
-import { IProjects } from "../../interface/Project";
-import { seoTitle } from "../../helper/projects";
-import { DetailContainer } from "../../components/containers/DetailContainer";
-import { useEffect, useState } from "react";
-import { GET_PROJECT_ONE } from "../../graphql/querys/project";
-import { useQuery } from "@apollo/client";
-import { MiddlwareHookApolloClient } from "../../components/common/MiddelwareHookApolloClient";
+import { NextSeo } from "next-seo"
+import { useRouter } from "next/router"
+import { IProjects } from "../../interface/Project"
+import { seoTitle } from "../../helper/projects"
+import { DetailContainer } from "../../components/containers/DetailContainer"
+import { useEffect, useState } from "react"
+import { GET_PROJECT_ONE } from "../../graphql/querys/project"
+import { useQuery } from "@apollo/client"
+import { MiddlwareHookApolloClient } from "../../components/common/MiddelwareHookApolloClient"
 
 export default function Detail() {
-  const { isReady, query, locale } = useRouter();
-  const [SEO, setSEO] = useState({});
-  const LANGUAGE = (locale as string).toLocaleUpperCase();
+  const { isReady, query, locale } = useRouter()
+  const [SEO, setSEO] = useState({})
+  const LANGUAGE = (locale as string).toLocaleUpperCase()
   const getProjectOne = useQuery(GET_PROJECT_ONE, {
     variables: { titleSeo: query.project as string, language: LANGUAGE },
-  });
+  })
 
   const projectOne =
-    getProjectOne.data && (getProjectOne.data.data as IProjects);
-    
+    getProjectOne.data && (getProjectOne.data.data as IProjects)
+
   useEffect(() => {
     if (isReady && projectOne) {
-      const title = seoTitle(projectOne.title, locale);
+      const title = seoTitle(projectOne.title, locale)
 
       setSEO({
         title: title,
@@ -30,9 +30,9 @@ export default function Detail() {
           title: title,
           description: projectOne.summary,
         },
-      });
+      })
     }
-  }, [isReady, projectOne, setSEO]);
+  }, [isReady, projectOne, setSEO])
 
   return (
     <>
@@ -45,5 +45,5 @@ export default function Detail() {
         </>
       )}
     </>
-  );
+  )
 }

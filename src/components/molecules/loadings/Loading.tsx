@@ -1,5 +1,5 @@
-import styled, { keyframes } from "styled-components";
-import { PropStyleTheme } from "../../../types";
+import styled, { keyframes } from "styled-components"
+import { PropStyleTheme } from "../../../types"
 export default function Loading() {
   return (
     <Container>
@@ -9,7 +9,7 @@ export default function Loading() {
         <Point />
       </LoaderAnimation>
     </Container>
-  );
+  )
 }
 
 const loaderAnimation = keyframes`
@@ -17,11 +17,11 @@ const loaderAnimation = keyframes`
     opacity: 0.1;
     transform: translate3d(0, -1rem, 0);
   }
-`;
+`
 const Container = styled.div`
   height: 100vh;
   display: flex;
-`;
+`
 const LoaderAnimation = styled.div`
   display: flex;
   justify-content: center;
@@ -42,10 +42,10 @@ const LoaderAnimation = styled.div`
   & > div:nth-child(3) {
     animation-delay: 0.4s;
   }
-`;
+`
 const Point = styled.div`
   display: flex;
   justify-content: center;
   align-self: center;
   margin: 0 auto;
-`;
+`

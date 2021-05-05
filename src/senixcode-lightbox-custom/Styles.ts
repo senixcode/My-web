@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { PropStyleTheme } from "../types";
+import styled from "styled-components"
+import { PropStyleTheme } from "../types"
 export const ContainerGallery = styled.div`
   display: flex;
   flex-direction: column;
@@ -23,13 +23,14 @@ export const ContainerGallery = styled.div`
       rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
       rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
   }
-`;
-export interface IMasOnryStyle{
-  columnsXs?:number;
-  columnsMd?:number;
+`
+export interface IMasOnryStyle {
+  columnsXs?: number
+  columnsMd?: number
 }
 export const Masonry = styled.div<IMasOnryStyle>`
-  --columns: ${(props:IMasOnryStyle) => props.columnsXs ? props.columnsMd : 1};
+  --columns: ${(props: IMasOnryStyle) =>
+    props.columnsXs ? props.columnsMd : 1};
   display: column;
   columns: var(--columns);
   gap: 0;
@@ -50,11 +51,12 @@ export const Masonry = styled.div<IMasOnryStyle>`
   @media screen and (min-width: ${(props: PropStyleTheme) =>
       props.theme.screen.md}) {
     --gap: 0;
-    --columns:  ${(props:IMasOnryStyle) => props.columnsXs ? props.columnsMd : 2};
+    --columns: ${(props: IMasOnryStyle) =>
+      props.columnsXs ? props.columnsMd : 2};
     width: 100%;
     height: 100%;
     display: column;
     columns: var(--columns);
     gap: var(--gap);
   }
-`;
+`

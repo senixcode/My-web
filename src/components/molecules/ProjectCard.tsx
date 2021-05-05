@@ -1,53 +1,54 @@
-import React from "react";
-import styled, { css } from "styled-components";
-import { FC } from "react";
-import { Container } from "../../../styles/system/Container";
-import { PropStyleTheme } from "../../types";
-import { Header } from "./cardProjects/Header";
-import { Topics } from "./cardProjects/Topics";
-import { cursorPointer } from "../../../styles/system/styles";
-import { IProjects } from "../../interface/Project";
-import GalleryMasOnry from "../../senixcode-lightbox-custom/examples/Basic";
-import { parseLinksToItems } from "../../helper/parseLinksToItems";
-import { useLanguage } from "../../hook/useLanguage";
+import { FC, useState } from "react"
+import styled, { css } from "styled-components"
+
+import { Container } from "../../../styles/system/Container"
+import { PropStyleTheme } from "../../types"
+import { Header } from "./cardProjects/Header"
+import { Topics } from "./cardProjects/Topics"
+import { cursorPointer } from "../../../styles/system/styles"
+import { IProjects } from "../../interface/Project"
+import GalleryMasOnry from "../../senixcode-lightbox-custom/examples/Basic"
+import { parseLinksToItems } from "../../helper/parseLinksToItems"
+import { useLanguage } from "../../hook/useLanguage"
 interface IContent {
-  descriptions: Array<string>;
-  seeMore: boolean;
+  descriptions: Array<string>
+  seeMore: boolean
 }
 export const ProjectCard: FC<IProjects> = (props) => {
-  const {contentDisplayCardProject} = useLanguage()
-  const [content, setContent] = React.useState<IContent>({
+  const { contentDisplayCardProject } = useLanguage()
+  const [content, setContent] = useState<IContent>({
     descriptions: [props.summary],
     seeMore: false,
-  });
+  })
   const handleSeeMore = () => {
     setContent((content) => {
-      const changeState = !content.seeMore;
+      const changeState = !content.seeMore
       return {
         descriptions: changeState ? props.descriptions : [props.summary],
         seeMore: changeState,
-      };
-    });
-  };
-  const items = parseLinksToItems(props.links);
+      }
+    })
+  }
+  const items = parseLinksToItems(props.links)
   return (
-    <Container
-      gridTemplateRowsMd={`1fr 1fr 1fr 1fr`}
-      styles={card}
-    >
+    <Container gridTemplateRowsMd={"1fr 1fr 1fr 1fr"} styles={card}>
       <Header {...props} />
       <Container gridRowGap="0.5em">
         {content?.descriptions.map((description, id) => (
           <Summary key={id}>
             {description}
             {content.seeMore === false && (
-              <span onClick={handleSeeMore}>{contentDisplayCardProject.seeMore}</span>
+              <span onClick={handleSeeMore}>
+                {contentDisplayCardProject.seeMore}
+              </span>
             )}
           </Summary>
         ))}
         {content.seeMore && (
           <Summary>
-            <span onClick={handleSeeMore}>{contentDisplayCardProject.seeLess}</span>
+            <span onClick={handleSeeMore}>
+              {contentDisplayCardProject.seeLess}
+            </span>
           </Summary>
         )}
       </Container>
@@ -70,8 +71,8 @@ export const ProjectCard: FC<IProjects> = (props) => {
         ></iframe>
       )}
     </Container>
-  );
-};
+  )
+}
 
 const Summary = styled.p`
   width: 100%;
@@ -81,7 +82,7 @@ const Summary = styled.p`
     text-decoration: underline;
     ${cursorPointer};
   }
-`;
+`
 
 export const card = css`
   background-color: ${(props: PropStyleTheme) =>
@@ -101,4 +102,4 @@ export const card = css`
       props.theme.screen.md}) {
     padding: 0.4em;
   }
-`;
+`

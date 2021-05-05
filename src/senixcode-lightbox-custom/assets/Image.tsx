@@ -1,11 +1,11 @@
-import React, { FC } from "react";
-import { IonClick } from "../types";
+import { FC } from "react"
+import { IonClick } from "../types"
 
 interface PropsImage extends IonClick {
-  className?: string;
-  style?: React.CSSProperties;
-  alt?: string;
-  src: string;
+  className?: string
+  style?: React.CSSProperties
+  alt?: string
+  src: string
 }
 const Image: FC<PropsImage> = (props) => (
   <img
@@ -15,5 +15,5 @@ const Image: FC<PropsImage> = (props) => (
     style={props.style}
     onClick={props.onClick}
   />
-);
-export default Image;
+)
+export default Image

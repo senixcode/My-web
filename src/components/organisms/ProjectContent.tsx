@@ -1,20 +1,16 @@
-import React from "react";
-import { css } from "styled-components";
-import { Container } from "../../../styles/system/Container";
-import { PropStyleTheme } from "../../types";
-import { MiddlwareHookApolloClient } from "../common/MiddelwareHookApolloClient";
-import { ProjectCard } from "../molecules/ProjectCard";
-import { useProject } from "../../hook/useProject";
+import { css } from "styled-components"
+import { Container } from "../../../styles/system/Container"
+import { PropStyleTheme } from "../../types"
+import { MiddlwareHookApolloClient } from "../common/MiddelwareHookApolloClient"
+import { ProjectCard } from "../molecules/ProjectCard"
+import { useProject } from "../../hook/useProject"
 
 export const ProjectContent = () => {
-  const {
-    getProjectLoading,
-    projects,
-  } = useProject();
+  const { getProjectLoading, projects } = useProject()
 
   return (
     <Container
-      gridTemplateRowsMd={`1fr 12fr`}
+      gridTemplateRowsMd={"1fr 12fr"}
       gridRowGap="1em"
       styles={container}
     >
@@ -22,17 +18,14 @@ export const ProjectContent = () => {
         {projects && (
           <Container gridRowGap="1em" styles={projectStyles}>
             {projects.map((project) => (
-              <ProjectCard
-                key={project.id}
-                {...project}
-              />
+              <ProjectCard key={project.id} {...project} />
             ))}
           </Container>
         )}
       </MiddlwareHookApolloClient>
     </Container>
-  );
-};
+  )
+}
 
 const container = css`
   width: 100%;
@@ -43,7 +36,7 @@ const container = css`
     width: 100%;
     justify-items: start;
   }
-`;
+`
 
 export const projectStyles = css`
   width: 100%;
@@ -58,4 +51,4 @@ export const projectStyles = css`
     flex-wrap: wrap;
     flex-direction: column;
   }
-`;
+`

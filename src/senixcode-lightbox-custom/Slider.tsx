@@ -1,17 +1,17 @@
-import { FC } from "react";
-import SwitchGalleryTypes from "./assets/SwitchGalleryTypes";
-import useSlider from "./hooks/useSlider";
-import { Item } from "./types";
-import { ButtonsSlider } from "./components/ButtonsSlider";
+import { FC } from "react"
+import SwitchGalleryTypes from "./assets/SwitchGalleryTypes"
+import useSlider from "./hooks/useSlider"
+import { Item } from "./types"
+import { ButtonsSlider } from "./components/ButtonsSlider"
 
 interface PropsSlider {
-  currentSlide: number;
+  currentSlide: number
 }
 
 const Slider: FC<PropsSlider> = ({ currentSlide }) => {
-  const { showModal, plusSlides, currentItemNumber } = useSlider(currentSlide);
+  const { showModal, plusSlides, currentItemNumber } = useSlider(currentSlide)
 
-  if (!showModal?.items) return <p>Error slider</p>;
+  if (!showModal?.items) return <p>Error slider</p>
 
   return (
     <div className="slider_senixcode_gallery_custom modal_senixcode_gallery_custom__showGalleryType">
@@ -29,6 +29,6 @@ const Slider: FC<PropsSlider> = ({ currentSlide }) => {
         ))}
       <ButtonsSlider plusSlides={plusSlides} />
     </div>
-  );
-};
-export default Slider;
+  )
+}
+export default Slider

@@ -1,19 +1,19 @@
-import { css } from "styled-components";
-import { Container } from "../../../styles/system/Container";
-import { Image } from "../../../styles/system/Image";
-import { Hide } from "../../../styles/system/Hide";
-import { Content } from "../organisms/AboutMeContent";
-import { SocialNetworks } from "../organisms/SocialNetworks";
-import { PropStyleTheme } from "../../types";
-import { FC } from "react";
-import { PropsAboutMe } from "../../pages/index.page";
+import { css } from "styled-components"
+import { Container } from "../../../styles/system/Container"
+import { Image } from "../../../styles/system/Image"
+import { Hide } from "../../../styles/system/Hide"
+import { Content } from "../organisms/AboutMeContent"
+import { SocialNetworks } from "../organisms/SocialNetworks"
+import { PropStyleTheme } from "../../types"
+import { FC } from "react"
+import { PropsAboutMe } from "../../pages/index.page"
 
 export const AboutMeContainer: FC<PropsAboutMe> = ({ data }) => {
   return (
     <Container
       gridTemplateColumnsXs="1fr"
-      gridTemplareRowsXs={`8fr 2fr`}
-      gridTemplateColumnsMd={`4fr 6fr 1fr`}
+      gridTemplareRowsXs={"8fr 2fr"}
+      gridTemplateColumnsMd={"4fr 6fr 1fr"}
       height="87vh"
       styles={container}
     >
@@ -25,8 +25,8 @@ export const AboutMeContainer: FC<PropsAboutMe> = ({ data }) => {
         <SocialNetworks />
       </Hide>
     </Container>
-  );
-};
+  )
+}
 
 const container = css`
   padding: 0 1em;
@@ -35,7 +35,7 @@ const container = css`
     height: 87vh;
     padding: 0 3em;
   }
-`;
+`
 const image = css`
   height: 90%;
-`;
+`

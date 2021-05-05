@@ -1,5 +1,5 @@
-import { DefaultSeo } from "next-seo";
-import SEO from "../../../next-seo.config";
+import { DefaultSeo } from "next-seo"
+import SEO from "../../../next-seo.config"
 export default function Seo() {
   return (
     <DefaultSeo
@@ -25,5 +25,5 @@ export default function Seo() {
         },
       ]}
     />
-  );
+  )
 }

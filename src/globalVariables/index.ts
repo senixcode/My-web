@@ -1,1 +1,1 @@
-export const SEO_SEPARATOR: string = "–";
+export const SEO_SEPARATOR: string = "–"

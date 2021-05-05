@@ -1,9 +1,9 @@
 export interface ILenguage<T> {
-  en: T;
-  es: T;
+  en: T
+  es: T
 }
 
-export enum Language{
+export enum Language {
   ES = "ES",
-  EN = "EN"
+  EN = "EN",
 }

@@ -1,13 +1,13 @@
-import { TypedOptions } from "typed.js";
+import { TypedOptions } from "typed.js"
 export interface ITitleConvertOptions {
-  first: string;
-  surplus: string[];
+  first: string
+  surplus: string[]
 }
 export const titleConvertOptions = (str: string): ITitleConvertOptions => {
-  const strings = str.match(/([^\,!\?]+[\,!\?]+)|([^\,!\?]+$)/g);
-  const [first, ...surplus] = strings;
-  return { first, surplus };
-};
+  const strings = str.match(/([^\,!\?]+[\,!\?]+)|([^\,!\?]+$)/g)
+  const [first, ...surplus] = strings
+  return { first, surplus }
+}
 export const getOptions = (strings: string[]): TypedOptions => {
   let options: TypedOptions = {
     strings,
@@ -155,6 +155,6 @@ export const getOptions = (strings: string[]): TypedOptions => {
      * @param {Typed} self
      */
     onDestroy: (self) => {},
-  };
-  return options;
-};
+  }
+  return options
+}

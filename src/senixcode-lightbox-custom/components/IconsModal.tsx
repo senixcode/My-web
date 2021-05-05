@@ -1,5 +1,5 @@
-import { FC, Fragment } from "react";
-import { IonClick } from "../types";
+import { FC, Fragment } from "react"
+import { IonClick } from "../types"
 
 export const IconsModal: FC<IonClick> = ({ onClick }) => (
   <Fragment>
@@ -10,4 +10,4 @@ export const IconsModal: FC<IonClick> = ({ onClick }) => (
       <i className="fas fa-search-plus"></i>
     </span> */}
   </Fragment>
-);
+)

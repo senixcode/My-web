@@ -1,7 +1,7 @@
-import { FC, Fragment } from "react";
+import { FC, Fragment } from "react"
 
 export const ButtonsSlider: FC<{ plusSlides: (n: number) => void }> = ({
-  plusSlides
+  plusSlides,
 }) => (
   <Fragment>
     <span className="prev" onClick={() => plusSlides(-1)}>
@@ -11,4 +11,4 @@ export const ButtonsSlider: FC<{ plusSlides: (n: number) => void }> = ({
       ❯
     </span>
   </Fragment>
-);
+)

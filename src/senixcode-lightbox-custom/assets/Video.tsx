@@ -1,10 +1,10 @@
-import React, { FC } from "react";
-import { IonClick } from "../types";
+import { FC } from "react"
+import { IonClick } from "../types"
 
 interface PropsVideo extends IonClick {
-  className?: string;
-  style?: React.CSSProperties;
-  src: string;
+  className?: string
+  style?: React.CSSProperties
+  src: string
 }
 
 const Video: FC<PropsVideo> = (props) => (
@@ -16,5 +16,5 @@ const Video: FC<PropsVideo> = (props) => (
   >
     <source src={props.src} />
   </video>
-);
-export default Video;
+)
+export default Video

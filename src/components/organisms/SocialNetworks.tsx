@@ -1,21 +1,14 @@
-import { FC } from "react";
-import styled, { css } from "styled-components";
-import { Container } from "../../../styles/system/Container";
-import { Hide } from "../../../styles/system/Hide";
-import { Image } from "../../../styles/system/Image";
-import {
-  centerContent,
-  centerItems,
-  cursorPointer,
-  centerAbsolute,
-} from "../../../styles/system/styles";
+import { FC } from "react"
+import { css } from "styled-components"
+import { Container } from "../../../styles/system/Container"
+import { cursorPointer, centerAbsolute } from "../../../styles/system/styles"
 import {
   ICON_GITHUB,
   ICON_LINKEDIN,
   ICON_TELEGRAM,
   ICON_TWITTER,
-} from "../../globalVariables/icons";
-import { PropStyleTheme } from "../../types";
+} from "../../globalVariables/icons"
+import { PropStyleTheme } from "../../types"
 const socialNetworks: Array<{ link: string; name: string; icon: string }> = [
   {
     link: "https://twitter.com/senixcode",
@@ -29,8 +22,8 @@ const socialNetworks: Array<{ link: string; name: string; icon: string }> = [
     name: "linkedin",
     icon: ICON_LINKEDIN,
   },
-];
-const gridSocialNetworks: string = `1fr 1fr 1fr 1fr`;
+]
+const gridSocialNetworks = "1fr 1fr 1fr 1fr"
 export const SocialNetworks = () => (
   <Container
     gridTemplateRowsXs="1fr"
@@ -44,7 +37,7 @@ export const SocialNetworks = () => (
       <ContainerImage key={i} {...socialNetwork} />
     ))}
   </Container>
-);
+)
 
 const ContainerImage: FC<{ link: string; name: string; icon: string }> = ({
   link,
@@ -56,12 +49,13 @@ const ContainerImage: FC<{ link: string; name: string; icon: string }> = ({
     target="_blank"
     title={`icon ${name}`}
     style={{ textDecoration: "none" }}
+    rel="noreferrer"
   >
     <Container styles={imageContainer}>
       <i className={icon} />
     </Container>
   </a>
-);
+)
 
 const container = css`
   ${centerAbsolute}
@@ -71,7 +65,7 @@ const container = css`
     display: grid;
     position: static;
   }
-`;
+`
 const imageContainer = css`
   ${cursorPointer}
   width: 2.8em;
@@ -90,4 +84,4 @@ const imageContainer = css`
       font-size: 29px;
     }
   }
-`;
+`

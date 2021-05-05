@@ -1,5 +1,5 @@
-import { gql } from "@apollo/client";
-import { PROJECT_FIELDS } from "../fragment/projectFields";
+import { gql } from "@apollo/client"
+import { PROJECT_FIELDS } from "../fragment/projectFields"
 
 export const GET_PROJECT = gql`
   ${PROJECT_FIELDS}
@@ -8,7 +8,7 @@ export const GET_PROJECT = gql`
       ...project_data
     }
   }
-`;
+`
 
 export const GET_PROJECT_ONE = gql`
   ${PROJECT_FIELDS}
@@ -17,4 +17,4 @@ export const GET_PROJECT_ONE = gql`
       ...project_data
     }
   }
-`;
+`
