@@ -8,5 +8,5 @@ I want to make a personal brand, I like the idea that when I fulfill my dream of
 - Responsive
 - Theme dark
 - No soport tables or rotable
-- ligthbox custom
-- config prettier and eslint
+- Ligthbox custom
+- Config prettier and eslint
