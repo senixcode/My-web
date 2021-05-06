@@ -21,4 +21,4 @@ export default {
     site: "@senixcode",
     cardType: "summary_large_image",
   },
-};
+}
