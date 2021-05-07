@@ -10,7 +10,6 @@ export default function Project() {
   return (
     <Container
       gridTemplateColumnsXs="1fr"
-      gridTemplareRowsXs={"1fr"}
       gridTemplateColumnsMd={"2.8fr 8fr 1fr"}
       gridTemplateRowsMd={"1fr"}
       gridColumGap="2em"

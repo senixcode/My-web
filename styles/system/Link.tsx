@@ -1,15 +1,17 @@
+import { FC } from "react"
 import styled, { css } from "styled-components"
 import { PropStyleTheme } from "../../src/types"
 interface LinkProps {
-  title: string
-  href: string
-  fontSizeXs: string
-  fontSizeSm: string
-  fontSizeMd: string
-  fontSizeLg: string
-  styles: css
+  title?: string
+  href?: string
+  fontSizeXs?: string
+  fontSizeSm?: string
+  fontSizeMd?: string
+  fontSizeLg?: string
+  styles?: css
 }
-export const Link = styled.a.attrs<LinkProps>((props) => ({
+export const Link: FC<LinkProps> = (props) => <StyleLink {...props} />
+const StyleLink = styled.a.attrs<LinkProps>((props) => ({
   title: `icon ${props.title}`,
   href: props.href,
   target: "_blank",

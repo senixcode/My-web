@@ -9,7 +9,6 @@ import { PropStyleTheme } from "../types"
 const AboutMe = () => (
   <Container
     gridTemplateColumnsXs="1fr"
-    gridTemplareRowsXs={"8fr 2fr"}
     gridTemplateColumnsMd={"4fr 6fr 1fr"}
     height="87vh"
     styles={container}

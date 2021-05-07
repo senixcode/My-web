@@ -1,22 +1,27 @@
+import { FC } from "react"
+import { IcommonStyles } from "../types"
 import { PropStyleTheme } from "../../src/types"
 import { centerItems } from "./styles"
 import styled, { css } from "styled-components"
-interface ContainerProps {
-  gridTemplateColumnsXs: string
-  gridTemplateColumnsSm: string
-  gridTemplateColumnsMd: string
-  gridTemplateColumnsLg: string
-  gridColumGap: string
-  gridTemplateRowsXs: string
-  gridTemplateRowsSm: string
-  gridTemplateRowsMd: string
-  gridTemplateRowsLg: string
-  gridRowGap: String
-  gridGap: string
-  height: string
-  styles: css
+interface ContainerProps extends IcommonStyles {
+  gridTemplateColumnsXs?: string
+  gridTemplateColumnsSm?: string
+  gridTemplateColumnsMd?: string
+  gridTemplateColumnsLg?: string
+  gridColumGap?: string
+  gridTemplateRowsXs?: string
+  gridTemplateRowsSm?: string
+  gridTemplateRowsMd?: string
+  gridTemplateRowsLg?: string
+  gridRowGap?: String
+  gridGap?: string
+  height?: string
+  styles?: css
 }
-export const Container = styled.div<ContainerProps>`
+export const Container: FC<ContainerProps> = (props) => (
+  <StyleContainer {...props} />
+)
+const StyleContainer = styled.div<ContainerProps>`
   display: grid;
   grid-column-gap: ${(props: ContainerProps) => props.gridColumGap};
   grid-row-gap: ${(props: ContainerProps) => props.gridRowGap};

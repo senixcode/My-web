@@ -1,15 +1,18 @@
+import { FC } from "react"
 import styled, { css } from "styled-components"
 import { PropStyleTheme } from "../../src/types"
 interface ImageProps {
-  alt: string
-  src: string
-  widthXs: string
-  widthSm: string
-  widthMd: string
-  widthLg: string
-  styles: css
+  alt?: string
+  src?: string
+  widthXs?: string
+  widthSm?: string
+  widthMd?: string
+  widthLg?: string
+  styles?: css
 }
-export const Image = styled.img.attrs<ImageProps>((props) => ({
+export const Image: FC<ImageProps> = (props) => <StyleImage {...props} />
+
+const StyleImage = styled.img.attrs<ImageProps>((props) => ({
   alt: props.alt || "my logo",
   src: props.src || "/static/my-logo-senixcode.svg",
 }))<ImageProps>`

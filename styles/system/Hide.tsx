@@ -1,19 +1,23 @@
+import { FC } from "react"
 import styled, { css } from "styled-components"
 import { PropStyleTheme } from "../../src/types"
+import { IcommonStyles } from "../types"
 
-interface HideProps {
-  minXs: string
-  minSm: string
-  minMd: string
-  minLg: string
+interface HideProps extends IcommonStyles {
+  minXs?: string
+  minSm?: string
+  minMd?: string
+  minLg?: string
 
-  maxXs: string
-  maxSm: string
-  maxMd: string
-  maxLg: string
-  styles: css
+  maxXs?: string
+  maxSm?: string
+  maxMd?: string
+  maxLg?: string
+  styles?: css
 }
-export const Hide = styled.div<HideProps>`
+
+export const Hide: FC<HideProps> = (props) => <StyleHide {...props} />
+const StyleHide = styled.div<HideProps>`
   display: ${(props: HideProps) => props.minXs};
 
   @media screen and (min-width: ${(props: PropStyleTheme) =>
