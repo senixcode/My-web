@@ -2,38 +2,37 @@ import styled, { css } from "styled-components"
 import { Container } from "../../../styles/system/Container"
 import { Button } from "../../../styles/system/Button"
 import { PropStyleTheme } from "../../types"
-import { FC, useEffect, useRef } from "react"
-import { useRouter } from "next/router"
-import { PropsAboutMe } from "../../pages/index.page"
-import Typed, { TypedOptions } from "typed.js"
-import { titleConvertOptions, getOptions } from "../../helper/typedjs"
+import { useEffect, useRef } from "react"
+import Typed from "typed.js"
+import { MiddlwareHookApolloClient } from "../common/MiddelwareHookApolloClient"
+import useTitleAboutMe from "../../hook/useTitleAboutMe"
 
-export const Content: FC<PropsAboutMe> = ({ data }) => {
-  const { locale } = useRouter()
-  const testRef = useRef<HTMLHeadingElement>(null)
-  const { first, surplus } = titleConvertOptions(data.name)
-  const options: TypedOptions = getOptions(surplus)
-
+export const Content = () => {
+  const { getAboutMe, data, options, locale } = useTitleAboutMe()
+  const titleRef = useRef<HTMLHeadingElement>(null)
   let typed: Typed
   useEffect(() => {
-    if (testRef?.current && options) {
-      typed = new Typed(testRef?.current, options)
+    if (titleRef?.current && options) {
+      typed = new Typed(titleRef?.current, options)
     }
     return () => {
-      typed.destroy()
+      typed && typed.destroy()
     }
-  }, [data.name])
-
+  }, [data, options])
   return (
     <Container
       gridTemplateRowsXs={"6fr 1fr"}
       gridTemplateRowsMd={"9fr 2fr"}
       styles={justifyItems}
     >
-      <Title>
-        {`${first} `}
-        <span ref={testRef}></span>
-      </Title>
+      <MiddlwareHookApolloClient {...getAboutMe}>
+        {data.state && (
+          <Title>
+            {`${data.first} `}
+            <span ref={titleRef}></span>
+          </Title>
+        )}
+      </MiddlwareHookApolloClient>
       <a
         href={`pdf/cv-${locale}.pdf`}
         target="_blank"
