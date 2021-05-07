@@ -4,3 +4,4 @@ export const ICON_TELEGRAM: string = `fab fa-telegram-plane`
 export const ICON_TWITTER: string = `fab fa-twitter`
 export const ICON_LINKEDIN: string = `fab fa-linkedin-in`
 export const ICON_FIGMA: string = `fab fa-figma`
+export const ICON_GMAIL: string = `fas fa-envelope`

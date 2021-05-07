@@ -1,21 +1,22 @@
-import { FC } from "react"
 import { css } from "styled-components"
 import { Container } from "../../../styles/system/Container"
 import { cursorPointer, centerAbsolute } from "../../../styles/system/styles"
 import {
   ICON_GITHUB,
   ICON_LINKEDIN,
-  ICON_TELEGRAM,
+  ICON_GMAIL,
   ICON_TWITTER,
 } from "../../globalVariables/icons"
 import { PropStyleTheme } from "../../types"
+const sendEmail = () =>
+  window !== undefined ? window.open("mailto:codesenix@gmail.com") : null
 const socialNetworks: Array<{ link: string; name: string; icon: string }> = [
   {
     link: "https://twitter.com/senixcode",
     name: "twitter",
     icon: ICON_TWITTER,
   },
-  { link: "https://t.me//senixcode", name: "telegram", icon: ICON_TELEGRAM },
+  { link: "https://t.me//senixcode", name: "gmail", icon: ICON_GMAIL },
   { link: "https://github.com/senixcode/", name: "github", icon: ICON_GITHUB },
   {
     link: "https://www.linkedin.com/in/senixcode-developer/",
@@ -34,27 +35,27 @@ export const SocialNetworks = () => (
     styles={container}
   >
     {socialNetworks.map((socialNetwork, i) => (
-      <ContainerImage key={i} {...socialNetwork} />
+      <>
+        {socialNetwork.name === "gmail" ? (
+          <Container styles={imageContainer} onClick={sendEmail}>
+            <i className={socialNetwork.icon} />
+          </Container>
+        ) : (
+          <a
+            href={socialNetwork.link}
+            target="_blank"
+            title={`icon ${socialNetwork.name}`}
+            style={{ textDecoration: "none" }}
+            rel="noreferrer"
+          >
+            <Container styles={imageContainer}>
+              <i className={socialNetwork.icon} />
+            </Container>
+          </a>
+        )}
+      </>
     ))}
   </Container>
-)
-
-const ContainerImage: FC<{ link: string; name: string; icon: string }> = ({
-  link,
-  name,
-  icon,
-}) => (
-  <a
-    href={link}
-    target="_blank"
-    title={`icon ${name}`}
-    style={{ textDecoration: "none" }}
-    rel="noreferrer"
-  >
-    <Container styles={imageContainer}>
-      <i className={icon} />
-    </Container>
-  </a>
 )
 
 const container = css`
