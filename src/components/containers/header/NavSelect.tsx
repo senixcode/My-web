@@ -6,9 +6,13 @@ import { Nav } from "../../../../styles/system/Nav"
 import { css } from "styled-components"
 import Head from "next/head"
 import { SEO_SEPARATOR } from "../../../globalVariables"
-import { HeaderNavProps } from "."
-export const NavSelect: FC<HeaderNavProps> = ({ router, routes }) => {
-  const { title } = routes.find((route) => route.path === router.route)
+import { INavbar } from "../../../hook/useLanguage"
+import { NextRouter } from "next/router"
+export const NavSelect: FC<{
+  router: NextRouter
+  navbar: INavbar
+}> = ({ router, navbar }) => {
+  const title = router.route === "/" ? navbar.aboutMe : navbar.projects
 
   return (
     <>
@@ -19,14 +23,13 @@ export const NavSelect: FC<HeaderNavProps> = ({ router, routes }) => {
       )}
       <Hide maxMd="none">
         <Container gridTemplateColumnsMd={"1fr 1fr"} styles={gridColumnGap}>
-          {routes.map(
-            ({ path, title }, i) =>
-              path !== "/detail/[project]" && (
-                <Link href={path} key={i}>
-                  <Nav selected={path === router.route}>{title}</Nav>
-                </Link>
-              )
-          )}
+          <Link href="/aboutme">
+            <Nav selected={router.route === "/"}>{navbar.aboutMe}</Nav>
+          </Link>
+
+          <Link href="/projects">
+            <Nav selected={router.route === "/projects"}>{navbar.projects}</Nav>
+          </Link>
         </Container>
       </Hide>
 

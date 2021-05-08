@@ -1,3 +1,4 @@
+import { Fragment } from "react"
 import { css } from "styled-components"
 import { Container } from "../../../styles/system/Container"
 import { cursorPointer, centerAbsolute } from "../../../styles/system/styles"
@@ -35,7 +36,7 @@ export const SocialNetworks = () => (
     styles={container}
   >
     {socialNetworks.map((socialNetwork, i) => (
-      <>
+      <Fragment key={i}>
         {socialNetwork.name === "gmail" ? (
           <Container styles={imageContainer} onClick={sendEmail}>
             <i className={socialNetwork.icon} />
@@ -53,7 +54,7 @@ export const SocialNetworks = () => (
             </Container>
           </a>
         )}
-      </>
+      </Fragment>
     ))}
   </Container>
 )

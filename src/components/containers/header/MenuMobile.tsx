@@ -5,10 +5,15 @@ import { FC } from "react"
 import Link from "next/link"
 import { Languages } from "./Languages"
 import { SocialNetworks } from "../../organisms/SocialNetworks"
-import { HeaderNavProps } from "."
+import { INavbar } from "../../../hook/useLanguage"
+import { NextRouter } from "next/router"
 
-const Content: FC<HeaderNavProps> = ({ router, routes, handleChangeMenu }) => {
-  return (
+export const MenuCellSize: FC<{
+  router: NextRouter
+  handleChangeMenu: () => void
+  navbar: INavbar
+}> = ({ router, handleChangeMenu, navbar }) => (
+  <Container>
     <Navs>
       <Flex onClick={handleChangeMenu}>
         <i className="fas fa-times" />
@@ -16,26 +21,21 @@ const Content: FC<HeaderNavProps> = ({ router, routes, handleChangeMenu }) => {
       <div style={{ width: "25%" }}>
         <Languages router={router} />
       </div>
-      {routes.map(
-        ({ path, title }, i) =>
-          path !== "/detail/[project]" && (
-            <div key={i} onClick={handleChangeMenu}>
-              <Link href={path}>
-                <Nav selected={path === router.route}>{title}</Nav>
-              </Link>
-            </div>
-          )
-      )}
+      <div onClick={handleChangeMenu}>
+        <Link href="/aboutme">
+          <Nav selected={router.route === "/"}>{navbar.aboutMe}</Nav>
+        </Link>
+      </div>
+      <div onClick={handleChangeMenu}>
+        <Link href="/projects">
+          <Nav selected={router.route === "/projects"}>{navbar.projects}</Nav>
+        </Link>
+      </div>
       <SocialNetworks />
     </Navs>
-  )
-}
-
-export const MenuCellSize: FC<HeaderNavProps> = (props) => (
-  <Container>
-    <Content {...props} />
   </Container>
 )
+
 const Container = styled.div`
   background: ${({ theme }: PropStyleTheme) => theme.colors.primaryVariant};
   position: fixed;
