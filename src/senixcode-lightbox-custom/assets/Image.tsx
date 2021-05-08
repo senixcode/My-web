@@ -1,9 +1,9 @@
-import { FC } from "react"
+import { FC, CSSProperties } from "react"
 import { IonClick } from "../types"
 
 interface PropsImage extends IonClick {
   className?: string
-  style?: React.CSSProperties
+  style?: CSSProperties
   alt?: string
   src: string
 }
