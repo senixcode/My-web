@@ -10,4 +10,4 @@ I want to make a personal brand, I like the idea that when I fulfill my dream of
 - No soport tables or rotable
 - Ligthbox custom
 - Config prettier and eslint
-- skeleton loader (projects)
+- Skeleton loader (projects)
