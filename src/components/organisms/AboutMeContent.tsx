@@ -3,13 +3,18 @@ import { Container } from "../../../styles/system/Container"
 import { Button } from "../../../styles/system/Button"
 import { PropStyleTheme } from "../../types"
 import { useEffect, useRef } from "react"
-import Typed from "typed.js"
-import { MiddlwareHookApolloClient } from "../common/MiddelwareHookApolloClient"
-import useTitleAboutMe from "../../hook/useTitleAboutMe"
+import { useMultiLanguage } from "../../hook/useMultiLanguage"
+import { getOptions } from "../../helper/typedjs"
+import Typed, { TypedOptions } from "typed.js"
+import { useRouter } from "next/router"
 
 export const Content = () => {
-  const { getAboutMe, data, options, locale } = useTitleAboutMe()
+  const { locale } = useRouter()
+  const { titleAboutMe } = useMultiLanguage()
+  const { first, selfWritten } = titleAboutMe
+  const options: TypedOptions = getOptions(selfWritten)
   const titleRef = useRef<HTMLHeadingElement>(null)
+
   let typed: Typed
   useEffect(() => {
     if (titleRef?.current && options) {
@@ -18,21 +23,18 @@ export const Content = () => {
     return () => {
       typed && typed.destroy()
     }
-  }, [data, options])
+  }, [locale, options])
+
   return (
     <Container
       gridTemplateRowsXs={"6fr 1fr"}
       gridTemplateRowsMd={"9fr 2fr"}
       styles={justifyItems}
     >
-      <MiddlwareHookApolloClient {...getAboutMe}>
-        {data.state && (
-          <Title>
-            {`${data.first} `}
-            <span ref={titleRef}></span>
-          </Title>
-        )}
-      </MiddlwareHookApolloClient>
+      <Title>
+        {`${first} `}
+        <span ref={titleRef}></span>
+      </Title>
       <a
         href={`pdf/cv-${locale}.pdf`}
         target="_blank"
