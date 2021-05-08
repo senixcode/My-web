@@ -9,7 +9,8 @@ export const SkeletonLoaderCard = () => (
     <Container gridTemplateRowsMd={"1fr 1fr 1fr 1fr"} styles={card}>
       <BarLinearLoading width="30%" height="1.5em" />
       <br></br>
-      <BarLinearLoading width="86%" height="1em" />
+      <BarLinearLoading width="100%" height="1em" />
+      <BarLinearLoading width="90%" height="1em" />
       <BarLinearLoading width="34%" height="1em" />
       <Flex>
         <Container styles={topic}>
@@ -34,7 +35,7 @@ const loadingLinear = keyframes`
     background-position: 300px;
   }
 `
-const BarLinearLoading = styled.div`
+export const BarLinearLoading = styled.div`
   border-radius: 7px;
   background-color: #ccc;
   background-image: linear-gradient(

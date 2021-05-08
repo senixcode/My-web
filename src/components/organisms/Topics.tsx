@@ -9,6 +9,7 @@ import { ITopic } from "../../interface/Topic"
 import { PropStyleTheme } from "../../types"
 import { MiddlwareHookApolloClient } from "../common/MiddelwareHookApolloClient"
 import { Topics as TopicsFlex } from "../molecules/cardProjects/Topics"
+import { TypeSwitchLoading } from "../molecules/loadings/SwitchLoading"
 
 export const Topics = () => {
   const getTopic = useQuery(GET_TOPIC)
@@ -16,10 +17,14 @@ export const Topics = () => {
     getTopic.data && (getTopic.data.data as Array<ITopic>)
 
   const { locale } = useRouter()
+  const getTopicLoading = {
+    ...getTopic,
+    ...{ typeLoading: TypeSwitchLoading.TOPIC },
+  }
   return (
     <Container gridTemplateRowsMd={"1fr 12fr"} styles={container}>
       <Title>{locale === "en" ? "TOPICS" : "TEMAS"}</Title>
-      <MiddlwareHookApolloClient {...getTopic}>
+      <MiddlwareHookApolloClient {...getTopicLoading}>
         <div>{topics && <TopicsFlex topics={topics} />}</div>
       </MiddlwareHookApolloClient>
     </Container>
