@@ -1,37 +1,55 @@
+import { css } from "styled-components"
 import { MenuCellSize } from "./MenuMobile"
 import useHeader from "../../../hook/useHeader"
-import { DefaultHeader, HeaderDetails } from "./ContainerHeader"
-import { GET_ROUTE } from "../../../graphql/querys/route"
-import { useQuery } from "@apollo/client"
-import { MiddlwareHookApolloClient } from "../../common/MiddelwareHookApolloClient"
-import { IRoutes } from "../../../interface/Route"
-import { RouterProps } from "../../../types"
+import { Container } from "../../../../styles/system/Container"
+import { Hide } from "../../../../styles/system/Hide"
+import { Languages } from "./Languages"
+import { Image } from "../../../../styles/system/Image"
+import { NavSelect } from "./NavSelect"
+import { PropStyleTheme } from "../../../types"
+import { useMultiLanguage } from "../../../hook/useMultiLanguage"
 export default function Header() {
-  const { router, menuMobileShow, headerShow, handleChangeMenu } = useHeader()
-  const { locale } = router
-  const LANGUAGE = (locale as string).toLocaleUpperCase()
-  const getRoute = useQuery(GET_ROUTE, {
-    variables: { param: LANGUAGE },
-  })
-  const routes: Array<IRoutes> = getRoute.data && getRoute.data.data
-  const propsSend = {
-    router,
-    routes,
-    handleChangeMenu,
-  }
+  const { router, menuMobileShow, handleChangeMenu } = useHeader()
+  const { navbar } = useMultiLanguage()
   return (
-    <MiddlwareHookApolloClient {...getRoute}>
-      {menuMobileShow && getRoute.data && <MenuCellSize {...propsSend} />}
-      {headerShow && getRoute.data ? (
-        <DefaultHeader {...propsSend} />
-      ) : (
-        <HeaderDetails />
+    <>
+      {menuMobileShow && (
+        <MenuCellSize
+          router={router}
+          navbar={navbar}
+          handleChangeMenu={handleChangeMenu}
+        />
       )}
-    </MiddlwareHookApolloClient>
+      <Container
+        gridTemplateColumnsXs={"1fr 8fr 1fr"}
+        gridTemplateRowsXs={"1fr"}
+        gridTemplateRowsMd="1fr"
+        styles={container}
+      >
+        <Image widthXs="20px" widthMd="30px" />
+        <Container gridTemplateColumnsXs={"1fr"}>
+          <NavSelect router={router} navbar={navbar} />
+        </Container>
+        <Hide minMd="none" onClick={handleChangeMenu} styles={iconNavbar}>
+          <i className="fas fa-bars" />
+        </Hide>
+        <Hide maxMd="none">
+          <Languages router={router} />
+        </Hide>
+      </Container>
+    </>
   )
 }
 
-export interface HeaderNavProps extends RouterProps {
-  routes?: Array<IRoutes>
-  handleChangeMenu?: () => void
-}
+const container = css`
+  padding-top: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+`
+
+const iconNavbar = css`
+  & > i {
+    color: ${(props: PropStyleTheme) => props.theme.colors.secondary};
+    font-size: 23px;
+  }
+`
