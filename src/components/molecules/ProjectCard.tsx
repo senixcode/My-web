@@ -9,13 +9,13 @@ import { cursorPointer } from "../../../styles/system/styles"
 import { IProjects } from "../../interface/Project"
 import GalleryMasOnry from "../../senixcode-lightbox-custom/examples/Basic"
 import { parseLinksToItems } from "../../helper/parseLinksToItems"
-import { useLanguage } from "../../hook/useLanguage"
+import { useMultiLanguage } from "../../hook/useMultiLanguage"
 interface IContent {
   descriptions: Array<string>
   seeMore: boolean
 }
 export const ProjectCard: FC<IProjects> = (props) => {
-  const { contentDisplayCardProject } = useLanguage()
+  const { contentDisplayCardProject } = useMultiLanguage()
   const [content, setContent] = useState<IContent>({
     descriptions: [props.summary],
     seeMore: false,

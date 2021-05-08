@@ -6,7 +6,7 @@ import { Nav } from "../../../../styles/system/Nav"
 import { css } from "styled-components"
 import Head from "next/head"
 import { SEO_SEPARATOR } from "../../../globalVariables"
-import { INavbar } from "../../../hook/useLanguage"
+import { INavbar } from "../../../hook/useMultiLanguage"
 import { NextRouter } from "next/router"
 export const NavSelect: FC<{
   router: NextRouter

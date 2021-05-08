@@ -5,7 +5,7 @@ import { FC } from "react"
 import Link from "next/link"
 import { Languages } from "./Languages"
 import { SocialNetworks } from "../../organisms/SocialNetworks"
-import { INavbar } from "../../../hook/useLanguage"
+import { INavbar } from "../../../hook/useMultiLanguage"
 import { NextRouter } from "next/router"
 
 export const MenuCellSize: FC<{

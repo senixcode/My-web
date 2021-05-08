@@ -7,10 +7,10 @@ import { Languages } from "./Languages"
 import { Image } from "../../../../styles/system/Image"
 import { NavSelect } from "./NavSelect"
 import { PropStyleTheme } from "../../../types"
-import { useLanguage } from "../../../hook/useLanguage"
+import { useMultiLanguage } from "../../../hook/useMultiLanguage"
 export default function Header() {
   const { router, menuMobileShow, handleChangeMenu } = useHeader()
-  const { navbar } = useLanguage()
+  const { navbar } = useMultiLanguage()
   return (
     <>
       {menuMobileShow && (
