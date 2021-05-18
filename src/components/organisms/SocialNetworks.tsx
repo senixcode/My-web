@@ -1,4 +1,4 @@
-import { Fragment } from "react"
+import { Fragment, memo } from "react"
 import { css } from "styled-components"
 import { Container } from "../../../styles/system/Container"
 import { cursorPointer, centerAbsolute } from "../../../styles/system/styles"
@@ -26,7 +26,7 @@ const socialNetworks: Array<{ link: string; name: string; icon: string }> = [
   },
 ]
 const gridSocialNetworks = "1fr 1fr 1fr 1fr"
-export const SocialNetworks = () => (
+const SocialNetworks = () => (
   <Container
     gridTemplateRowsXs="1fr"
     gridTemplateColumnsXs={gridSocialNetworks}
@@ -58,7 +58,7 @@ export const SocialNetworks = () => (
     ))}
   </Container>
 )
-
+export default memo(SocialNetworks)
 const container = css`
   ${centerAbsolute}
   bottom:1em;

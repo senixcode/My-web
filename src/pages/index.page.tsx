@@ -1,8 +1,8 @@
 import { Container } from "../../styles/system/Container"
 import { Hide } from "../../styles/system/Hide"
 import { css } from "styled-components"
-import { SocialNetworks } from "../components/organisms/SocialNetworks"
-import { Content } from "../components/organisms/AboutMeContent"
+import SocialNetworks from "../components/organisms/SocialNetworks"
+import Content from "../components/organisms/AboutMeContent"
 import { Image } from "../../styles/system/Image"
 import { PropStyleTheme } from "../types"
 

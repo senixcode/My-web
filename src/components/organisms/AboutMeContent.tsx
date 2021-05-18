@@ -2,13 +2,13 @@ import styled, { css } from "styled-components"
 import { Container } from "../../../styles/system/Container"
 import { Button } from "../../../styles/system/Button"
 import { PropStyleTheme } from "../../types"
-import { useEffect, useRef } from "react"
+import { memo, useEffect, useRef } from "react"
 import { useMultiLanguage } from "../../hook/useMultiLanguage"
 import { getOptions } from "../../helper/typedjs"
 import Typed, { TypedOptions } from "typed.js"
 import { useRouter } from "next/router"
 
-export const Content = () => {
+const AboutMeContent = () => {
   const { locale } = useRouter()
   const { titleAboutMe } = useMultiLanguage()
   const { first, selfWritten } = titleAboutMe
@@ -55,6 +55,8 @@ export const Content = () => {
     </Container>
   )
 }
+export default memo(AboutMeContent)
+
 const Title = styled.h1`
   color: ${(props: PropStyleTheme) => props.theme.colors.textPrimary};
 `
