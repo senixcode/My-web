@@ -87,9 +87,9 @@ const myCms = (currentLanguagee: string): IProject => ({
     ],
     links: [
         {
-            href: "",
-            name: "test",
-            icon: "icon",
+            href: "https://github.com/senixcode/cms-my-website",
+            name: translater(currentLanguagee, { es: "repositorio mi cms", en: "repository my cms" }),
+            icon: IconsFontawesome.GITHUB,
             category: CategoryLink.ICON
         }
     ]
@@ -119,9 +119,9 @@ const lightboxCustom = (currentLanguagee: string): IProject => ({
     ],
     links: [
         {
-            href: "",
-            name: "test",
-            icon: "icon",
+            href: "https://github.com/senixcode/senixcode-lightbox-custom",
+            name: translater(currentLanguagee, { es: "repositorio lightbox", en: "repository lightbox" }),
+            icon: IconsFontawesome.GITHUB,
             category: CategoryLink.ICON
         }
     ]
@@ -145,9 +145,9 @@ const cicularBarAnimation = (currentLanguagee: string): IProject => ({
     ],
     links: [
         {
-            href: "",
-            name: "test",
-            icon: "icon",
+            href: "https://snack.expo.io/@senixcode/animation-circular-bar",
+            name: "snack animation_circular_bar",
+            icon: IconsFontawesome.LINK,
             category: CategoryLink.ICON
         }
     ]
@@ -170,9 +170,9 @@ const lightweightEcommerceTemplate = (currentLanguagee: string): IProject => ({
     ],
     links: [
         {
-            href: "",
-            name: "test",
-            icon: "icon",
+            href: "https://github.com/senixcode/lightweight-ecommerce-template",
+            name: translater(currentLanguagee, { es: "repositorio ecommerce_ligero", en: "repository lightweight_ecommerce" }),
+            icon: IconsFontawesome.GITHUB,
             category: CategoryLink.ICON
         }
     ]
@@ -210,9 +210,9 @@ const deployDigitalOceanDockerTerraform = (currentLanguagee: string): IProject =
     ],
     links: [
         {
-            href: "",
-            name: "test",
-            icon: "icon",
+            href: "https://github.com/senixcode/automatic-ssl-docker-nginx",
+            name: translater(currentLanguagee, { es: "repositori docker_terraform_automatizacion", en: "repository docker_terraform_automation" }),
+            icon: IconsFontawesome.GITHUB,
             category: CategoryLink.ICON
         }
     ]
