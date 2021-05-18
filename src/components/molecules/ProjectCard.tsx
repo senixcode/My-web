@@ -52,15 +52,12 @@ export const ProjectCard: FC<IProject> = (props) => {
         )}
       </Container>
       <Topics topics={props.topic} />
-      {content.seeMore && items.length === 1 && (
-        <GalleryMasOnry items={items} columnsMd={1} />
+      {content.seeMore && (
+        <GalleryMasOnry items={items} columnsMd={items.length > 1 ? 2 : 1} />
       )}
 
-      {content.seeMore && items.length > 1 && (
-        <GalleryMasOnry items={items} columnsMd={2} />
-      )}
-      {/* improve this hardodicated code */}
-      {content.seeMore && props.titleSeo === "senixcode-lightbox-custom" && (
+      {/* improve this code */}
+      {content.seeMore && props.titleSeo === "senixcode_lightbox_custom" && (
         <iframe
           src="https://codesandbox.io/embed/github/senixcode/gallery-custom-typescript/tree/main/?fontsize=14&hidenavigation=1&theme=dark"
           className="codesanbox-senixcode"
