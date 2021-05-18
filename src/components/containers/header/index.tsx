@@ -4,7 +4,7 @@ import useHeader from "../../../hook/useHeader"
 import { Container } from "../../../../styles/system/Container"
 import { Hide } from "../../../../styles/system/Hide"
 import { Languages } from "./Languages"
-import { Image } from "../../../../styles/system/Image"
+import { Image as Logo } from "../../../../styles/system/Image"
 import { NavSelect } from "./NavSelect"
 import { PropStyleTheme } from "../../../types"
 import { useMultiLanguage } from "../../../hook/useMultiLanguage"
@@ -26,7 +26,7 @@ export default function Header() {
         gridTemplateRowsMd="1fr"
         styles={container}
       >
-        <Image widthXs="20px" widthMd="30px" />
+        <Logo widthXs="20px" widthMd="30px" />
         <Container gridTemplateColumnsXs={"1fr"}>
           <NavSelect router={router} navbar={navbar} />
         </Container>

@@ -23,7 +23,7 @@ export const NavSelect: FC<{
       )}
       <Hide maxMd="none">
         <Container gridTemplateColumnsMd={"1fr 1fr"} styles={gridColumnGap}>
-          <Link href="/aboutme">
+          <Link href="/">
             <Nav selected={router.route === "/"}>{navbar.aboutMe}</Nav>
           </Link>
 
