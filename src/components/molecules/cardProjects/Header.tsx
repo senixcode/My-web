@@ -2,10 +2,10 @@ import styled, { css } from "styled-components"
 import { FC } from "react"
 import { Container } from "../../../../styles/system/Container"
 import { PropStyleTheme } from "../../../types"
-import { IProjects } from "../../../interface/Project"
 import { Icons } from "./IconsHeader"
+import { IProject } from "../../../hook/language/types"
 
-export const Header: FC<IProjects> = ({ title, links }) => (
+export const Header: FC<IProject> = ({ title, links }) => (
   <Container gridTemplateColumnsXs={"12fr 1fr"} styles={header}>
     <Title>{title.toUpperCase()}</Title>
     <Icons links={links} />

@@ -1,8 +1,10 @@
 import React from "react"
 
 export enum TypeItem {
-  IMAGE = "IMAGE",
-  VIDEO = "VIDEO",
+  VIDEO = "video",
+  ICON = "icon",
+  IMAGE = "image",
+  CODE_LIVE = "code live",
 }
 
 export interface Item {

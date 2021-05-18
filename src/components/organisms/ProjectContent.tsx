@@ -1,28 +1,24 @@
 import { css } from "styled-components"
 import { Container } from "../../../styles/system/Container"
 import { PropStyleTheme } from "../../types"
-import { MiddlwareHookApolloClient } from "../common/MiddelwareHookApolloClient"
 import { ProjectCard } from "../molecules/ProjectCard"
-import { useProject } from "../../hook/useProject"
+import { useMultiLanguage } from "../../hook/useMultiLanguage"
 
 export const ProjectContent = () => {
-  const { getProjectLoading, projects } = useProject()
-
+  const {projects} = useMultiLanguage()
   return (
     <Container
       gridTemplateRowsMd={"1fr 12fr"}
       gridRowGap="1em"
       styles={container}
     >
-      <MiddlwareHookApolloClient {...getProjectLoading}>
         {projects && (
           <Container gridRowGap="1em" styles={projectStyles}>
-            {projects.map((project) => (
-              <ProjectCard key={project.id} {...project} />
+            {projects.map((project,i) => (
+              <ProjectCard key={i} {...project} />
             ))}
           </Container>
         )}
-      </MiddlwareHookApolloClient>
     </Container>
   )
 }

@@ -1,32 +1,16 @@
-import { useQuery } from "@apollo/client"
-import { useRouter } from "next/router"
-
 import styled, { css } from "styled-components"
 import { Container } from "../../../styles/system/Container"
 import { startContent, startItems } from "../../../styles/system/styles"
-import { GET_TOPIC } from "../../graphql/querys/topic"
-import { ITopic } from "../../interface/Topic"
+import { useMultiLanguage } from "../../hook/useMultiLanguage"
 import { PropStyleTheme } from "../../types"
-import { MiddlwareHookApolloClient } from "../common/MiddelwareHookApolloClient"
-import { Topics as TopicsFlex } from "../molecules/cardProjects/Topics"
-import { TypeSwitchLoading } from "../molecules/loadings/SwitchLoading"
-
+import TopicsFlex  from "../molecules/cardProjects/Topics"
+import { Topics as EnumTopics} from "../../hook/language/types"
 export const Topics = () => {
-  const getTopic = useQuery(GET_TOPIC)
-  const topics: Array<ITopic> =
-    getTopic.data && (getTopic.data.data as Array<ITopic>)
-
-  const { locale } = useRouter()
-  const getTopicLoading = {
-    ...getTopic,
-    ...{ typeLoading: TypeSwitchLoading.TOPIC },
-  }
+const {topicTitle} = useMultiLanguage() 
   return (
     <Container gridTemplateRowsMd={"1fr 12fr"} styles={container}>
-      <Title>{locale === "en" ? "TOPICS" : "TEMAS"}</Title>
-      <MiddlwareHookApolloClient {...getTopicLoading}>
-        <div>{topics && <TopicsFlex topics={topics} />}</div>
-      </MiddlwareHookApolloClient>
+      <Title>{topicTitle}</Title>
+      <TopicsFlex topics={Object.keys(EnumTopics)} objectKeys={true}/>
     </Container>
   )
 }
@@ -40,7 +24,6 @@ const container = css`
   ${startItems}
   border-radius:12px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-
   position: -webkit-sticky;
   position: sticky;
   top: 4em;

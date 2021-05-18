@@ -1,20 +1,19 @@
 import { FC, useState } from "react"
 import styled, { css } from "styled-components"
-
 import { Container } from "../../../styles/system/Container"
 import { PropStyleTheme } from "../../types"
 import { Header } from "./cardProjects/Header"
-import { Topics } from "./cardProjects/Topics"
+import  Topics  from "./cardProjects/Topics"
 import { cursorPointer } from "../../../styles/system/styles"
-import { IProjects } from "../../interface/Project"
 import GalleryMasOnry from "../../senixcode-lightbox-custom/examples/Basic"
 import { parseLinksToItems } from "../../helper/parseLinksToItems"
 import { useMultiLanguage } from "../../hook/useMultiLanguage"
+import { IProject } from "../../hook/language/types"
 interface IContent {
   descriptions: Array<string>
   seeMore: boolean
 }
-export const ProjectCard: FC<IProjects> = (props) => {
+export const ProjectCard: FC<IProject> = (props) => {
   const { contentDisplayCardProject } = useMultiLanguage()
   const [content, setContent] = useState<IContent>({
     descriptions: [props.summary],
@@ -24,7 +23,7 @@ export const ProjectCard: FC<IProjects> = (props) => {
     setContent((content) => {
       const changeState = !content.seeMore
       return {
-        descriptions: changeState ? props.descriptions : [props.summary],
+        descriptions: changeState ? props.description : [props.summary],
         seeMore: changeState,
       }
     })
@@ -52,7 +51,7 @@ export const ProjectCard: FC<IProjects> = (props) => {
           </Summary>
         )}
       </Container>
-      <Topics topics={props.topics} />
+      <Topics topics={props.topic} />
       {content.seeMore && items.length === 1 && (
         <GalleryMasOnry items={items} columnsMd={1} />
       )}

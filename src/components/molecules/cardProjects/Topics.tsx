@@ -1,17 +1,20 @@
+import {memo,FC} from "react"
 import styled from "styled-components"
-import { FC } from "react"
+import { List,Topics as EnumTopics } from "../../../hook/language/types"
 import { Topic } from "../Topic"
-import { ITopic } from "../../../interface/Topic"
 
-export const Topics: FC<{ topics: Array<ITopic> }> = ({ topics }) => (
-  <Flex>
-    {topics.map((topic, index) => (
-      <div key={index}>
-        <Topic name={topic.name} />
-      </div>
-    ))}
-  </Flex>
-)
+const Topics:FC<{topics:List<string>,objectKeys?: boolean}> = ({topics,objectKeys=false}) => {
+  return(
+  <div>
+    <Flex>
+      {topics.length > 0 && topics.map((topic, index) => (
+        <div key={index}>
+          <Topic name={objectKeys?EnumTopics[topic]:topic} />
+        </div>
+      ))}
+    </Flex>
+  </div>
+)}
 
 export const Flex = styled.div`
   display: flex;
@@ -19,6 +22,5 @@ export const Flex = styled.div`
   width: 100%;
   max-height: 100%;
   margin-bottom: 6px;
-  /* justify-items:start;
-align-items:start; */
 `
+export default memo(Topics)
