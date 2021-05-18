@@ -7,14 +7,14 @@ import  Topics  from "./cardProjects/Topics"
 import { cursorPointer } from "../../../styles/system/styles"
 import GalleryMasOnry from "../../senixcode-lightbox-custom/examples/Basic"
 import { parseLinksToItems } from "../../helper/parseLinksToItems"
-import { useMultiLanguage } from "../../hook/useMultiLanguage"
+import { useMultiLanguage,TypeReducerMultiLanguage } from "../../hook/useMultiLanguage"
 import { IProject } from "../../hook/language/types"
 interface IContent {
   descriptions: Array<string>
   seeMore: boolean
 }
 export const ProjectCard: FC<IProject> = (props) => {
-  const { contentDisplayCardProject } = useMultiLanguage()
+  const { contentDisplay } = useMultiLanguage(TypeReducerMultiLanguage.CONTENT_DISPLAY)
   const [content, setContent] = useState<IContent>({
     descriptions: [props.summary],
     seeMore: false,
@@ -38,7 +38,7 @@ export const ProjectCard: FC<IProject> = (props) => {
             {description}
             {content.seeMore === false && (
               <span onClick={handleSeeMore}>
-                {contentDisplayCardProject.seeMore}
+                {contentDisplay.seeMore}
               </span>
             )}
           </Summary>
@@ -46,7 +46,7 @@ export const ProjectCard: FC<IProject> = (props) => {
         {content.seeMore && (
           <Summary>
             <span onClick={handleSeeMore}>
-              {contentDisplayCardProject.seeLess}
+              {contentDisplay.seeLess}
             </span>
           </Summary>
         )}

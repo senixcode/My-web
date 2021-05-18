@@ -3,14 +3,14 @@ import { Container } from "../../../styles/system/Container"
 import { Button } from "../../../styles/system/Button"
 import { PropStyleTheme } from "../../types"
 import { memo, useEffect, useRef } from "react"
-import { useMultiLanguage } from "../../hook/useMultiLanguage"
+import { TypeReducerMultiLanguage, useMultiLanguage } from "../../hook/useMultiLanguage"
 import { getOptions } from "../../helper/typedjs"
 import Typed, { TypedOptions } from "typed.js"
 import { useRouter } from "next/router"
 
 const AboutMeContent = () => {
   const { locale } = useRouter()
-  const { titleAboutMe } = useMultiLanguage()
+  const { titleAboutMe } = useMultiLanguage(TypeReducerMultiLanguage.TITLE_ABOUTME)
   const { first, selfWritten } = titleAboutMe
   const options: TypedOptions = getOptions(selfWritten)
   const titleRef = useRef<HTMLHeadingElement>(null)

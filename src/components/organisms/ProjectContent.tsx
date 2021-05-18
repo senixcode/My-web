@@ -2,10 +2,10 @@ import { css } from "styled-components"
 import { Container } from "../../../styles/system/Container"
 import { PropStyleTheme } from "../../types"
 import { ProjectCard } from "../molecules/ProjectCard"
-import { useMultiLanguage } from "../../hook/useMultiLanguage"
+import { useMultiLanguage,TypeReducerMultiLanguage } from "../../hook/useMultiLanguage"
 
 export const ProjectContent = () => {
-  const {projects} = useMultiLanguage()
+  const {projects} = useMultiLanguage(TypeReducerMultiLanguage.PROJECT)
   return (
     <Container
       gridTemplateRowsMd={"1fr 12fr"}

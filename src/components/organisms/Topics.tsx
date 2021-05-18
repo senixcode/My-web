@@ -1,12 +1,14 @@
 import styled, { css } from "styled-components"
 import { Container } from "../../../styles/system/Container"
 import { startContent, startItems } from "../../../styles/system/styles"
-import { useMultiLanguage } from "../../hook/useMultiLanguage"
+import { useMultiLanguage,TypeReducerMultiLanguage } from "../../hook/useMultiLanguage"
 import { PropStyleTheme } from "../../types"
 import TopicsFlex  from "../molecules/cardProjects/Topics"
 import { Topics as EnumTopics} from "../../hook/language/types"
-export const Topics = () => {
-const {topicTitle} = useMultiLanguage() 
+import { memo  } from "react"
+const Topics = () => {
+  const {topicTitle} = useMultiLanguage(TypeReducerMultiLanguage.TOPIC_TITLE);
+
   return (
     <Container gridTemplateRowsMd={"1fr 12fr"} styles={container}>
       <Title>{topicTitle}</Title>
@@ -14,7 +16,7 @@ const {topicTitle} = useMultiLanguage()
     </Container>
   )
 }
-
+export default memo(Topics)
 const container = css`
   background-color: ${(props: PropStyleTheme) =>
     props.theme.colors.primaryVariant};

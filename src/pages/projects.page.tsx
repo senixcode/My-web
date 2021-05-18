@@ -2,7 +2,7 @@ import { Container } from "../../styles/system/Container"
 import { Hide } from "../../styles/system/Hide"
 import { ProjectContent } from "../components/organisms/ProjectContent"
 import SocialNetworks from "../components/organisms/SocialNetworks"
-import { Topics } from "../components/organisms/Topics"
+import Topics from "../components/organisms/Topics"
 import { PropStyleTheme } from "../types"
 import { css } from "styled-components"
 
