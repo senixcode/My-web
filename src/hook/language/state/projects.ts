@@ -123,6 +123,12 @@ const lightboxCustom = (currentLanguagee: string): IProject => ({
             name: translater(currentLanguagee, { es: "repositorio lightbox", en: "repository lightbox" }),
             icon: IconsFontawesome.GITHUB,
             category: CategoryLink.ICON
+        },
+        {
+            href: "https://codesandbox.io/s/github/senixcode/gallery-custom-typescript",
+            name: "codeSandbox lightbox",
+            icon: IconsFontawesome.LINK,
+            category: CategoryLink.ICON
         }
     ]
 
