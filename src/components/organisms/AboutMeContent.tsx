@@ -3,10 +3,11 @@ import { Container } from "../../../styles/system/Container"
 import { Button } from "../../../styles/system/Button"
 import { PropStyleTheme } from "../../types"
 import { memo, useEffect, useRef } from "react"
-import { TypeReducerMultiLanguage, useMultiLanguage } from "../../hook/useMultiLanguage"
+import { useMultiLanguage } from "../../hook/useMultiLanguage"
 import { getOptions } from "../../helper/typedjs"
 import Typed, { TypedOptions } from "typed.js"
 import { useRouter } from "next/router"
+import { TypeReducerMultiLanguage } from "../../hook/language/types"
 
 const AboutMeContent = () => {
   const { locale } = useRouter()

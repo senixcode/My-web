@@ -7,8 +7,8 @@ import  Topics  from "./cardProjects/Topics"
 import { cursorPointer } from "../../../styles/system/styles"
 import GalleryMasOnry from "../../senixcode-lightbox-custom/examples/Basic"
 import { parseLinksToItems } from "../../helper/parseLinksToItems"
-import { useMultiLanguage,TypeReducerMultiLanguage } from "../../hook/useMultiLanguage"
-import { IProject } from "../../hook/language/types"
+import { useMultiLanguage } from "../../hook/useMultiLanguage"
+import { IProject, TypeReducerMultiLanguage } from "../../hook/language/types"
 interface IContent {
   descriptions: Array<string>
   seeMore: boolean

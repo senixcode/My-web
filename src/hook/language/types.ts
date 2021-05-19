@@ -64,3 +64,23 @@ export interface IProject {
     topic: List<Topics>
     links: List<ILink>
 }
+
+export enum TypeReducerMultiLanguage {
+    NAVBAR = "navbar",
+    TITLE_ABOUTME = "titleAboutMe",
+    CONTENT_DISPLAY = "contentDisplay",
+    TOPIC_TITLE = "topicTitle",
+    PROJECT = "projects"
+}
+export interface IActionReducerMultiLanguage {
+    type: TypeReducerMultiLanguage,
+    value: any,
+}
+
+export interface multiLanguageReducer {
+    navbar?: INavbar,
+    titleAboutMe?: ITitelAboutMe,
+    contentDisplay?: IContentDisplay,
+    topicTitle?: string,
+    projects?: List<IProject>
+}

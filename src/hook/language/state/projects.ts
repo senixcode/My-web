@@ -1,6 +1,6 @@
-import { IconsFontawesome } from "../../globalVariables/icons";
-import { paserDescription, translater } from "./helper";
-import { CategoryLink, IProject, List, Topics } from "./types";
+import { IconsFontawesome } from "../../../globalVariables/icons";
+import { paserDescription, translater } from "../helper";
+import { CategoryLink, IProject, List, Topics } from "../types";
 
 const myWebsite = (currentLanguagee: string): IProject => ({
     title: translater(currentLanguagee, { es: "Mi web", en: "My website" }),

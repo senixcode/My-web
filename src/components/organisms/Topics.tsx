@@ -1,10 +1,10 @@
 import styled, { css } from "styled-components"
 import { Container } from "../../../styles/system/Container"
 import { startContent, startItems } from "../../../styles/system/styles"
-import { useMultiLanguage,TypeReducerMultiLanguage } from "../../hook/useMultiLanguage"
+import { useMultiLanguage } from "../../hook/useMultiLanguage"
 import { PropStyleTheme } from "../../types"
 import TopicsFlex  from "../molecules/cardProjects/Topics"
-import { Topics as EnumTopics} from "../../hook/language/types"
+import { Topics as EnumTopics, TypeReducerMultiLanguage} from "../../hook/language/types"
 import { memo  } from "react"
 const Topics = () => {
   const {topicTitle} = useMultiLanguage(TypeReducerMultiLanguage.TOPIC_TITLE);

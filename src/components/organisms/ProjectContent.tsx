@@ -2,7 +2,8 @@ import { css } from "styled-components"
 import { Container } from "../../../styles/system/Container"
 import { PropStyleTheme } from "../../types"
 import { ProjectCard } from "../molecules/ProjectCard"
-import { useMultiLanguage,TypeReducerMultiLanguage } from "../../hook/useMultiLanguage"
+import { useMultiLanguage } from "../../hook/useMultiLanguage"
+import { TypeReducerMultiLanguage } from "../../hook/language/types"
 
 export const ProjectContent = () => {
   const {projects} = useMultiLanguage(TypeReducerMultiLanguage.PROJECT)
