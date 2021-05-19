@@ -180,7 +180,28 @@ const lightweightEcommerceTemplate = (currentLanguagee: string): IProject => ({
             name: translater(currentLanguagee, { es: "repositorio ecommerce_ligero", en: "repository lightweight_ecommerce" }),
             icon: IconsFontawesome.GITHUB,
             category: CategoryLink.ICON
-        }
+        },
+        {
+            href: "https://lightweight-ecommerce-template.netlify.app/",
+            name: translater(currentLanguagee, { es: "demo ecommerce_ligero", en: "demo lightweight_ecommerce" }),
+            icon: IconsFontawesome.LINK,
+            category: CategoryLink.ICON
+        },
+        {
+            href: "https://res.cloudinary.com/ds5ayigjw/image/upload/v1619855491/my-website/senixcode-ecommerce-home.png",
+            name: translater(currentLanguagee, { es: "ecommerce_ligero_home", en: "lightweight_ecommerce_home" }),
+            category: CategoryLink.IMAGE
+        },
+        {
+            href: "https://res.cloudinary.com/ds5ayigjw/image/upload/v1619855491/my-website/senixcode-ecommerce-product.png",
+            name: translater(currentLanguagee, { es: "ecommerce_ligero_producto", en: "lightweight_ecommerce_product" }),
+            category: CategoryLink.IMAGE
+        },
+        {
+            href: "https://res.cloudinary.com/ds5ayigjw/image/upload/v1619855491/my-website/senixcode-ecommerce-cart.png",
+            name: translater(currentLanguagee, { es: "ecommerce_ligero_carrito", en: "lightweight_ecommerce_cart" }),
+            category: CategoryLink.IMAGE
+        },
     ]
 
 })
