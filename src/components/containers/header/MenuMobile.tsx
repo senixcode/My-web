@@ -22,13 +22,18 @@ export const MenuCellSize: FC<{
         <Languages router={router} />
       </div>
       <div onClick={handleChangeMenu}>
-        <Link href="/aboutme">
+        <Link href="/">
           <Nav selected={router.route === "/"}>{navbar.aboutMe}</Nav>
         </Link>
       </div>
       <div onClick={handleChangeMenu}>
         <Link href="/projects">
           <Nav selected={router.route === "/projects"}>{navbar.projects}</Nav>
+        </Link>
+      </div>
+      <div onClick={handleChangeMenu}>
+        <Link href="/posts">
+          <Nav selected={router.route === "/posts"}>{navbar.posts}</Nav>
         </Link>
       </div>
       <SocialNetworks />

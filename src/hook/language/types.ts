@@ -37,6 +37,7 @@ export interface ILanguage {
 export interface INavbar {
     aboutMe: string
     projects: string
+    posts: string
 }
 
 export interface ITitelAboutMe {

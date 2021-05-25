@@ -1,0 +1,14 @@
+.imageBlog {
+  /* display: flex; */
+  margin-top: 2rem;
+  /* width: 100%;
+  height: auto;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: blue; */
+}
+.test {
+  width: 100px;
+  height: 200px;
+}

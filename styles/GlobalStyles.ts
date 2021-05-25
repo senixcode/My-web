@@ -16,6 +16,7 @@ html, body {
   /* overflow-x: hidden; */
   ${scroll} 
 }
+
 h1, h2, h3, p{
   margin:0;
   font-weight:normal;
@@ -39,14 +40,61 @@ h3 {
   ${({ theme }: PropStyleTheme) => theme.fontSizes.regular};
 }
 
-p {
+p, ul {
   ${({ theme }: PropStyleTheme) => theme.fontSizes.small};
   color: ${({ theme }: PropStyleTheme) => theme.colors.textPrimary};
   font-weight: lighter
 }
+small{
+    font-size: ${(props: PropStyleTheme) => props.theme.fontSizes.small};
+  color: rgb(117, 118, 118, 1);
+}
 .codesanbox-senixcode{
     width:100%; height:300px; border:0; border-radius: 12px;
   }
+  pre {
+
+    overflow-x: auto;
+  }
+  code[class*=language-] {
+    padding: 1.5rem;
+    display: block;
+}
+pre[class*=language-] {
+    color: #1b1642;
+    font-family: SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;
+    direction: ltr;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    font-size: .9rem;
+    line-height: 1.875rem;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+img{
+    width: 100%;
+  height: auto;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@media (prefers-color-scheme: dark){
+
+  pre code, pre samp {
+    display: flex;
+      color: #96d0ff;
+      background-color: #282c34;
+      white-space: pre-wrap;
+      word-break:break-all;
+   
+  }
+}
 @media (min-width: ${(props) => props.theme.screen.sm}) {
   h1 {
     ${({ theme }: PropStyleTheme) => theme.fontSizes.xlarge};
@@ -77,6 +125,10 @@ p {
   a {
     cursor: pointer;
   }
+  small{
+    font-size: ${(props: PropStyleTheme) => props.theme.fontSizes.regular};
+  color: rgb(117, 118, 118, 1);
+}
   ${styles}
   
 `
