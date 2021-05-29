@@ -3,16 +3,19 @@ import { Container } from "../../../styles/system/Container"
 import { startContent, startItems } from "../../../styles/system/styles"
 import { useMultiLanguage } from "../../hook/useMultiLanguage"
 import { PropStyleTheme } from "../../types"
-import TopicsFlex  from "../molecules/cardProjects/Topics"
-import { Topics as EnumTopics, TypeReducerMultiLanguage} from "../../hook/language/types"
-import { memo  } from "react"
+import TopicsFlex from "../molecules/cardProjects/Topics"
+import {
+  Topics as EnumTopics,
+  TypeReducerMultiLanguage,
+} from "../../hook/language/types"
+import { memo } from "react"
 const Topics = () => {
-  const {topicTitle} = useMultiLanguage(TypeReducerMultiLanguage.TOPIC_TITLE);
+  const { topicTitle } = useMultiLanguage(TypeReducerMultiLanguage.TOPIC_TITLE)
 
   return (
     <Container gridTemplateRowsMd={"1fr 12fr"} styles={container}>
       <Title>{topicTitle}</Title>
-      <TopicsFlex topics={Object.keys(EnumTopics)} objectKeys={true}/>
+      <TopicsFlex topics={Object.keys(EnumTopics)} objectKeys={true} />
     </Container>
   )
 }

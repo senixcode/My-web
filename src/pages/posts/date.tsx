@@ -1,20 +1,20 @@
-import { format, parseISO } from 'date-fns';
-import enUS from 'date-fns/locale/en-US';
-import es from 'date-fns/locale/es';
+import { format, parseISO } from "date-fns"
+import enUS from "date-fns/locale/en-US"
+import es from "date-fns/locale/es"
 
 export const Date = ({
   dateString,
   locale,
 }: {
-  dateString: string;
-  locale: string;
+  dateString: string
+  locale: string
 }) => {
-  const date = parseISO(dateString);
+  const date = parseISO(dateString)
   return (
     <time dateTime={dateString}>
-      {format(date, 'LLLL d, yyyy', { locale: locale === 'en-US' ? enUS : es })}
+      {format(date, "LLLL d, yyyy", { locale: locale === "en-US" ? enUS : es })}
     </time>
-  );
-};
+  )
+}
 
-export default Date;
+export default Date

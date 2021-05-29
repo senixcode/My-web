@@ -8,17 +8,18 @@ import dynamic from "next/dynamic"
 const DynamicContextWrapper = dynamic(
   () => {
     return import("./ContextWrapper")
-  },{ ssr: false }
+  },
+  { ssr: false }
 )
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
-      <ThemeProvider theme={theme}>
-        <GlobalStyles />
-        <Seo />
-        <DynamicContextWrapper>
-          {pageProps.statusCode !== 404 && <Header />}
-          <Component {...pageProps} />
-        </DynamicContextWrapper>
-      </ThemeProvider>
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      <Seo />
+      <DynamicContextWrapper>
+        {pageProps.statusCode !== 404 && <Header />}
+        <Component {...pageProps} />
+      </DynamicContextWrapper>
+    </ThemeProvider>
   )
 }

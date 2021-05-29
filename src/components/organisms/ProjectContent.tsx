@@ -6,20 +6,20 @@ import { useMultiLanguage } from "../../hook/useMultiLanguage"
 import { TypeReducerMultiLanguage } from "../../hook/language/types"
 
 export const ProjectContent = () => {
-  const {projects} = useMultiLanguage(TypeReducerMultiLanguage.PROJECT)
+  const { projects } = useMultiLanguage(TypeReducerMultiLanguage.PROJECT)
   return (
     <Container
       gridTemplateRowsMd={"1fr 12fr"}
       gridRowGap="1em"
       styles={container}
     >
-        {projects && (
-          <Container gridRowGap="1em" styles={projectStyles}>
-            {projects.map((project,i) => (
-              <ProjectCard key={i} {...project} />
-            ))}
-          </Container>
-        )}
+      {projects && (
+        <Container gridRowGap="1em" styles={projectStyles}>
+          {projects.map((project, i) => (
+            <ProjectCard key={i} {...project} />
+          ))}
+        </Container>
+      )}
     </Container>
   )
 }

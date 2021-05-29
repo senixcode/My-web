@@ -2,35 +2,28 @@ import { GetStaticPaths, GetStaticProps } from "next"
 import Head from "next/head"
 import { useRouter } from "next/router"
 import { PropStyleTheme } from "../../types"
-import styled, { css } from "styled-components"
+import { css } from "styled-components"
 import Date from "./date"
-import Image from "next/image"
 import Style from "./image.module.css"
-import { getAllPostIds, getPostData } from "./posts"
+import { getAllPostIds, getPostData } from "./posts" // eslint-disable-line
 import { Container } from "../../../styles/system/Container"
 import { Hide } from "../../../styles/system/Hide"
+import { Article } from "../../../styles/system/Article"
 import SocialNetworks from "../../components/organisms/SocialNetworks"
-import { centerContent } from "../../../styles/system/styles"
-export const Post = ({
-  postData,
-}: {
-  postData: {
-    title: string
-    date: string
-    contentHtml: string
-  }
-}) => {
+import { IPosts } from "../posts.page"
+import { FC } from "react"
+interface IPost extends IPosts {
+  contentHtml: string
+}
+export const Post: FC<IPost> = ({ title, date, contentHtml, image }) => {
   const { locale } = useRouter()
 
   return (
     <>
       <Head>
-        <title>{postData.title}</title>
+        <title>{title}</title>
       </Head>
-      <img
-      src={"/posts/mi-experiencia-con-react.png"}
-      className={Style.imageBlog}
-      />
+      {image && <img src={image} className={Style.imageBlog} />}
       <Container
         gridTemplateColumnsXs="1fr"
         gridTemplateColumnsMd={"10.8fr 1fr"}
@@ -39,45 +32,31 @@ export const Post = ({
         styles={container}
       >
         {/* <Layout> */}
-          <Article>
-            <h1>{postData.title}</h1>
-            <small>
-              <Date dateString={postData.date} locale={locale} />
-            </small>
-            <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-          </Article>
+        <Article>
+          <h1>{title}</h1>
+          <small>
+            <Date dateString={date} locale={locale} />
+          </small>
+          <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
+        </Article>
         {/* </Layout> */}
-          <Hide maxMd="none" styles={containerSocialNetworks}>
-            <SocialNetworks />
-          </Hide>
+        <Hide maxMd="none" styles={containerSocialNetworks}>
+          <SocialNetworks />
+        </Hide>
       </Container>
     </>
   )
 }
 const container = css`
   padding: 0.5em;
-/* background-color: red; */
-width: 100%;
+  width: 100%;
   @media screen and (min-width: ${(props: PropStyleTheme) =>
       props.theme.screen.md}) {
     padding: 1.5em 3em;
     align-items: start;
   }
 `
-const Article =styled.article`
-display: flex;
-flex-direction: column;
-/* ${centerContent}; */
-width: 100%;
-  @media screen and (min-width: ${(props: PropStyleTheme) =>
-      props.theme.screen.md}) {
-display: grid;
-    padding: 1rem 10rem;
-  }
- /* max-width: 40rem;
-  padding: 0 1rem;
-  margin: .5rem auto 6rem; */
-`
+
 const containerSocialNetworks = css`
   position: -webkit-sticky;
   position: sticky;
@@ -96,11 +75,12 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
-  const postData = await getPostData(params.id as string, locale)
-  // console.log("postData",postData)
+  const postData: IPost = (await getPostData(
+    params.id as string,
+    locale
+  )) as IPost
+  console.log("postData", postData)
   return {
-    props: {
-      postData,
-    },
+    props: postData,
   }
 }

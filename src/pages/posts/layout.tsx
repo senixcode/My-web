@@ -48,6 +48,6 @@ export const Layout = ({
   )
 }
 const BackLink = styled("p")`
-   color: ${(props: PropStyleTheme) => props.theme.colors.secondaryVariant};
+  color: ${(props: PropStyleTheme) => props.theme.colors.secondaryVariant};
 `
 export default Layout

@@ -2,8 +2,10 @@ import { GetStaticProps } from "next"
 import { FC, memo } from "react"
 import Link from "next/link"
 import { Container } from "../../styles/system/Container"
+import { Small } from "../../styles/system/Small"
+import { Masonry } from "../../styles/system/Masonry"
 import { getSortedPostsData } from "./posts/posts"
-import styled, { css } from "styled-components"
+import { css } from "styled-components"
 import {
   cursorPointer,
   startContent,
@@ -14,16 +16,16 @@ import { Hide } from "../../styles/system/Hide"
 import { PropStyleTheme } from "../types"
 import Date from "./posts/date"
 import { useRouter } from "next/router"
-interface IPost {
+export interface IPosts {
   id: string
   title: string
-  blogReading:{wordCount:number,readingTime:number}
+  blogReading: { wordCount: number; readingTime: number }
   description?: string
-  date: string
+  date: string,
+  image?:string
 }
-const Posts: FC<{ allPostsData: Array<IPost>; onlyOneElement: boolean }> = ({
+const Posts: FC<{ allPostsData: Array<IPosts> }> = ({
   allPostsData,
-  onlyOneElement,
 }) => {
   const { locale } = useRouter()
   const readMin = locale === "es" ? "min lectura" : "min read"
@@ -35,21 +37,24 @@ const Posts: FC<{ allPostsData: Array<IPost>; onlyOneElement: boolean }> = ({
       gridTemplateRowsMd={"1fr"}
       gridColumGap="2em"
     >
-      <Container styles={postsS(onlyOneElement)}>
+      <Masonry>
         {allPostsData.length > 0 &&
-          allPostsData.map(({ id, date, title, description, blogReading }, i) => (
-            <Link href={`/posts/${id}`} key={i}>
-              <Container key={id} styles={postCard}>
-                <img src={"/posts/mi-experiencia-con-react.png"} />
-                <h3>{title}</h3>
-                <p>{description}</p>
-                <Small>
-                  <Date dateString={date} locale={locale} /> {`- ${blogReading.readingTime} ${readMin}`}
-                </Small>
-              </Container>
-            </Link>
-          ))}
-      </Container>
+          allPostsData.map(
+            ({ id, date, title, description, blogReading, image }, i) => (
+              <Link href={`/posts/${id}`} key={i}>
+                <Container key={id} styles={postCard}>
+                {image && <img src={image} />}
+                  <h3>{title}</h3>
+                  <p>{description}</p>
+                  <Small>
+                    <Date dateString={date} locale={locale} />{" "}
+                    {`- ${blogReading.readingTime} ${readMin}`}
+                  </Small>
+                </Container>
+              </Link>
+            )
+          )}
+          </Masonry>
       <Hide maxMd="none" styles={containerSocialNetworks}>
         <SocialNetworks />
       </Hide>
@@ -65,16 +70,6 @@ const container = css`
     padding: 1.5em 3em;
     align-items: start;
   }
-`
-const postsS = (onlyOneElement?: boolean) => css`
-  grid-template-columns: ${onlyOneElement
-    ? "repeat(auto-fit, minmax(15rem, 1fr))"
-    : "repeat(auto-fill, minmax(15rem, 1fr))"};
-  width: 100%;
-  height: auto;
-  gap: 1rem;
-  ${startItems};
-  grid-auto-flow: dense;
 `
 const postCard = css`
   background-color: ${(props: PropStyleTheme) =>
@@ -109,19 +104,12 @@ const containerSocialNetworks = css`
   top: 4em;
   padding-top: 9em;
 `
-const Small = styled.small`
-  font-size: ${(props: PropStyleTheme) => props.theme.fontSizes.small};
 
-  color: rgb(117, 118, 118, 1);
-`
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const allPostsData = getSortedPostsData(locale)
-  console.log("allpost", allPostsData)
-  const onlyOneElement: boolean = allPostsData.length === 1
   return {
     props: {
       allPostsData,
-      onlyOneElement,
     },
   }
 }

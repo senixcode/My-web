@@ -1,86 +1,89 @@
 /* eslint-disable */
 
-import fs from 'fs';
-import matter from 'gray-matter';
-import path from 'path';
-import remark from 'remark';
-import html from 'remark-html';
+import fs from "fs"
+import matter from "gray-matter"
+import path from "path"
+import remark from "remark"
+import html from "remark-html"
 
 function readingTime(post: string) {
-  const WORDS_PER_MINUTE: number = 200;
-  let result: any = {};
+  const WORDS_PER_MINUTE: number = 200
+  let result: any = {}
   //Matches words
   //See
   //https://regex101.com/r/q2Kqjg/6
-  const regex: RegExp = /\w+/g;
-  result.wordCount = (post || '').match(regex).length;
-  result.readingTime = Math.ceil(result.wordCount / WORDS_PER_MINUTE);
+  const regex: RegExp = /\w+/g
+  result.wordCount = (post || "").match(regex).length
+  result.readingTime = Math.ceil(result.wordCount / WORDS_PER_MINUTE)
 
-  return result;
-};
-const postsDirectory = path.join(process.cwd(), './src/posts');
-const { defaultLocale } = require('../../../i18n.json');
+  return result
+}
+const postsDirectory = path.join(process.cwd(), "./src/posts")
+const { defaultLocale } = require("../../../i18n.json")
 //console.log({ defaultLocale, postsDirectory })
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function getSortedPostsData(locale: string) {
   // Get file names under /posts
-  const postIds = fs.readdirSync(postsDirectory);
+  const postIds = fs.readdirSync(postsDirectory)
   const allPostsData = postIds
     .map((id) => {
       // Read markdown file as string
-      const filename = locale === defaultLocale ? 'index.md' : `index.${locale}.md`;
-      const fullPath = path.join(postsDirectory, id, filename);
+      const filename =
+        locale === defaultLocale ? "index.md" : `index.${locale}.md`
+      const fullPath = path.join(postsDirectory, id, filename)
       console.log({ fullPath })
       if (!fs.existsSync(fullPath)) {
-        return;
+        return
       }
 
-      const fileContents = fs.readFileSync(fullPath, 'utf8');
+      const fileContents = fs.readFileSync(fullPath, "utf8")
 
       // Use gray-matter to parse the post metadata section
-      const matterResult = matter(fileContents);
-      const blogReading = matterResult.content ? readingTime(matterResult.content) : {}
+      const matterResult = matter(fileContents)
+      const blogReading = matterResult.content
+        ? readingTime(matterResult.content)
+        : {}
       // Combine the data with the id
       return {
         id,
         ...{ blogReading },
         ...(matterResult.data as { date: string; title: string }),
-      };
+      }
     })
-    .filter((post) => post);
+    .filter((post) => post)
   // Sort posts by date
   return allPostsData.sort((a, b) => {
     if (a.date < b.date) {
-      return 1;
+      return 1
     } else {
-      return -1;
+      return -1
     }
-  });
+  })
 }
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function getAllPostIds(locales: string[]) {
-  let paths: { params: { id: string }; locale: string }[] = [];
+  let paths: { params: { id: string }; locale: string }[] = []
 
-  const postIds = fs.readdirSync(postsDirectory);
+  const postIds = fs.readdirSync(postsDirectory)
 
   for (let id of postIds) {
     for (let locale of locales) {
       let fullpath = path.join(
         postsDirectory,
         id,
-        locale === defaultLocale ? 'index.md' : `index.${locale}.md`,
-      );
+        locale === defaultLocale ? "index.md" : `index.${locale}.md`
+      )
       if (!fs.existsSync(fullpath)) {
-        continue;
+        continue
       }
 
-      paths.push({ params: { id }, locale });
+      paths.push({ params: { id }, locale })
     }
   }
 
-  return paths;
+  return paths
 }
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
@@ -88,21 +91,23 @@ export async function getPostData(id: string, locale: string) {
   const fullPath = path.join(
     postsDirectory,
     id,
-    locale === defaultLocale ? 'index.md' : `index.${locale}.md`,
-  );
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
+    locale === defaultLocale ? "index.md" : `index.${locale}.md`
+  )
+  const fileContents = fs.readFileSync(fullPath, "utf8")
 
   // Use gray-matter to parse the post metadata section
-  const matterResult = matter(fileContents);
+  const matterResult = matter(fileContents)
 
   // Use remark to convert markdown into HTML string
-  const processedContent = await remark().use(html).process(matterResult.content);
-  const contentHtml = processedContent.toString();
+  const processedContent = await remark()
+    .use(html)
+    .process(matterResult.content)
+  const contentHtml = processedContent.toString()
 
   // Combine the data with the id and contentHtml
   return {
     id,
     contentHtml,
     ...(matterResult.data as { date: string; title: string }),
-  };
+  }
 }

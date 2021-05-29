@@ -3,7 +3,6 @@ import { useRouter } from "next/router"
 import styled from "styled-components"
 import { PropStyleTheme } from "../../types"
 
-
 export const Footer = () => {
   const router = useRouter()
   return (
