@@ -13,8 +13,14 @@ export const NavSelect: FC<{
   router: NextRouter
   navbar: INavbar
 }> = ({ router, navbar }) => {
-  const title = router.route === "/" ? navbar.aboutMe : navbar.projects
-
+  console.log(router.route)
+  const NavbarValues = {
+    "/" : navbar.aboutMe,
+    "/projects": navbar.projects,
+    "/posts":navbar.posts,
+    "/posts/[id]":""
+  }
+  const title = NavbarValues[router.route]
   return (
     <>
       {title && (
