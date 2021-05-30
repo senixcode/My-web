@@ -5,7 +5,7 @@ date: "2021-05-20"
 image: "/posts/react-router-short.jpg"
 ---
 
-Comenzaremos creando el context **src/globalContext.js**
+Comenzaremos creando el context **src/globalContext.js**.
 
 ```javascript
 import { createContext, useState } from "react"
@@ -22,7 +22,7 @@ export default function GlobalProvider({ children }) {
 }
 ```
 
-Vamos a crear un componente donde solo requieras envolver las rutas que necesites con el context
+Vamos a crear un componente donde solo requieras envolver las rutas que necesites con el context.
 
 ```javascript
 const RouteContextAboutUsers = () => (
@@ -33,7 +33,7 @@ const RouteContextAboutUsers = () => (
 )
 ```
 
-Aquí veremos la solución para entender fácilmente solo necesitamos saber que el tag **exact** se usa para que encuentre la ruta exacta
+Aquí veremos la solución para entender fácilmente solo necesitamos saber que el tag **exact** se usa para que encuentre la ruta exacta.
 
 ```javascript
 export default function App() {
@@ -52,7 +52,7 @@ export default function App() {
 }
 ```
 
-Aquí el ejemplo completo solo necesita el context **src/globalContext**
+Aquí el ejemplo completo solo necesita el context **src/globalContext**.
 
 ```javascript
 import React, { useContext } from "react"
