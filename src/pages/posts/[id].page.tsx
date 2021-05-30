@@ -79,7 +79,6 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
     params.id as string,
     locale
   )) as IPost
-  console.log("postData", postData)
   return {
     props: postData,
   }

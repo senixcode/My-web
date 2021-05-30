@@ -7,7 +7,7 @@ image: "/posts/react-router-short.jpg"
 
 Comenzaremos creando el context **src/globalContext.js**
 
-```js
+```javascript
 import { createContext, useState } from "react"
 
 export const GlobalContext = createContext(null)
@@ -24,7 +24,7 @@ export default function GlobalProvider({ children }) {
 
 Vamos a crear un componente donde solo requieras envolver las rutas que necesites con el context
 
-```js
+```javascript
 const RouteContextAboutUsers = () => (
   <Provider>
     <Route exact path="/about" component={About} />
@@ -35,7 +35,7 @@ const RouteContextAboutUsers = () => (
 
 Aquí veremos la solución para entender fácilmente solo necesitamos saber que el tag **exact** se usa para que encuentre la ruta exacta
 
-```js
+```javascript
 export default function App() {
   return (
     <Router>
@@ -54,7 +54,7 @@ export default function App() {
 
 Aquí el ejemplo completo solo necesita el context **src/globalContext**
 
-```js
+```javascript
 import React, { useContext } from "react"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 import Provider, { GlobalContext } from "./globalContext"

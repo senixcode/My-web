@@ -32,7 +32,6 @@ export function getSortedPostsData(locale: string) {
       const filename =
         locale === defaultLocale ? "index.md" : `index.${locale}.md`
       const fullPath = path.join(postsDirectory, id, filename)
-      console.log({ fullPath })
       if (!fs.existsSync(fullPath)) {
         return
       }
