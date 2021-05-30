@@ -1,7 +1,5 @@
 import { NextRouter, useRouter } from "next/router"
-import {
-  useMenuMobileContext,
-} from "../contexts/MenuMobileContext"
+import { useMenuMobileContext } from "../contexts/MenuMobileContext"
 
 export default function useHeader() {
   const router: NextRouter = useRouter()

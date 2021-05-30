@@ -39,6 +39,7 @@ export default class MyDocument extends Document {
       <Html>
         <Head>
           <link rel="stylesheet" href="/font-awesome/css/all.min.css"></link>
+          <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
         </Head>
         <body>
           <Main />

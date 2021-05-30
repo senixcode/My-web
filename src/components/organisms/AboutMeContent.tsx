@@ -11,7 +11,9 @@ import { TypeReducerMultiLanguage } from "../../hook/language/types"
 
 const AboutMeContent = () => {
   const { locale } = useRouter()
-  const { titleAboutMe } = useMultiLanguage(TypeReducerMultiLanguage.TITLE_ABOUTME)
+  const { titleAboutMe } = useMultiLanguage(
+    TypeReducerMultiLanguage.TITLE_ABOUTME
+  )
   const { first, selfWritten } = titleAboutMe
   const options: TypedOptions = getOptions(selfWritten)
   const titleRef = useRef<HTMLHeadingElement>(null)

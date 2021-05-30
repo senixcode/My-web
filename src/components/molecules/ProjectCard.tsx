@@ -3,7 +3,7 @@ import styled, { css } from "styled-components"
 import { Container } from "../../../styles/system/Container"
 import { PropStyleTheme } from "../../types"
 import { Header } from "./cardProjects/Header"
-import  Topics  from "./cardProjects/Topics"
+import Topics from "./cardProjects/Topics"
 import { cursorPointer } from "../../../styles/system/styles"
 import GalleryMasOnry from "../../senixcode-lightbox-custom/examples/Basic"
 import { parseLinksToItems } from "../../helper/parseLinksToItems"
@@ -14,7 +14,9 @@ interface IContent {
   seeMore: boolean
 }
 export const ProjectCard: FC<IProject> = (props) => {
-  const { contentDisplay } = useMultiLanguage(TypeReducerMultiLanguage.CONTENT_DISPLAY)
+  const { contentDisplay } = useMultiLanguage(
+    TypeReducerMultiLanguage.CONTENT_DISPLAY
+  )
   const [content, setContent] = useState<IContent>({
     descriptions: [props.summary],
     seeMore: false,
@@ -37,17 +39,13 @@ export const ProjectCard: FC<IProject> = (props) => {
           <Summary key={id}>
             {description}
             {content.seeMore === false && (
-              <span onClick={handleSeeMore}>
-                {contentDisplay.seeMore}
-              </span>
+              <span onClick={handleSeeMore}>{contentDisplay.seeMore}</span>
             )}
           </Summary>
         ))}
         {content.seeMore && (
           <Summary>
-            <span onClick={handleSeeMore}>
-              {contentDisplay.seeLess}
-            </span>
+            <span onClick={handleSeeMore}>{contentDisplay.seeLess}</span>
           </Summary>
         )}
       </Container>

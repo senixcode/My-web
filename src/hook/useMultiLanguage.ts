@@ -6,6 +6,8 @@ import { TypeReducerMultiLanguage } from "./language/types"
 export const useMultiLanguage = (type: TypeReducerMultiLanguage) => {
   const { locale: currentLanguage } = useRouter()
   const [state, dispatch] = useReducer(reducer, initialState(currentLanguage))
-  useEffect(() => (ACTIONS(type, currentLanguage, dispatch)[type]()), [currentLanguage])
+  useEffect(() => ACTIONS(type, currentLanguage, dispatch)[type](), [
+    currentLanguage,
+  ])
   return state
 }

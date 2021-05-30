@@ -3,7 +3,7 @@ import { FC } from "react"
 import { Container } from "../../../styles/system/Container"
 import { startContent, startItems } from "../../../styles/system/styles"
 import { PropStyleTheme } from "../../types"
-import  Topics  from "../molecules/cardProjects/Topics"
+import Topics from "../molecules/cardProjects/Topics"
 import { Icons } from "../molecules/cardProjects/IconsHeader"
 import { IProject } from "../../hook/language/types"
 

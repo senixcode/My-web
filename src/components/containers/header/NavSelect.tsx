@@ -8,6 +8,7 @@ import Head from "next/head"
 import { SEO_SEPARATOR } from "../../../globalVariables"
 import { INavbar } from "../../../hook/language/types"
 import { NextRouter } from "next/router"
+import { centerContent, centerItems } from "../../../../styles/system/styles"
 export const NavSelect: FC<{
   router: NextRouter
   navbar: INavbar
@@ -22,14 +23,24 @@ export const NavSelect: FC<{
         </Head>
       )}
       <Hide maxMd="none">
-        <Container gridTemplateColumnsMd={"1fr 1fr"} styles={gridColumnGap}>
-          <Link href="/">
-            <Nav selected={router.route === "/"}>{navbar.aboutMe}</Nav>
-          </Link>
-
-          <Link href="/projects">
-            <Nav selected={router.route === "/projects"}>{navbar.projects}</Nav>
-          </Link>
+        <Container gridTemplateColumnsMd={"1fr 1fr 1fr"} styles={gridColumnGap}>
+          <div>
+            <Link href="/">
+              <Nav selected={router.route === "/"}>{navbar.aboutMe}</Nav>
+            </Link>
+          </div>
+          <div>
+            <Link href="/projects">
+              <Nav selected={router.route === "/projects"}>
+                {navbar.projects}
+              </Nav>
+            </Link>
+          </div>
+          <div>
+            <Link href="/posts">
+              <Nav selected={router.route === "/posts"}>{navbar.posts}</Nav>
+            </Link>
+          </div>
         </Container>
       </Hide>
 
@@ -41,5 +52,8 @@ export const NavSelect: FC<{
 }
 
 const gridColumnGap = css`
-  grid-column-gap: 3em;
+  display: grid;
+  /* ${centerItems} */
+  /* ${centerContent} */
+  /* grid-column-gap: .5rem; */
 `
