@@ -1,5 +1,5 @@
 ---
-title: "How to reduce repeated values in array of objects?"
+title: "How to reduce repeated values with array of objects?"
 description: "Te explicare como usar el método reduce para resolver este tipo de problema."
 date: "2021-06-08"
 image: "/posts/js.jpeg"
